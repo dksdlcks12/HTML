@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>inputtag</title>
+</head>
+<body>
+	<!-- input태그 : 정보를 입력하는 태그로 많이 사용되는 태그, inline-block태그 -->
+	<!-- type은 input태그의 속성 -->
+	<!-- text 속은 : 아이디 입력창, 검색창, ETC. 같은 곳에서 사용 -->
+	<input type="text"><br>
+
+	<!-- 초기값을 지정하려면 value 속성을 이용하여 지정 -->
+	<input type="text" value='초기값'><br>
+
+	<!-- 입력창에 안내문구를 넣고 싶은 경우 placeholder 속성을 이용 -->
+	<input type="text" placeholder='YYYYMMDD'><br>
+
+	<!-- 지정된 무자열을 볼수만 있고 수정이 불가능하도록 하고 싶을 때 readonly 속성을 이용 -->
+	<input type="text" value='읽기전용' readonly><br>
+	
+	<!-- password 속성 : 비밀번호를 관리할때 사용하는 속성 -->
+	<input type="password" placeholder='비밀번호'><br>
+
+	<!-- input태그를 이용한 버튼 -->
+	<!-- button 속성 : 일반버튼 -->
+	<input type="button" value="확인"><br>
+
+	<!-- reset 속성 : 같은 form태그 안에 있는 input값들을 초기화 -->
+	<!-- submit 속성 : 같은 form태그 안에 있는 값들을 서버로 데이터를 전송하는 버튼 -->
+	<form>
+		<input type="text" name="data"><br>
+		<input type="reset" value="리셋"><br>
+		<input type="submit" value="보내기">
+	</form>
+
+	<!-- checkbox : 다중선택 이나 선택을 안해도 되는 경우 -->
+	<!-- checkbox의 속성의 value는 서버에 데이터를 전송할 때 사용 -->
+	<form>
+		선호하는 중국집 음식은?(다중선택가능)<br>
+		<input type="checkbox" value="짜장" name='food' id="짜장"> <label for="짜장" >짜장</label><br>
+		<input type="checkbox" value="짬뽕" name='food' id="짬뽕"> <label for="짬뽕">짬뽕</label><br>
+		<input type="checkbox" value="탕수육" name='food' id="탕수육"> <label for="탕수육">탕수육</label><br>
+		<input type="submit" value="전송">
+	</form>
+
+	<!-- radio : 무조건 하나만 선택해야 되는 경우 -->
+	<!-- 같은 form의 radio의 속성 name이 같으면 하나만 선택됨. -->
+	<!-- 미리 하나가 선택되어 있게 하고 싶으면 checked속성을 사용 -->
+	<!-- id는 중복되면 안되고 id를 사용하는 이유는 해당 요소를 식별하고 싶을 때 -->
+	<!-- name은 중복가능, 데이터를 전솔 할 때 전송하는 데이터의 이름을 식별할 때 -->
+	<form>
+		<input type="radio" name="gender" value="male" checked id='male'> <label for='male'>남성</label><br>
+		<input type="radio" name="gender" value="female" id='female'> <label for="female">여성</label><br>
+		<input type="submit" value="전송">
+	</form>
+
+	<!-- email : 입력한 값이 이메일 형태인지 알려줌 -->
+	<form>
+		<input type="email" name="email"><br>
+		<input type="submit" value="전송">
+	</form>
+
+	<!-- file : 첨부파일을 불러올 때 사용, 서버에 보내려면 form태그의 속성을 변경해야 한다 -->
+	<form>
+		<input type="file">
+	</form><br>
+
+	<!-- hidden : 화면에서는 보이지 않는 정보, 필요한 정보이지만 화면에서 보여줄 필요가 없는 경우(많이 사용함) -->
+	<input type="hidden" value='123'>
+
+	<!-- 아래의 날짜와 관련된 속성은 DateTimePicker이라는 플러그인을 사용해서 잘 사용 안함 -->
+	<!-- month : 년 월 표시 -->
+	<input type="month"><br>
+
+	<!-- week : 년 주 표시 -->
+	<input type="week"><br>
+
+	<!-- date : 년 월 일 표시 -->
+	<input type="date"><br>
+
+	<!-- datetime-lacal : 년 월 일 시 분 초 표시 -->
+	<input type="datetime-local"><br>
+
+	<!-- time 시 분 초 표시 -->
+	<input type="time"><br>
+
+	<!-- image : 이미지 추가 - img태그로 대체가능 -->
+	<!-- src : 이미지 소스주소, alt : 이미지가 없는 경우 보여줄 문구 -->
+	<!-- width : 가로, height : 세로, auto : 이미지 비율에 맞추어서 -->
+	<input type="image" src="https://media.giphy.com/media/sIIhZliB2McAo/200.gif" width="100px" height="auto" alt="">
+
+	<!-- html 파일과 이미지 파일이 같은 폴더에 있는 경우 파일명만, 같은 폴더가 아니면 html의 기준으로 찾아가야함 -->
+	<!-- 경로를 찾아가는 방법은 cmd와 동일 -->
+	<input type="image" src="nyang cat.gif" width="100px" height="auto" alt=" ">
+	<input type="image" src="./nyang cat.gif" width="100px" height="auto" alt="">
+	<input type="image" src="../day30/nyang cat.gif" width="100px" height="auto" alt=" ">
+
+	<!-- url과 email은 거의 사용 안하고 졍규표현식으로 일괄처리 함-->
+	<!-- url : url주소가 아니면 전송이 안됨 -->
+	<form>
+		<input type="url" name="url">
+		<input type="submit" value="전송">
+	</form>
+
+	<!-- search : text에 X버튼이 추가된 형식으로 X버튼으로 초기화 가능 -->
+	<input type="search" name="search">
+
+	<!-- range : 상태바로 버무이를 조절할 수 있음 -->
+	<!-- 브라우저별로 모양이 다르기 때문에 잘 사용되지 않음 -->
+	<input type="range">
+
+	<!-- color : 색상정보를 가져올 수 있다 -->
+	<!-- 색상정보는 16진수로 가져온다 -->
+	<!-- 일반적으로 RGB코드를 사용 -->
+	<form>
+		<input type="color">
+		<input type="submit" value="전송">
+	</form>
+
+
+</body>
+</html>

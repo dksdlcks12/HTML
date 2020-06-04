@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test1</title>
+</head>
+<body>
+    
+    <table>
+        <tr>
+            <th colspan="2"><h1>회원가입</h1></th>
+        </tr>
+        <form>
+            <tr>
+                <td>아이디</td>
+                <td><input type="text" name="id" placeholder="ID를 입력하십시오" required></td>
+            </tr>
+            <tr>
+                <td>비밀번호</td>
+                <td><input type="password" name="pw" placeholder="PW를 입력하십시오" required></td>
+            </tr>
+            <tr>
+                <td>비밀번호 확인</td>
+                <td><input type="password" name="pwcheck" placeholder="PW를 한번 더 입력하십시오" required></td>
+            </tr>
+            <tr>
+                <td>이메일</td>
+                <td><input type="email" name="email" placeholder="email 주소를 입력하십시오"></td>
+            </tr>
+            <tr>
+                <td>성별</td>
+                <td>
+                    <input type="radio" name="gender" id="male" checked><label for="male">남성</label>
+                    <input type="radio" name="gender" id="female"><label for="female">여성</label>
+                </td>
+            </tr>
+            <tr>
+                <td>전화번호</td>
+                <td><input type="number" name="tel1" required>-<input type="number" name="tel2" required>-<input type="number" name="tel3" required></td>
+            </tr>
+            <tr>
+                <th colspan="2">
+                    <input type="submit" value="회원가입">
+                </th>
+            </tr>
+        </form>
+    </table>
+</body>
+</html>

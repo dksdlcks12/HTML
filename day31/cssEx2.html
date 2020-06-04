@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>css 예제2</title>
+	<style>
+		/* 
+			해당 선택자와 일치하는 모든 요소(태그)에 해당 스타일을 적용
+			선택자{
+				속성명1 : 값1;
+				속성명2 : 값2;
+				속성명3 : 값3; (마지막 속성값의 ;은 생략 가능)
+			}
+		 */
+		 /* 선택자
+				태그 선택자 : 태그명만 사용
+					p{
+
+					}
+				아이디 선택자 : #아이디명 사용
+					#body{
+
+					}
+				클래스 선택자 : .클래스명 사용
+					.class{
+
+					}
+				* 선택자 : 모든 태그에 적용되는 선택자
+					*{
+
+					}
+				가상 클래스 선택자 : :가상선택자 (어떠한 조건이나 상황에서 적용되는 선택자)
+					div:hover{
+
+					}
+				가상 클래스 선택자 종류
+					- hover : 마우스가 위로 올라 갔을 때
+					- active : 마우스를 누르고 있는 상황
+					- focus :  마우스를 클릭하거나 키보드로 이동하여 요소가 활성화 되었을 때
+					- visited : 방문한 링크 스타일 적용
+					- nth-child(1) : 첫번쨰 요소
+					- nth-child(even) : 짝수번째 요소
+					- nth-child(odd) : 홀수번쨰 요소
+					- nth-child(2n) : 짝수번째 요소
+					- nth-of-type(?) : nth-child(?)를 인식 못하는 경우 사용
+			셀렉터 조합하기
+				부모 자식인 경우 : 부모>자식으로 표현
+				ex)부모가 body태그이고 자식이 hi클래스인 선택자
+					body>.hi{
+
+					}
+				조상 자손인 경우 : 조상 자손으로 표현, 조상에는 부모가 자손에는 자식이 포함될 수 있다.
+				ex)조상이 body태그이고, 자손의 id가 abc인 선택자
+					body #abc{
+
+					}
+				하나의 요소를 자세히 명시하는 경우 : 선택자1선택자2
+				ex)div 태그 중에서 클래스명이 hi인 선택자
+					div.hi{
+
+					}
+		 */
+		 /* 
+			선택자 우선순위  (<- 갈수록 우선순위가 높음)
+				아이디 > 클래스 > 태그
+			한 요소에 스타일이 충돌 할 경우 우선순위가 높은 선택자가 적용 되고, 같은 경우 나중에 적용되는 코드가 적용됨
+		 */
+		 #abc{color:darkblue}
+		 body{color:darkmagenta}
+		 .hi>div{color:darkred;}
+	</style>
+</head>
+<body id="body">
+	<div class="hi">
+		<div id="abc">안녕하세요~</div>
+	</div>
+	<div class="hi">
+		<div id="abc2">감사해요~~</div>
+	</div>
+</body>
+</html>

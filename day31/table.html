@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>table</title>
+</head>
+<body>
+    <!-- table : 표로 생각하면 편함 -->
+    <!-- 
+        table태그는 무조건 다른 태그와 같이 사용 
+            - border : 테두리
+    -->
+    <!-- tr태그 : 한 행을 의미 -->
+    <!-- 
+		td/th태그 한 행의 한 열을 의미
+			- rowspan : 행 합치기
+			- colspan : 열 합치기
+	-->
+	<!-- thead, tbody, tfoot : 태그 안에 있는 코드를 head, body, foot로 고정하는 태그로 상황에 따라 판단하여 사용 -->
+
+    <table border="1" bordercolor="#ffccff" >
+		<caption>성적관리 테이블</caption>
+		<thead>
+        	<tr>
+            	<th width="100">이름</th>
+            	<th colspan="2">과목/성적</th>
+			</tr>
+		</thead>
+		<tfoot>
+			<tr>
+				<th colspan="2">합계</th>
+				<th>400</th>
+			</tr>
+		</tfoot>
+        <tr>
+            <td>홍길동</td>
+            <td rowspan="5">정보보안</td>
+            <th>100</th>
+		</tr>
+		<tr>
+            <td>홍길동</td>
+            <th>90</th>
+		</tr>
+		<tr>
+            <td>홍길동</td>
+            <th>80</th>
+		</tr>
+		<tr>
+            <td>홍길동</td>
+            <th>70</th>
+		</tr>
+		<tr>
+            <td>홍길동</td>
+			<th>60</th>
+		</tr>
+
+	</table>
+	<!-- 
+		&nbsp; : 공백 (&#160;)
+		&quot; : " (&#34;)
+		&apos; : ' (&#39;)
+		&lt; : < (&#60;)
+		&gt; : > (&#62;)
+		&amp; : & (&#38;)
+	 -->
+	안&nbsp;&nbsp;녕&nbsp;&nbsp;하&nbsp;&nbsp;세&nbsp;&nbsp;요.
+</body>
+</html>

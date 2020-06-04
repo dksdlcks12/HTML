@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>CSS Ex3</title>
+	<style>
+		div{
+			color: #f2f;
+			background-color:navy;
+			border-color: palevioletred;
+			border-width: 1px;
+			border-style: solid;
+			/* 들여쓰기 */
+			text-indent: 20px;
+			/* 정렬 */
+			text-align: center;
+			/* 텍스트 꾸미기 : none | underline | overline | line-through */
+			text-decoration: underline;
+			/* 
+				CSS에서 사용하는 단위
+					em : 현재 폰트 크기의 배수, 부모 폰트 크기의 배수
+					rem : 해당 문서의 기본 폰트 크기의 배수
+					% : 퍼센트
+					px : 픽셀 수
+					cm,mm
+					in : 인치
+					pt : 포인터 (1pt = 1/72인치)
+					pc : 피카소 1pc = 12pt
+					deg : 각도
+			*/
+			/* 
+			font-family : 폰트 종류를 선택
+				font-family:폰트1, 폰트2, 폰트3, etc.;
+			 */
+			 font-family: Arial, "Times New Roman", serif;
+			 /* 폰트 크기 */
+			 font-size: 64px;
+			 /* 폰트 스타일 */
+			 font-style:italic;
+			 /* 폰트 굵기 : 100~900사이숫자, 100단위로 적용, bold는 700*/
+			 font-weight: bold;
+			 /* font : 폰트 스타일, 폰트 굵기, 폰트 크기, 폰트 페밀리 순서로 지정해야 함 (폰트 크기와 폰트 패필리를 제외한 속성은 생략가능) */
+			 font: italic bold 16px Arial, "Times new Roman", serif;
+		}
+		a{text-decoration: none;}
+	</style>
+</head>
+<body>
+	<div>충성충성 ^^7</div>
+	<a href="//www.naver.com" class="naver">네이버</a>
+</body>
+</html>

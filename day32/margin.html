@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>margin</title>
+	<style>
+		body{
+			margin: 0;
+		}
+		.box{
+			/* calc 함수 : 계산 결과를 알려주는 함수, 주로 단위가 서로 다른 값들을 계산할 때 사용 */
+			/* 유의사항 연산자 양쪽에 공백이 있어야함 */
+			margin-left: calc(50% - 250px);
+			/* block 태그에서만 사용 가능 */
+			margin: 0 auto;
+			width: 500px;
+			height: 500px;
+			background-color: blue;
+		}
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+</body>
+</html>

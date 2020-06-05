@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ex2</title>
+	<style>
+		body{
+			margin: 0px;
+		}
+		.box{
+			width: 50%;
+			height: 200px;
+			float: left;
+			background-color: cyan;
+			box-sizing: border-box;
+			border: 1px solid black;
+		}
+		.right{
+			background-color: darkblue;
+		}
+		.box:nth-child(2){
+			background-color: crimson;
+		}
+		body::after{
+			clear: both;
+			content: "";
+			display: block;
+		}
+		/*
+		box-sizing 속성 : 컨텐츠의 크기를 계산하는 방식을 설정하는 속성
+			- border-box : 속성에서 설정한 가로와 세로의 길이가 테두리, 패딩, 컨텐츠를 합한 크기
+			- content-box : 기본값으로 속성에서 설정한 가로와 세로의 길이만 인식
+		*/
+
+	</style>
+</head>
+<body>
+	<div class = "box"></div>
+	<div class = "box right"></div>
+</body>
+</html>

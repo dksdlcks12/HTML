@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>input</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		/*
+			[-ms-]속성명 : 익스플로러 최적화(보통 생략함)
+			-webkit-속성명 : 크롬, 사파리 최적화 
+			-moz-속성명 : 파폭 최적화
+			-o-속성명 : 오페라 최적화
+		*/
+		input{
+			width: 100%;
+			height: 50px;
+			border: 1px solid slateblue;
+			border-radius: 15px;
+			box-sizing: border-box;
+		}
+		input[type="text"]{
+			color:rgb(205, 44, 211);
+		}
+		input[type="password"]{
+			color:rgb(5, 34, 197);
+		}
+		*[name="name"]{
+			text-decoration: black underline;
+		}
+		input:focus{
+			background-color: blueviolet;
+			color: white;
+		}
+	</style>
+</head>
+<body>
+	<input type="text" name="name" id="" placeholder="텍스트">
+	<input type="password" name="" id="" placeholder="PW">
+	<input type="text" name="" id="" placeholder="텍스트">
+	<input type="password" name="" id="" placeholder="PW">	
+</body>
+</html>

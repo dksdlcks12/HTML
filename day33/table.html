@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>table</title>
+	<style>
+		table{
+			border-collapse: collapse;
+			cursor: default;
+		}
+		tr{
+			border: 1px solid black;
+			text-align: center;
+			border-left: none;
+			border-right: none;
+		}
+		tbody>tr:nth-child(even){
+			background-color: violet;
+		}
+		thead>tr{
+			background-color: wheat;
+		}
+		tbody>tr:hover{
+			background-color: blueviolet;
+			color: white;
+			font-weight: bold;
+		}
+		.title{
+			width: 500px;
+		}
+		.date{
+			width: 100px;
+		}
+
+	</style>
+</head>
+<body>
+	<table>
+		<thead>
+			<tr>
+				<th class="title">게시글</th>
+				<th class="date">작성일</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>홍길동</td>
+				<td>2020-06-08</td>
+			</tr>
+			<tr>
+				<td><a href="./test1-1.html">고길동</a></td>
+				<td>2020-06-07</td>
+			</tr>
+			<tr>
+				<td>성춘향</td>
+				<td>2020-06-06</td>
+			</tr>
+			<tr>
+				<td>이춘향</td>
+				<td>2020-06-05</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

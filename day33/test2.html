@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>test2</title>
+	<!-- 좌상단->우상단->좌상단 -->
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		@keyframes move {
+			0%{
+				left: 0%;
+				top: 0%;
+			}
+			25%{
+				left: calc(100% - 150px);
+				top: 0%;
+			}
+			50%{
+				left: calc(100% - 150px);
+				top: calc(100% - 150px);
+			}
+			75%{
+				left: 0%;
+				top: calc(100% - 150px);
+			}
+			100%{
+				left: 0%;
+				top: 0%;
+			}
+		}
+		@keyframes move2 {
+			0%{
+				right: 0;
+			}
+			50%{
+				right: 100%;
+			}
+			100%{
+				right: 0;
+			}
+		}
+		@keyframes move3 {
+			0%{
+				left: 0;
+			}
+			50%{
+				left: 100%;
+			}
+			100%{
+				left: 0;
+			}
+		}
+		@keyframes move4 {
+			0%{
+				bottom: 0;
+			}
+			50%{
+				bottom: 100%;
+			}
+			100%{
+				bottom: 0;
+			}
+		}
+		@keyframes move5 {
+			0%{
+				top: 0;
+			}
+			50%{
+				top: 100%;
+			}
+			100%{
+				top: 0;
+			}
+		}
+		.box:hover{
+			animation-play-state:paused;
+		}
+		.box{
+			position:absolute;
+			left: 0;
+			top: 0%;
+			width: 150px;
+			height: 150px;
+			background-color: blueviolet;
+			background-image: url("../day30/nyang cat.gif");
+			background-position: center center;
+			animation-name: move;
+			animation-duration: 4s;
+			animation-iteration-count: infinite;
+			animation-timing-function: linear;
+			border-radius: 75px;
+			z-index: 2;
+		}
+		.box2, .box3{
+			/*
+			일반적으로 left와 rigth를 같이 쓰지 않고, top과 bottom을 같이 쓰지 않음.
+			같이 쓰는 경우는 width나 height가 설정되지 않았을 경우
+			*/
+			position:absolute;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			height: 150px;
+			background-color: rgb(226, 43, 113);
+			animation-name: move2;
+			animation-duration: 4s;
+			animation-iteration-count: infinite;
+			animation-timing-function: linear;
+			border-radius: 75px;
+			z-index: 1;
+		}
+		.box3{
+			position:absolute;
+			top:0;
+			animation-name: move3;
+		}
+		.box4, .box5{
+			position:absolute;
+			width: 150px;
+			top: 0;
+			bottom : 0;
+			background-color: rgb(226, 43, 113);
+			border-radius: 75px;
+			animation-name: move4;
+			animation-duration: 4s;
+			animation-iteration-count: infinite;
+			animation-timing-function: linear;
+		}
+		.box4{
+			left: 0;
+		}
+		.box5{
+			right: 0;
+			animation-name: move5;
+		}
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+	<div class="box2"></div>
+	<div class="box3"></div>
+	<div class="box4"></div>
+	<div class="box5"></div>
+</body>
+</html>

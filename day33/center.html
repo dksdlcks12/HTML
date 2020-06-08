@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>center</title>
+	<style>
+		*{
+			margin: 0;
+		}
+		.box{
+			width: 500px;
+			/*
+			height 가 100%일 경우 부모태그 높이 계산
+			부모태그의 높이가 지정되지 않은 경우 부모태그안에 있는 컨텐츠의 높이가 된다.
+			컨텐츠의 높이가 없으면 부모 태그의 높이는 0
+			*/
+			/* vw = 브라우저 가로길이를 기쥔으로 크기 계산하는 단위 */
+			/* vh = 브라우저 세로길이를 기준으로 크기 계산하는 단위 */
+			height: 500px;
+			background-color: rgb(45, 47, 201);
+			margin: 0 auto;
+			margin-top: calc(50vh - 250px);
+		}
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+</body>
+</html>

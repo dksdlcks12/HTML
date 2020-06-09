@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>animationex1</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		@keyframes bounce {
+			0%{
+				bottom: 0;
+			}
+			25%{
+				bottom: 30px;
+			}
+			50%{
+				bottom: 0;
+			}
+			75%{
+				bottom: 15px;
+			}
+			100%{
+				bottom: 0;
+			}
+
+		}
+		.box{
+			position: relative;
+			height: 50px;
+		}
+		.bounce{
+			position: absolute;
+			font-size: 16px;
+			bottom: 0;
+			left: 0;
+			animation-name: bounce;
+			animation-duration: 1s;
+			animation-iteration-count: infinite;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="box">
+		<span class="bounce">안녕하세요</span>
+	</div>
+</body>
+</html>

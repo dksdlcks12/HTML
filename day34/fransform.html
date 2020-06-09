@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>transform</title>
+	<style>
+		/*
+		transform은 요소를 회전, 확대 등의 다양한 변화를 줄 떄 사용하는 속성
+		회전, 기울임, 이동, 확대/축소
+		transform : 함수()
+		translate(w,y) : x,y만큼 이동
+		translateX(n) : x축으로 n만큼 이동
+		translateY(n) : y축으로 n만큼 이동
+		scaleX(n) : 가로를 기준으로 n배 확대/축소
+		scaleY(n) : 세로를 기준으로 n배 확대/축소
+		scale(x,y) : x,y배 확대/축소
+		rotate(angle) : angle만큼 시계뱡향으로 회전
+		skewX(angle) : X축을 기준으로 angle만큼 기울임
+		skewY(angle) : Y축을 기준으로 angle만큼 기울임
+		skew(x-a, y-a) : x-a, y-a만큼 기울임
+		*/
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box{
+			position: relative;
+			height: 200px;
+			border: 1px solid red;
+			box-sizing: border-box;
+		}
+		.box > div{
+			height: 50px;
+			width: 100px;
+			position:absolute;
+			top: 0;
+			left: 0;
+			background-color: white;
+			border: black 1px solid;
+			line-height: 50px;
+			text-align: center;
+		}
+		.tx{
+			transform: translateX(150px);
+		}
+		.ty{
+			transform: translateY(60px);
+		}
+		.txy{
+			transform: translate(150px, 60px);
+		}
+		.tz{
+			transform: perspective(10px) translateZ(3px);
+		}
+		.sx{
+			transform: translateX(150px) scaleX(1.5);
+		}
+		.sy{
+			transform: translateY(60px) scaleY(1.5);
+		}
+		.sxy{
+			transform: translate(150px, 60px) scale(1.2, 1.3);
+		}
+		.sz{
+			transform: translateX(300px) perspective(100px) scaleZ(3) translateZ(10px);
+		}
+		.skx{
+			transform: translateX(150px) skewX(10deg);
+		}
+		.sky{
+			transform: translateY(60px) skewY(10deg);
+		}
+		.skxy{
+			transform: translate(150px, 60px) skew(10deg, 10deg);
+		}
+		.rx{
+			transform: translateX(150px) perspective(100px) rotateX(30deg);
+		}
+		.ry{
+			transform: translateY(60px) perspective(100px) rotateY(30deg);
+		}
+		.r{
+			transform: translate(150px, 60px) perspective(100px) rotate(30deg);
+		}
+		.rz{
+			transform: perspective(100px) rotateZ(30deg);
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="stand">stand</div>
+		<div class="tx">translateX</div>
+		<div class="ty">translateY</div>
+		<div class="txy">translateXY</div>
+		<div class="tz">translateZ</div>
+	</div>
+	<div class="box">
+		<div class="stand">stand</div>
+		<div class="sx">scaleX</div>
+		<div class="sy">scaleY</div>
+		<div class="sxy">scaleXY</div>
+		<div class="sz">scaleZ</div>
+	</div>
+	<div class="box">
+		<div class="stand">stand</div>
+		<div class="skx">skewX</div>
+		<div class="sky">skewY</div>
+		<div class="skxy">skewZ</div>
+	</div>
+	<div class="box">
+		<div class="rx">rotateX</div>
+		<div class="ry">rotateY</div>
+		<div class="r">rotate</div>
+		<div class="rz">rotateZ</div>
+
+	</div>
+</body>
+</html>

@@ -55,6 +55,69 @@
 			box-sizing: border-box;
 			border: none;
 		}
+		.loginstatset{	
+			display:inline-block;
+			font-size: 13px;
+			position:absolute;
+			padding-top: 4px;
+			padding-left: 10px;
+		}
+		.setting{
+			position: relative;
+			padding-top: 20px;
+			width: 446px;
+			margin: 0 auto;
+		}
+		.setting-left{
+			display: inline-block;
+			cursor: pointer;
+		}
+		.setting-right{
+			display: inline-block;
+			position:absolute;
+			right: 0;
+		}
+		.setting-right>*{
+			display: inline-block;
+			font-size: 13px;
+			color: rgb(102, 102, 102);
+		}
+		.ipsecu{
+			padding-right: 10px;
+		}
+		.onoff{
+			background-color: none;
+			border: none;
+			cursor: pointer;
+		}
+		.hr{
+			width: 446px;
+			margin: 0 auto;
+			margin-top: 20px;
+			border-top: 1px solid rgb(228, 228, 229);
+		}
+		.find-box{
+			width: 446px;
+			margin: 0 auto;
+			margin-top: 20px;
+			text-align: center;
+		}
+		.find-box>*{
+			font-size: 13px;
+			color: rgb(142, 142, 142);
+		}
+		.bar{
+			color: rgb(228, 228, 229);
+			font-size: 12px;
+		}
+		.ad{
+			width: 446px;
+			height: 150px;
+			background-image: url("../day30/nyang cat.gif");
+			margin: 0 auto;
+			margin-top: 40px;
+			margin-bottom: 80px;
+		}
 	</style>
 </head>
 <body>
@@ -68,5 +131,19 @@
 		</div>
 		<button type="submit" name="login" class="loginbutton">로그인</button>
 	</div>
+	<div class="setting">
+		<div class="setting-left">
+			<label></label><img src="./버튼.PNG"><span class="loginstatset">로그인 상태 유지</span></label>
+		</div>
+		<div class="setting-right">
+			<a href="#" class="ipsecu">IP보안</a><button class="onoff">OFF</button> <span class="bar">|</span> <a href="#" class="onetimelogin">일회용 로그인</a>
+			<div class="info">?</div>
+		</div>
+	</div>
+	<div class="hr"></div>
+	<div class="find-box">
+		<a href="#">아이디 찾기</a> <span class="bar">|</span> <a href="#">비밀번호 찾기</a> <span class="bar">|</span> <a href="#">회원가입</a>
+	</div>
+	<div class="ad"></div>
 </body>
 </html>

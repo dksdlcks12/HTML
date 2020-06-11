@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>test</title>
+	<script src="https://kit.fontawesome.com/32a9fe5527.js" crossorigin="anonymous"></script>
+	<!-- 600 이하일 경우 메뉴 1개로 -->
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.title{
+			width: 100%;
+			height: 100px;
+			background-color: blueviolet;
+			padding: 10px;
+			position: relative;
+		}
+		.title>ul{
+			width: 100%;
+			height: 100%;
+		}
+		.box{
+			width: calc((100% - 40px)/ 3);
+			display: inline-block;
+			height: 100%;
+			background-color: burlywood;
+			border: 1px solid black;
+			box-sizing: border-box;
+		}
+		.menu{
+			position:absolute;
+			margin-top: 20px;
+			width: 50px;
+			height: 50px;
+			right: 20px;
+			border: 1px solid blueviolet;
+			display: none;
+		}
+		.fas{
+			font-size: 50px;
+		}
+		@media (max-width: 600px) {
+			.box{
+				display: none;
+			}
+			.menu{
+				display: block;
+			}
+		}
+	</style>
+</head>
+<body>
+	<nav class="title">
+		<ul>
+			<li class="box"></li>
+			<li class="box"></li>
+			<li class="box"></li>
+			<li class="menu"><i class="fas fa-bars"></i></li>
+			
+		</ul>
+	</nav>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>test1</title>
+	<script src="https://kit.fontawesome.com/32a9fe5527.js" crossorigin="anonymous"></script>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			padding: 10px;
+		}
+		a{
+			color: black;
+			text-decoration: none;
+		}
+		li{
+			list-style: none;
+		}
+		.title{
+			position: relative;
+			width: 100%;
+			height: 50px;
+			background-color: cornsilk;
+			box-sizing: border-box;
+			padding: 10px;
+			margin-bottom: 20px;
+			font-weight: bold;
+		}
+		.logo{
+			font-size: 20px;
+			float: left;
+			margin-right: 10px;
+		}
+		.menubar{
+			background-color: cornsilk;
+			width: 80px;
+			height: 30px;
+			float: left;
+			font-size: 20px;
+			display: none;
+			cursor: pointer;
+			text-align: center;
+
+		}
+		.serchbutton{
+			width: 50px;
+			height: 30px;
+			position: absolute;
+			right: 0;
+			margin-right: 10px;
+			background-color: cornsilk;
+			border-radius: 10px;
+			border-color: burlywood;
+			cursor: pointer;
+		}
+		.serch{
+			position: absolute;
+			height: 25px;
+			right: 70px;
+			border-radius: 10px;
+			border-color: burlywood;
+		}
+		.menubox{
+			background-color: rgb(242, 242, 242);
+			width: 150px;
+			height: 30px;
+			font-size: 20px;
+			list-style: none;
+			text-align: center;
+			border: 1px solid black;
+			cursor: pointer;
+		}
+		.menubox:nth-child(1), .menubox:nth-child(2){
+			border-bottom: none;
+		}
+		.board{
+			background-color: white;
+			border: 1px solid black;
+			width: calc(100% - 200px);
+			height: 400px;
+			position: absolute;
+			right: 10px;
+			top: 80px;
+		}
+		.fas{
+			font-size: 30px;
+			position: absolute;
+			right: 0;
+			margin-right: 10px;
+			cursor: pointer;
+			display: none;
+		}
+		@media (max-width: 800px) {
+			.menubox{
+				display: none;
+			}
+			.menubar{
+				display: block;
+			}
+			.board{
+				width: calc(100% - 22px);
+			}
+		}
+		@media (max-width: 600px) {
+			.menubar{
+				display: none;
+			}
+			.fas{
+				display: block;
+			}
+			.serchbutton{
+				right: 40px;
+			}
+			.serch{
+				right: 110px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<nav class="title">
+		<div class="logo"><a href="#">로고</a></div>
+		<ul>
+			<li class="menubar"><a href="#">메뉴1</a></li>
+			<li class="menubar"><a href="#">메뉴2</a></li>
+			<li class="menubar"><a href="#">메뉴3</a></li>
+		</ul>
+		<input type="text" class="serch">
+		<button class="serchbutton">검색</button>
+		<li class="menu"><i class="fas fa-bars"></i></li>
+	</nav>
+	<nav>
+		<ul class="menucont">
+			<li class="menubox"><a href="#">메뉴1</a></li>
+			<li class="menubox"><a href="#">메뉴2</a></li>
+			<li class="menubox"><a href="#">메뉴3</a></li>
+		</ul>
+	</nav>
+	<div class="board"></div>
+</body>
+</html>

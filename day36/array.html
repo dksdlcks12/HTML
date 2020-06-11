@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>array</title>
+	<script>
+		var arr = []
+		arr.push(1)
+		arr.push(2)
+		arr.push(3.14)
+		arr.push(true)
+		for(i=0; i<arr.length; ++i){
+			console.log(arr[i])
+		}
+		arr.pop();
+		// splice(start,delCount) 시작부분부터 delCount개 잘라내어 부분배열을 만드는 것
+		tmp = arr.splice(1,1)
+		console.log(arr)
+		console.log(tmp)
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

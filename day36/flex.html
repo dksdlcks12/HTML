@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>flex</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box{
+			height: 100px;
+			background-color: turquoise;
+			border: 1px solid black;
+			overflow: hidden;
+		}
+		.sub-box1, .sub-box2, .sub-box3{
+			width: 55%;
+			height: 100%;
+			background-color: brown;
+			border: 1px solid royalblue;
+			box-sizing: border-box;
+			float: left;
+		}
+		.box2{
+			/*
+			display : flex
+				- 안에 있는 컨텐츠의 가로가 부모의 가로보다 크면 각 비율에 맞춰 컨텐츠의 가로가 변경된다
+				- 컨텐츠 사이의 엔터에 의한 공백을 신경 쓰지 않아도 욈(float:left 자동적용)
+			*/
+			display: flex;
+		}
+		.sub-box3{
+			float: none;
+			width: 40%;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="sub-box1"></div>
+		<div class="sub-box1"></div>
+	</div>
+	<div class="box box2">
+		<div class="sub-box2"></div>
+		<div class="sub-box2"></div>
+	</div>
+	<div class="box box2">
+		<div class="sub-box3"></div>
+		<div class="sub-box3"></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>viewport</title>
+	<script src="//code.jquery.com/jquery-3.4.1.js"></script>
+</head>
+<body>
+	<button>클릭</button>
+	<script>
+		/* 이벤트 : 버튼클릭, 호버, 마우스 이동, etc.
+		이벤트 등록
+		$('선택자').이벤트명(function(){
+			동작
+		})
+		이벤트 호출
+		$('선택자').이벤트명()
+		*/
+		$('button').click(function(){
+			console.log('클릭')
+		})
+		/*
+		마우스가 호버될 때 한번 빠져 나올 때 한번, 총 두번 실행
+		$('선택자').hover(function(){
+			console.log('동작')
+		}
+		마수으가 호버될 때 동작1, 빠져 나올떄 동작 2를 실행
+		$('선택자').hover(function(){
+			console.log('동작1')
+		}, function(){
+			console.log('동작2')
+		})
+		*/
+		$('button').hover(function(){
+			console.log('호버1')
+		}, function(){
+			console.log('호버2')
+		})
+	</script>
+</body>
+</html>

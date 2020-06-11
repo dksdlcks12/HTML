@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>react</title>
+	<style>
+		/* 
+		반응형이란
+			- 디바이스 화면 크기에 따라 보여지는 화면이 다르게 보이는 것을 반응형이라 한다.
+			반을형을 위한 @media
+			조건 1과 조건 2를 만족할 때 CSS를 적용
+			@media (조건 1) and (조건 2){
+
+			}
+		*/
+		.box{
+				width: 50%;
+				height: 100vh;
+				float: left;
+				background-color: blueviolet;
+			}
+		.box:nth-child(2){
+			background-color: burlywood;
+		}
+		@media (max-width: 640px){
+			.box{
+				width: 100%;
+			}
+		}
+
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+	<div class="box"></div>
+</body>
+</html>

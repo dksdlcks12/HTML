@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>slide</title>
+	<script src="//code.jquery.com/jquery-3.4.1.js"></script>
+</head>
+<body>
+	<div class="box">
+		안녕하세요 <br>
+		제 이름은 홍길동입니다. <br>
+	</div>
+	<button>슬라이드</button>
+	<script>
+		/*
+		slideUp, slideDown, slideToggle
+		sildeXX(msecond, function())
+		function() : 슬라이드 동작 이후 실행 될 내용
+		mscond와 function은 생략가능
+		*/
+		$('button').click(function(){
+			$('.box').slideToggle(1)
+		})
+	</script>
+</body>
+</html>

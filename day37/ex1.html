@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ex1</title>
+	<script src="//code.jquery.com/jquery-3.4.1.js"></script>
+</head>
+<body>
+	<input type="text" id='text1'><br>
+	<input type="text" id='text2'><br>
+	<button id='bt'>버튼</button>
+	<script>
+		$('#bt').click(function(){
+			console.log($('#text1').val())
+			$('#text2').val($('#text1').val())
+			$('#text1').val('')
+		})
+	</script>
+</body>
+</html>

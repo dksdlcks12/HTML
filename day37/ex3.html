@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ex3</title>
+	<script src="//code.jquery.com/jquery-3.4.1.js"></script>
+</head>
+<body>
+	<input type="text" id='text1'>
+	<button id='bt1'>버튼</button>
+	<div id='res'></div>
+	<script>
+		$('#bt1').click(function(){
+			$('#res').empty()
+			for(i=0;i<9;++i){
+				$('#res').append($('#text1').val() + 'X' + (i+1) + '=' + (parseInt($('#text1').val())*(i+1)) + '<br>')
+			}
+			
+		})	
+	</script>
+</body>
+</html>

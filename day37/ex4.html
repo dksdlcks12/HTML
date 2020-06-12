@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ex4</title>
+	<script src="//code.jquery.com/jquery-3.4.1.js"></script>
+</head>
+<body>
+	<input type="text" id="input1"><br>
+	<select name="month" id="month">
+		<option value="" selected>월</option>
+	</select>
+	<select name="day" id="day">
+		<option value="" selected>일</option>
+	</select>
+	<script>
+		//change 이벤트 : input/select/textarea태그에서 발생
+		$("#input1").change(function(){
+			console.log($(this).val())
+		})
+		for(i=0;i<12;++i){
+			$('#month').append('<option>' + (i+1) + '</option>')
+		}
+		$('#month').change(function(){
+			var last = 0
+			switch($('#month').val()){
+				case '2':
+					last = 28
+					break
+				case '4' : case '6' : case '9' : case '11' :
+					last = 30
+					break
+				default :
+					last = 31
+			}
+			for(i=0;i<last;++i){
+				$('#day').append('<option>' + (i+1) + '</option>')
+			}
+		})
+	</script>
+</body>
+</html>

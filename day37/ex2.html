@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ex2</title>
+	<script src="//code.jquery.com/jquery-3.4.1.js"></script>
+</head>
+<body>
+	<button id='bt1'>증가</button>
+	<button id='bt2'>바꿈</button><br>
+	<div id='res'>0</div>
+	<script>
+		var num = 0
+		var add = true
+		$('#bt1').click(function(){
+			if(add){
+				num += 1
+			}
+			else{
+				num -= 1
+			}
+			console.log(num)
+		})
+		$('#bt2').click(function(){
+			if(add){
+				$('#bt1').html('감소')
+			}
+			else{
+				$('#bt1').html('증가')
+			}
+			add = !add
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ex3</title>
+	<script src="//code.jquery.com/jquery-3.4.1.js"></script>
+	<style>
+		.container *{
+			margin: 0;
+			padding: 10px;
+			display: block;
+			border: 2px solid black;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		div
+		<p>p</p>
+		<span>span</span>
+		<h2>h2</h2>
+		<h3>h3</h3>
+		<p class="p">p</p>
+	</div>
+	<script>
+		$(Document).ready(function(){
+			// siblings() : 형제를 선택하는 함수(자기자신 제외)
+			$('h2').siblings().css('border-color', 'red')
+			// siblings(선택자) : 형제 중 선택자와 일치하는 형제를 선택하는 함수
+			$('h2').siblings('span').css('border-color', 'blue')
+			// next() : 선택자의 다음 형제
+			$('span').next().css('background-color', 'yellow')
+			// nextAll() : 선택자의 다음 형제들 전부
+			$('span').nextAll().css('color', 'red')
+			// nextALL(선택자n) : 선택자의 다음 형제들 중 선택자n과 일치하는 형제
+			$('span').nextAll('p').css('text-decoration', 'underline')
+			// nextUntil(선택자n) : 선택자의 다음 형제들 중 선택자n 전까지
+			$('span').nextUntil('p').css('border-width', '5px')
+			// prev() : 선택자의 앞의 형제
+			$('.p').prev().css('border-left-color', 'green')
+			// prevAll() : 선택자의 앞의 형제들 전부
+			$('.p').prevAll().css('border-bottom-color', 'rgb(242,242,242)')
+			// prevALL(선택자n) : 선택자의 앞의 형제들 중 선택자n과 일치하는 형제
+			$('.p').prevAll('h2').css('font-size', '10px')
+			// prevUntil(선택자n) : 선택자의 앞의 형제들 중 선택자n 전까지
+			$('.p').prevUntil('p').css('border-right-color', 'blueviolet')
+		})
+	</script>
+</body>
+</html>

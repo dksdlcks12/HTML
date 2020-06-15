@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ex4</title>
+	<script src="//code.jquery.com/jquery-3.4.1.js"></script>
+	<style>
+		.outbox{
+			border: 1px solid red;
+			padding: 10px;
+		}
+		.inbox{
+			border: 1px solid black;
+			height: 50px;
+			text-align: center;
+			line-height: 50px;
+		}
+		#standard{
+			background-color: yellow;
+		}
+	</style>
+</head>
+<body>
+	<button id="append">append</button>
+	<button id="prepend">prepend</button>
+	<button id="after">after</button>
+	<button id="before">before</button>
+	<div class="outbox" id="standard">
+		<div class="inbox">stand</div>
+	</div>
+	<script>
+		$(function(){
+			var i=1
+			// $(선택자).append(문자열) : 선택자 안의 요소의 마지막에 문자열(요소)추가
+			// $(문자열).appendTo(선택자) : 선택자 안의 요소의 마지막에 문자열(요소)추가
+			$('#append').click(function(){
+				var str = '<div class="inbox">append' + i + '</div>'
+				$('#standard').append(str)
+				++i
+			})
+			// $(선택자).prepend(문자열) : 선택자 안의 요소의 처음에 문자열(요소)추가
+			// $(문자열).prependTo(선택자) :  선택자 안의 요소의 처음에 문자열(요소)추가
+			$('#prepend').click(function(){
+				var str = '<div class="inbox">prepend'+ i +'</div>'
+				$('#standard').prepend(str)
+				++i
+			})
+			// $(선택자).after(문자열) : 선택자 뒤에 문자열(요소)추가
+			$('#after').click(function(){
+				var str = '<div class="inbox">after'+ i +'</div>'
+				$('#standard').after(str)
+				++i
+			})
+			// $(선택자).before(문자열) : 선택자 앞에 문자열(요소)추가
+			$('#before').click(function(){
+				var str = '<div class="inbox">before'+ i +'</div>'
+				$('#standard').before(str)
+				++i
+			})
+		})
+	</script>
+</body>
+</html>

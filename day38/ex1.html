@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ex1</title>
+	<script src="//code.jquery.com/jquery-3.4.1.js"></script>
+	<style>
+		*{
+			border: 2px solid black;
+			padding: 5px;
+			margin: 0;
+		}
+		.bg-red{background-color: red;}
+		.bg-green{background-color: green;}
+		.bg-blue{background-color: blue;}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<nav>
+			<ul>
+				<li>메뉴1</li>
+				<li>메뉴2</li>
+				<li>메뉴3</li>
+			</ul>
+		</nav>
+	</div>
+	<script>
+		$(document).ready(function(){
+			// 요소의 부모를 찾는 메소드 : parent()
+			$('li').parent().addClass('bg-green')
+			// 요소의 조상을 찾는 메소드 : parents()
+			$('li').parents().addClass('bg-red')
+			// parents(매개변수)의 경우 : 매개변수를 가진 조상 탐색
+			$('li').parents('nav').css('border-color','yellow')
+			// parentUntil(선택자) : 선택자 전까지 조상 탐색
+			$('li').parentsUntil('body').css('border-top-color', 'white')
+		})
+	</script>
+</body>
+</html>

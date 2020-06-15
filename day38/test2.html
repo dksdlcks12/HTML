@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>test2</title>
+	<script src="//code.jquery.com/jquery-3.4.1.js"></script>
+	<style>
+		.box{
+			width: 50px;
+			height: 50px;
+			border: 1px solid black;
+			box-sizing: border-box;
+			display: inline-block;
+		}
+	</style>
+</head>
+<body>
+	<button id="prev">이전</button>
+	<button id="next">다음</button>
+	<div class="res">
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+	</div>
+	<script>
+		var i=null
+		var cnt = $('.res').children().length
+		$(Document).ready(function(){
+			$('#prev').click(function(){
+				if(i==null){
+					i=0
+				}else if(i>0){
+					i -= 1
+				}else{
+					i= cnt-1
+				}
+				$('.res').find('.box').css({'border-color': 'black', 'border-width': '1px'})
+				$('.box').eq(i).css({'border-color': 'red', 'border-width': '2px'})
+				console.log(i)
+			})
+			$('#next').click(function(){
+				if(i==null){
+					i=0
+				}else if(i<cnt-1){
+					i += 1
+				}else{
+					i=0
+				}
+				$('.res').find('.box').css({'border-color': 'black', 'border-width': '1px'})
+				$('.box').eq(i).css({'border-color': 'red', 'border-width': '2px'})
+				console.log(i)
+			})
+		})
+	</script>
+</body>
+</html>

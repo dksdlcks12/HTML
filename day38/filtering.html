@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>fiterling</title>
+	<script src="//code.jquery.com/jquery-3.4.1.js"></script>
+</head>
+<body>
+	<h1>h1</h1>
+	<h1>h1</h1>
+	<h1 class="h1">h1</h1>
+	<h1>h1</h1>
+	<h1>h1</h1>
+	<h1>h1</h1>
+	<h1>h1</h1>
+	<h1>h1</h1>
+	<h1>h1</h1>
+	<h1 class="h1">h1</h1>
+	<h1>h1</h1>
+	<h1>h1</h1>
+	<script>
+		$(Document).ready(function(){
+			// 필터링은 자손,조상,형제 탐색과는 다르게 선택자를 통해 선택된 요소들을 거를 때 사용
+			// $('선택자').first() : 선택자 요소의 첫번쨰 요소
+			$('h1').first().css('color', 'red')
+			// $('선택자').last() : 선택자 요소의 마지막 요소
+			$('h1').last().css('color', 'blue')
+			// $('선택자').eq(index) : 선택자들중 index+1번째 요소
+			$('h1').eq(5).css('color', 'blueviolet')
+			// $(선택자).filter(선택자n) : 선택자들중 선택자n에 해당하는 요소
+			// $(선택자선택자n)으로 대체 가능(선택자와 선택자n의 구분자가 있을 경우 순서는 상관없음)
+			$('h1').filter('.h1').css('color', 'green')
+			$('h1.h1').css('background-color', 'aqua')
+			// $(선택자).not(선택자n) : 선택자 요소들 중 선택자n이 없는 요소
+			$('h1').not('.h1').css('background-color', 'green')
+		})
+	</script>
+</body>
+</html>

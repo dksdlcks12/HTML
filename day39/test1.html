@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>test</title>
+	<script src="//code.jquery.com/jquery-3.4.1.js"></script>
+	<style>
+		span{
+			margin-right: 10px;
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+	<h1>설문지</h1>
+	<div class="box">
+		<span>질문1</span><input type="text" placeholder="질문을 입력하세요"><button id="check1">확인</button><br>
+	</div>
+	<button class="add">질문 추가</button>
+	<script>
+		var num = 2
+		$(function(){
+			$('#check1').click(function(){
+				console.log($(this).prev().val())
+			})
+			$('.add').click(function(){
+				$('.box').append('<span>질문' + num + '</span><input type="text" placeholder="질문을 입력하세요"><button id="check' + num + '">확인</button><br>')
+				$('#check'+num).click(function(){
+					console.log($(this).prev().val())
+				})
+				++num
+			})
+		})
+	</script>
+</body>
+</html>

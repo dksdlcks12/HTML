@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>keyboard</title>
+	<script src="//code.jquery.com/jquery-3.4.1.js"></script>
+</head>
+<body>
+	<input type="text">
+	<script>
+		$(function(){
+			/*
+			keydown : 키보드를 눌렀을 때
+			keyup : 키도브를 땠을떄
+			keypress : 예약어가 입력되어 있는 키를 제외한 키를 누르고 있을 때
+			(예앾어가 입력되어 있는 키 ex: 방향키, 컨트롤, 알트, 시프트, 캡스락, 탭, etc.)
+			*/
+			/*
+			$(document).keydown(function(){
+				console.log('키 다운')
+			})
+			$(document).keyup(function(){
+				console.log('키 업')
+			})
+			$(document).keypress(function(){
+				console.log('키 프레스')
+			})
+			*/
+			var str=''
+			$('input').keyup(function(){
+
+			})
+			
+			$('input').keypress(function(event){
+				if(event.keyCode>=48 && event.keyCode<=57){
+					return true
+				}else{
+					return false
+				}
+			})
+		})
+	</script>
+</body>
+</html>

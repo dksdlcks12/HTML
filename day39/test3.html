@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>test3</title>
+	<script src="//code.jquery.com/jquery-3.4.1.js"></script>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.title{
+			box-sizing: border-box;
+			padding: 10px;
+			display: flex;
+			height: 244px;
+			width: 100%;
+		}
+		.box{
+			margin-left: 10px;
+			margin-right: 10px;
+			box-sizing: border-box;
+			height: 100%;
+			width: 25%;
+			border: 1px solid black;
+			float: left;
+			background-image: url('../day37/고양이.jpg');
+			background-size:contain;
+			background-repeat: no-repeat;
+			background-position: center;
+		}
+		.title::after{
+			clear: both;
+			content: "";
+			display: block;
+		}
+		#more{
+			display: block;
+			margin-left: 20px;
+			height: 50px;
+			width: calc(100% - 40px);
+			border: 1px solid black;
+			box-sizing: border-box;
+			text-align: center;
+			line-height: 50px;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<div class="title">
+		<div class="box box1"></div>
+		<div class="box box2"></div>
+		<div class="box box3"></div>
+		<div class="box box4"></div><br>
+	</div>
+	<div id=more>더보기</div>
+	<script>
+		$(function(){
+			$('#more').click(function(){
+				$(this).before('<div class="title"><div class="box box1"></div><div class="box box2"></div><div class="box box3"></div><div class="box box4"></div><br></div>')
+			})
+		})
+	</script>
+</body>
+</html>

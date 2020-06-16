@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>test2</title>
+	<script src="//code.jquery.com/jquery-3.4.1.js"></script>
+	<style>
+		span{
+			font-weight: bold;
+			margin-right: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div class="main">
+		<h1>설문지</h1>
+		<div class="Q1"><span>질문1</span><input type="text" placeholder="질문을 입력하세요"><button id="bt1">확인</button><br></div>
+		
+		<button id="subadd1">서브질문 추가</button><br>
+	</div>
+	<button id="mainadd">메인질문 추가</button>
+	<script>
+		var list = [0]
+		$(function(){
+			$('#mainadd').click(function(){
+				list.push(0)
+				$('.main').append('<div class="Q'+list.length+'"><span>질문'+list.length+'</span><input type="text" placeholder="질문을 입력하세요"><button id="bt'+list.length+'">확인</button><br></div><button id="subadd'+list.length+'">서브질문 추가</button><br>')
+				$('#bt'+list.length).click(function(){
+					console.log($(this).prev().val())
+				})
+				var i = ((list.length+1)/10)
+				var cont = 0
+				while(i>1){
+					++cont
+					i /= 10
+				}
+				var num = $('.Q' + list.length).children(0).text().slice(2,(3+cont))
+				num=parseInt(num)
+				console.log(num)
+				$('#subadd'+num).click(function(){
+					++list[num-1]
+					$('.Q'+num).append('<div class="SubQ'+num+list[num-1]+'"><span>질문 '+num+'-'+list[num-1]+'</span><input type="text" placeholder="서브질문을 입력하세요"><button id="subbt'+num+'-'+list[num-1]+'">확인</button><br></div>')
+					$('#subbt'+num+'-'+list[num-1]).click(function(){
+						console.log($(this).prev().val())
+					})
+					++subnum
+				})
+			})
+			$('#bt1').click(function(){
+				console.log($(this).prev().val())
+			})
+			$('#subadd1').click(function(){
+				++list[0]
+				$('.Q1').append('<div class="SubQ1'+list[0]+'"><span>질문 1-'+list[0]+'</span><input type="text" placeholder="서브질문을 입력하세요"><button id="subbt1-'+list[0]+'">확인</button><button id="delbt1-'+list[0]+'">삭제</button><br></div>')
+				$('#subbt1-'+list[0]).click(function(){
+					console.log($(this).prev().val())
+				})
+				$('#delbt1-'+list[0]).click(function(){	
+					var i = parseInt(list[0]/10)
+					var cont = 0
+					while(i>1){
+						++cont
+						i = parseInt(i/10)
+					}
+					var num = $(this).parent().children(0).text().replace(/[^0-9]/g,"");
+					num = num%Math.pow(10,i+1)
+					$(this).parent().remove()
+					for(;num<list[0];++num){
+						$('.SubQ1'+(num+1)).children('span').text('질문 1-'+(num))
+						var tmp = 'SubQ1' + num
+						$('.SubQ1'+(num+1)).attr('class', tmp)
+					}
+					--list[0]
+				})
+			})
+		})
+	</script>
+
+</body>
+</html>

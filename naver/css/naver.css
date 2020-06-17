@@ -1,0 +1,317 @@
+@charset "uft-8";
+*{
+	padding: 0;
+	margin: 0;
+	text-decoration: none;
+	list-style: none;
+}
+body{
+	min-width: 1190px;
+	font-family: -apple-system,BlinkMacSystemFont,'Malgun Gothic','맑은 고딕',helvetica,'Apple SD Gothic Neo',sans-serif;
+	line-height: 16px;
+	font-size: 12px;
+}
+/* 기본구조 */
+.container{
+	position: relative;
+	width: 1190px;
+	height: 100%;
+	padding: 0 30px;
+	margin: 0 auto;
+	box-sizing: border-box;
+}
+/* 네이버 웨일 광고배너 */
+.box-whale{
+	height: 49px;
+	background-color: rgb(0, 203, 174);
+}
+.link-whale{
+	position: relative;
+	display: block;
+	width: 100%;
+	height: 30px;
+	line-height: 45px;
+	color: white;
+}
+.icon-whale{
+	display: block;
+	margin-top: 9px;
+	width: 110px;
+	height: 30px;
+	background-position: -276px -225px;
+	float: left;
+}
+.img-banner-whale{
+	position: absolute;
+	top: 0;
+	left: 230px;
+}
+.text-banner-whale{
+	margin-left: 388px;
+	line-height: 49px;
+	font-size: 13px;
+	font-weight: bold;
+	letter-spacing: -.25px;
+}
+ins{
+	text-decoration: underline;
+}
+.download-whale{
+	width: 68px;
+	height: 28px;
+	margin-left: 15px;
+	font-size: 11px;
+	border: 0;
+	line-height: 20px;
+	border-radius: 2px;
+	background-color: rgb(255, 241, 192);
+	color: rgb(0, 203, 174);
+	display: inline-block;
+	text-align: center;
+	letter-spacing: -1px;
+}
+.bt-close{
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 49px;
+	background-color: rgba(255, 255, 255, 0);
+	cursor: pointer;
+	border: none;
+	color: white;
+	line-height: 16px;
+	font-size: 11px;
+	border: 400;
+	letter-spacing: .25px;
+}
+.bt-close::after{
+	display: inline-block;
+    width: 23px;
+    height: 23px;
+    vertical-align: top;
+	background-position: -429px -116px;
+	content: "";
+	margin: -5px 0 0 4px;
+}
+/* 검색창 */
+.box-container-search{
+	height: 161px;
+}
+h1{
+	display: block;
+	position: absolute;
+	top: 50%;
+	margin-left: -9px;
+	margin-top: -32px;
+	font-size: inherit;
+	line-height: inherit;
+    font-weight: bold;
+}
+.logo{
+	display: inline-block;
+    width: 222px;
+	height: 52px;
+	vertical-align: top;
+	background-position: 0 -161px;
+}
+.search{
+	position: absolute;
+    top: 50%;
+    left: 268px;
+    margin-top: -27px;
+}
+.search-window{
+	position: relative;
+    width: 582px;
+    height: 52px;
+    border: 2px solid #19ce60;
+    border-radius: 2px;
+}
+.search-input{
+	display: inline-block;
+	font-size: 18px;
+    font-weight: 700;
+    line-height: 24px;
+    width: 444px;
+    height: 24px;
+    margin: 1px;
+	padding: 13px;
+	border: none;
+	outline: 0;
+}
+.search-input:focus{
+	outline-offset: -2px;
+}
+.tool-keyboard{
+	position: absolute;
+    z-index: 400;
+    top: 0;
+    right: 84px;
+    bottom: 0;
+    width: 36px;
+}
+.keyboard-icon{
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    display: inline-block;
+    width: 20px;
+    height: 12px;
+    margin: -6px 0 0 -10px;
+    vertical-align: top;
+    background-position: -400px -276px;
+}
+.tool-keyboard:hover .keyboard-icon{
+	background-position: -64px -404px;
+}
+.tool-masage{
+	display: none;
+	position: absolute;
+    top: 42px;
+    left: -16px;
+    width: 68px;
+    height: 37px;
+    background-position: -161px -115px;
+}
+.tool-keyboard:hover .tool-masage{
+    display: block;
+}
+.auto-complete{
+	position: absolute;
+    top: 0;
+    right: 64px;
+    bottom: 0;
+    width: 22px;
+}
+.autocomp-icon{
+	display: inline-block;
+    width: 10px;
+    height: 5px;
+    vertical-align: top;
+	background-position: -429px -394px;
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -2px 0 0 -5px;
+}
+.search-bt{
+	position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+	width: 56px;
+	border: 0;
+    border-radius: 0 2px 2px 0;
+	background-color: #19ce60;
+	display: inline-block;
+    text-align: center;
+}
+.search-icon{
+	display: inline-block;
+    width: 22px;
+    height: 22px;
+    vertical-align: top;
+    background-position: -429px -172px;
+}
+.service{
+	position: absolute;
+    top: 12px;
+    right: 27px;
+}
+.defult-page{
+	font-size: 11px;
+    float: left;
+    color: #404040;
+}
+.defult-page::after{
+	display: inline-block;
+    width: 26px;
+    height: 26px;
+    margin: -3px 0 0 3px;
+    content: '';
+    vertical-align: top;
+	background-position: -391px -225px;
+}
+.defult-page:hover{
+	text-decoration: underline;
+}
+.serv-bar{
+	float: left;
+    width: 1px;
+    height: 10px;
+    margin: 3px 7px;
+    background-color: #e4e8eb;
+}
+.jrnaver{
+	float: left;
+}
+.jrnaver-icon{
+	display: inline-block;
+    width: 60px;
+    height: 10px;
+    margin: 3px;
+    vertical-align: top;
+    background-position: -348px -260px;
+}
+.jrnaver-icon:hover{
+	background-position: -214px -308px;
+}
+.happybean{
+	float: left;
+    margin-left: 6px;
+}
+.happybean-icon{
+	display: inline-block;
+    width: 34px;
+    height: 11px;
+    margin: 3px 3px 2px;
+    vertical-align: top;
+    background-position: -253px -323px;
+}
+
+.happybean-icon:hover{
+	background-position: -214px -323px;
+}
+.box-container-menu{
+	height: 52px;
+	border-top: 1px solid rgb(224, 227, 230);
+	border-bottom: 1px solid rgb(236, 236, 236);
+}
+.box-container-content{
+	height: 3097px;
+	padding: 20px 0px;
+}
+.container:after {
+    display: table;
+    clear: both;
+    table-layout: fixed;
+	content: '';
+}
+.box-left-content{
+	position: relative;
+	width: 750px;
+	height: 3057px;
+	background-color: saddlebrown;
+	float: left;
+}
+.box-right-content{
+	position:relativee;
+	float: right;
+	width: 350px;
+	height: 1615px;
+	background-color: sandybrown;
+}
+.right-content{
+	position: relative;
+	width : 350px;
+}
+.box-container-footer{
+	height: 451px;
+	background-attachment: rgb(250, 251, 252);
+}
+/* 배경 이미지 클래스 */
+.bg-44265f, .bt-close::after, .defult-page::after{
+	background-image: url(https://s.pstatic.net/static/www/img/uit/2020/sp_main.44265f.png);
+    background-repeat: no-repeat;
+	background-size: 471px 442px;
+}

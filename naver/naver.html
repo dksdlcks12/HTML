@@ -18,14 +18,13 @@
 				<p class="text-banner-whale">인터넷의 새로운 시작! <ins>네이버 웨일</ins>로 차원이 다른 웹서핑을 경험해보세요! <button class="download-whale">다운로드</button></p>
 				<button class="bt-close">3일 동안 보지 않기</button>			
 			</a>
-			
 		</div>
 	</div>
-	<!-- 메뉴 -->
+	<!-- 로고 및 검색창 -->
 	<div class="box-container-search">
 		<div class="container">
 			<!-- 로고 -->
-			<h1><a href="//naver.com" class="logo bg-44265f"></a></h1>
+			<h1 class="logo-box"><a href="//naver.com" class="logo bg-44265f"></a></h1>
 			<!-- 검색창 -->
 			<div class="search">
 				<form>
@@ -33,9 +32,22 @@
 					<button class="search-bt"><i class="search-icon bg-44265f"></i></button>
 				</form>
 				<a href="#" class="tool-keyboard"><i class="keyboard-icon bg-44265f"></i><i class="tool-masage bg-44265f"></i></a>
-				<div class="autocomp-window"><a href="#" class="auto-complete"><i class="autocomp-icon bg-44265f"></i></a></div>
-				
-					
+				<div class="autocomp-window"><a href="#" class="auto-complete"><i class="autocomp-icon bg-44265f"></i></a></div>	
+				<div class="auto-completeframe">
+					<div class="auto-completeconsole">
+						<div class="auto-completeword"><p class="autocomp-info">현재 자동완성 기능을 사용하고 계십니다.</p></div>
+						<p class="autocomp-etc">
+							<span class="autocomp-etc-left">
+								<a href="#" class="autocomp-help">도움말</a>
+								<span class="autocomp-bar"></span>
+								<a href="#" class="autocomp-report">신고</a>
+							</span>
+							<span class="autocomp-etc-right">
+								<a href="#" class="autocomp-close">자동완성 끄기</a>
+							</span>
+						</p>
+					</div>
+				</div>
 			</div>
 			<!-- 상단메뉴 -->
 			<nav class="service">
@@ -46,10 +58,166 @@
 			</nav>
 		</div>
 	</div>
-	<div class="box-container-menu">
-		<div class="container"></div>
+
+	<!-- 메뉴 -->
+	<div class="menu-shadow">
+		<div class="box-container-menu">
+			<div class="container">
+				<ul class="listnav fixing-menu">
+					<li class="menu-item"><a href="#" class="fixing-menutext"><i class="mail-icon bg-44265f"></i>메일</a></li>
+					<li class="menu-item"><a href="#" class="fixing-menutext">카페</a></li>
+					<li class="menu-item"><a href="#" class="fixing-menutext">블로그</a></li>
+					<li class="menu-item"><a href="#" class="fixing-menutext">지식iN</a></li>
+					<li class="menu-item"><a href="#" class="fixing-menutext">쇼핑</a></li>
+					<li class="menu-item"><a href="#" class="fixing-menutext">Pay</a></li>
+					<li class="menu-item"><a href="#" class="fixing-menutext"><i class="TV-icon bg-44265f"></i>TV</a></li>
+				</ul>
+				<ul class="listnav changeable-menu">
+					<li class="menu-item"><a href="#" class="changeable-menu">사전</a></li>
+					<li class="menu-item"><a href="#" class="changeable-menu">뉴스</a></li>
+					<li class="menu-item"><a href="#" class="changeable-menu">증권</a></li>
+					<li class="menu-item"><a href="#" class="changeable-menu">부동산</a></li>
+					<li class="menu-item"><a href="#" class="changeable-menu">지도</a></li>
+					<li class="menu-item"><a href="#" class="changeable-menu">영화</a></li>
+					<li class="menu-item"><a href="#" class="changeable-menu">뮤직</a></li>
+					<li class="menu-item"><a href="#" class="changeable-menu">책</a></li>
+					<li class="menu-item"><a href="#" class="changeable-menu">웹툰</a></li>
+				</ul>
+				<ul class="listnav changeable-menu-empty"></ul>
+				<a href="#" class="more-bt">더보기</a>
+				<div class="view-more-btbox">
+					<a href="#" class="view-all">서비스 전체보기</a>
+					<a href="#" class="setting-menu">메뉴설정</a>
+				</div>
+			</div>
+			<div class="keyword-box">
+				<div class="keyword-window">
+					<a href="#" class="link-keyword">
+						<i class="keyword-icon bg-44265f"></i>
+						<span class="keyword-text">검색어 필터 설정이 필요합니다</span>
+					</a>
+				</div>
+			</div>
+			<div class="rtk-view">
+				<div class="rtk-title-box">
+					<h3 class="rtk-title">급상승검색어</h3>
+					<span class="rtk-desc">관심사/연령대별 나만의 차트를 설정할 수 있어요.</span>
+					<a href="#" class="rtk-view-close"></a>
+				</div>
+				<div class="rtk-filter-box">
+					<div class="rtk-filter-titlebox">
+						<strong class="rtk-filter-title">검색어 설정</strong>
+						<a href="#" class="rtk-filter-helpbt"></a>
+						<div class="rtk-filter-help display-none">
+							<p class="rtk-filter-helpmassge">
+								검색어 설정 기능은 검색어가<br>
+								해당 주제에 어느 정도 관련성이 있는지를<br>
+								분석 측정한 후, 사용자가 선택하는<br>
+								옵션 단계에 따라 가중치를 가감하여<br>
+								급상승 검색어를 재정렬하는 기능입니다.<br>
+								관련도의 분석, 측정은 AI기반<br>
+								연관 모델링 로직에 의해 이루어지며<br>
+								일부 검색어는 실제 주제 연관성과<br>
+								다르게 측정되고 정렬될 수 있습니다.
+							</p>
+							<a href="//blog.naver.com/naver_diary/221720209536" class="rtk-filter-helpdetail">자세히보기</a>
+							<a href="#" class="rtk-filter-helpclose"></a>
+						</div>
+					</div>
+					<div class="rtk-filter-listbox">
+						<div class="rtk-filter-guide">
+							<i class="rtk-filter-guidearrow bg-44265f"></i>
+							<div class="rtk-filter-guidetooltip">
+								<p class="rtk-filter-guidemassge">내 관심사에 맞게 <strong>조절</strong>해 보세요.</p>
+								<a href="#" class="rtk-filter-guideclose"><i class="rtk-filter-guideclosebt bg-44265f"></i></a>
+							</div>
+						</div>
+						<div class="rtk-filter-warning">
+							<div class="rtk-filter-warningtooltip">
+								<p class="rtk-filter-warningmassge">모든 검색어 필터를 먼저 설정해주세요.</p>
+								<a href="#" class="rtk-filter-warningclose"><i class="rtk-filter-warningclosebt"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="menu-moremenu">
+			<div class="moremenu-window">
+				<dl class="moremenu-list">
+					<dt class="moremenu-title">ㄱ-ㄷ</dt>
+					<dd class="moremenu-item"><a href="#" class="moremenu-text">그라폴리오</a></dd>
+					<dd class="moremenu-item"><a href="#" class="moremenu-text">날씨</a></dd>
+					<dd class="moremenu-item"><a href="#" class="moremenu-text">네이버 예약</a></dd>
+					<dd class="moremenu-item"><a href="#" class="moremenu-text">네이버 클라우드</a></dd>
+					<dd class="moremenu-item"><a href="#" class="moremenu-text">네이버 포스트</a></dd>
+					<dd class="moremenu-item"><a href="#" class="moremenu-text">뉴스</a></dd>
+					<dd class="moremenu-item"><a href="#" class="moremenu-text">데이터랩</a></dd>
+				</dl>
+				<dl class="moremenu-list">
+					<dt class="moremenu-title">ㄹ-ㅅ</dt>
+					<dd class="moremenu-item"><a href="#" class="moremenu-text">만화/웹툰</a></dd>
+					<dd class="moremenu-item"><a href="#" class="moremenu-text">메모</a></dd>
+					<dd class="moremenu-item"><a href="#" class="moremenu-text">뮤직</a></dd>
+					<dd class="moremenu-item"><a href="#" class="moremenu-text">밴드</a></dd>
+					<dd class="moremenu-item"><a href="#" class="moremenu-text">부동산</a></dd>
+					<dd class="moremenu-item"><a href="#" class="moremenu-text">북마크</a></dd>
+					<dd class="moremenu-item"><a href="#" class="moremenu-text">소프트웨어</a></dd>
+					<dd class="moremenu-item"><a href="#" class="moremenu-text">스포츠</a></dd>
+					<dd class="moremenu-item"><a href="#" class="moremenu-text">시리즈</a></dd>
+					<dd class="moremenu-item"><a href="#" class="moremenu-text">시리즈on</a></dd>
+				</dl>
+				<dl class="moremenu-list">
+					<dt class="moremenu-title">ㅇ-ㅈ</dt>
+					<dd class="moremenu-item"><a href="#" class="moremenu-text">영화</a></dd>
+					<dd class="moremenu-item"><a href="#" class="moremenu-text">오디오클립</a></dd>
+					<dd class="moremenu-item"><a href="#" class="moremenu-text">오피스</a></dd>
+					<dd class="moremenu-item"><a href="#" class="moremenu-text">웹소설</a></dd>
+					<dd class="moremenu-item"><a href="#" class="moremenu-text">자동차</a></dd>
+					<dd class="moremenu-item"><a href="#" class="moremenu-text">주소록</a></dd>
+					<dd class="moremenu-item"><a href="#" class="moremenu-text">증권(금융)</a></dd>
+					<dd class="moremenu-item"><a href="#" class="moremenu-text">지도</a></dd>
+					<dd class="moremenu-item"><a href="#" class="moremenu-text">지식백과</a></dd>
+				</dl>
+				<dl class="moremenu-list">
+					<dt class="moremenu-title">ㅊ-ㅎ</dt>
+					<dd class="moremenu-item"><a href="#" class="moremenu-text">책</a></dd>
+					<dd class="moremenu-item"><a href="#" class="moremenu-text">캘린더</a></dd>
+					<dd class="moremenu-item"><a href="#" class="moremenu-text">학술정보</a></dd>
+					<dd class="moremenu-item"><a href="#" class="moremenu-text">항공권</a></dd>
+					<dd class="moremenu-item"><a href="#" class="moremenu-text">호텔</a></dd>
+				</dl>
+				<dl class="moremenu-list">
+					<dt class="moremenu-title">A-Z</dt>
+					<dd class="moremenu-item"><a href="#" class="moremenu-text">modoo![모두]</a></dd>
+					<dd class="moremenu-item"><a href="#" class="moremenu-text">MY구독</a></dd>
+					<dd class="moremenu-item"><a href="#" class="moremenu-text">PC게임</a></dd>
+					<dd class="moremenu-item"><a href="#" class="moremenu-text">TV연예</a></dd>
+					<dd class="moremenu-item"><a href="#" class="moremenu-text">V LIVE</a></dd>
+				</dl>
+				<dl class="moremenu-list">
+					<dt class="moremenu-title">사전</dt>
+					<dd class="moremenu-item"><a href="#" class="moremenu-text">사전</a></dd>
+					<dd class="moremenu-item"><a href="#" class="moremenu-text">국어사전</a></dd>
+					<dd class="moremenu-item"><a href="#" class="moremenu-text">영어/영영사전</a></dd>
+					<dd class="moremenu-item"><a href="#" class="moremenu-text">일본어사전</a></dd>
+					<dd class="moremenu-item"><a href="#" class="moremenu-text">중국어사전</a></dd>
+					<dd class="moremenu-item"><a href="#" class="moremenu-text">한자사전</a></dd>
+				</dl>
+				<dl class="moremenu-list">
+					<dt class="moremenu-title">인기/신규 서비스</dt>
+					<dd class="moremenu-item"><a href="#" class="moremenu-text">네이버플러스 멤버십</a></dd>
+					<dd class="moremenu-item"><a href="#" class="moremenu-text">클로바더빙</a></dd>
+					<dd class="moremenu-item"><a href="#" class="moremenu-text">인플루언서 검색</a></dd>
+					<dd class="moremenu-item"><a href="#" class="moremenu-text">Keep</a></dd>
+					<dd class="moremenu-item"><a href="#" class="moremenu-text">VIBE</a></dd>
+					<dd class="moremenu-item"><a href="#" class="moremenu-text">웨일</a></dd>
+					<dd class="moremenu-item"><a href="#" class="moremenu-text">파파고</a></dd>
+				</dl>
+			</div>
+		</div>
 	</div>
-	
+	<!-- 메인화면 -->
 	<div class="box-container-content">
 		<div class="container">
 			<div class="box-left-content"></div>
@@ -61,5 +229,10 @@
 	<div class="box-container-footer">
 		<div class="container"></div>
 	</div>
+	<script>
+		$('.rtk-filter-warningclosebt').click(function(){
+			$('.rtk-filter-warning').css('display', 'none')
+		})
+	</script>
 </body>
 </html>

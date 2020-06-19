@@ -28,7 +28,6 @@ $(function(){
 				$('.changeable-menu-empty .type-point').parent().remove()
 			}
 			checkcont = $('.check-icon-checked').length
-			console.log(checkcont)
 		}
 		else{
 			$(this).removeClass('check-icon-checked')	

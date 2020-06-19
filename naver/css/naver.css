@@ -420,8 +420,25 @@ color: rgb(3, 199, 90);
 .changeable-menu{
 	color: #000;
 }
+.changeable-menu{
+    display: block;
+}
 .changeable-menu-empty{
-	display: none;
+    display: none;
+}
+.changeable-menu-empty .menu-item + .menu-item {
+    margin-left: 8px;
+}
+.empty-box{
+    width: 68px;
+    height: 28px;
+    border: 1px solid #dae1e6;
+    border-radius: 2px;
+    background-color: #f7f9fa;
+}
+.type-point{
+    border-color: #19ce60;
+    background-color: #fff;
 }
 .more-bt{
 	font-size: 13px;
@@ -485,6 +502,33 @@ color: rgb(3, 199, 90);
 	background-color: #fff;
 	color: inherit;
 }
+.reset{
+    display: none;
+    margin-left: 3px;
+    padding: 7px 13px 5px;
+    border: 1px solid #dae1e6;
+    border-radius: 15px;
+    background-color: #fff;
+    color: inherit;
+}
+.reset::before{
+    display: inline-block;
+    width: 10px;
+    height: 13px;
+    margin-right: 6px;
+    content: '';
+    vertical-align: top;
+    background-position: -458px -157px;
+}
+.save{
+    display: none;
+    margin-left: 3px;
+    padding: 7px 13px 5px;
+    border: 1px solid #00c73c;
+    border-radius: 15px;
+    color: #fff;
+    background-color: #19ce60;
+}
 .setting-menu::before{
 	display: inline-block;
     width: 11px;
@@ -506,7 +550,7 @@ color: rgb(3, 199, 90);
 	box-shadow: 0 4px 4px 0 rgba(0,0,0,.12);
 	z-index: 11;
 }
-.moremenu-window{
+.moremenu-window, .moremenu-setting{
 	display: table;
     overflow: hidden;
     width: 1128px;
@@ -536,6 +580,25 @@ color: rgb(3, 199, 90);
 .moremenu-text:hover{
 	text-decoration: underline;
 }
+.moremenu-setting{
+    display: none;
+}
+.check-icon{
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin: 4px 9px 0 0;
+    vertical-align: top;
+    background-position: -43px -404px;
+}
+.check-icon-checked .check-icon{
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    vertical-align: top;
+    background-position: -22px -404px;
+}
+/* 키워드 보기 */
 .keyword-box{
 	position: absolute;
     top: 11px;
@@ -872,11 +935,14 @@ color: rgb(3, 199, 90);
 /* 배경 이미지 클래스 */
 .bg-44265f, .bt-close::after, .defult-page::after, .more-bt::after, .setting-menu::before, .more-bt-on::after, .keyword-box::after,
 .rtk-view-close::before, .rtk-filter-helpbt::after, .rtk-filter-helpdetail::after, .rtk-filter-helpclose::before,
-.rtk-filter-guidetooltip::before, .rtk-filter-warningtooltip::before, .rtk-filter-warningclosebt{
+.rtk-filter-guidetooltip::before, .rtk-filter-warningtooltip::before, .rtk-filter-warningclosebt, .reset::before{
 	background-image: url(https://s.pstatic.net/static/www/img/uit/2020/sp_main.44265f.png);
     background-repeat: no-repeat;
 	background-size: 471px 442px;
 }
 .display-none{
 	display: none;
+}
+.test{
+    display: none;
 }

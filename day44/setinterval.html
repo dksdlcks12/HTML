@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script src="//code.jquery.com/jquery-3.4.1.js"></script>
+	<style>
+		body{
+			padding-top: 100px;
+		}
+		.box{
+			position: relative;
+			width: 200px;
+			height: 200px;
+			margin: 0 auto;
+			border: 1px solid black;
+			box-sizing: border-box;
+		}
+		.box+.box{
+			border-top: 0;
+		}
+		.timer{
+			position: absolute;
+			top: 10%;
+			left: 10%;
+			width: 80%;
+			height: 40%;
+			border: 1px solid black;
+			box-sizing: border-box;
+			font-size: 20px;
+			text-align: center;
+			padding-top: calc(10% + 5px);
+		}
+		.board{
+			text-align: center;
+		}
+		#start, #log, #reset{
+			position: absolute;
+			bottom: 10%;
+			left: 10%;
+			width: 35%;
+			height: 20%;
+		}
+		#log, #reset{
+			display: none;
+		}
+		#start.restart{
+			left: 55%;
+		}
+		#stop{
+			position: absolute;
+			bottom: 10%;
+			right: 10%;
+			width: 35%;
+			height: 20%;
+		}
+		.log-board{
+			float: left;
+			width: 50%;
+		}
+		span{
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="timer">00:00:00 00</div>
+		<button id="start">시작</button>
+		<button id="log">기록</buttou>
+		<button id="reset">초기화</button>
+		<button id="stop">중지</buttou>
+	</div>
+	<div class="box board">
+		<div class="log-board"></div>
+		<div class="log-board"></div>
+	</div>
+	
+	<script>
+		var cont = 0
+		var sec = 0
+		var min = 0
+		var hour = 0
+		var log = ''
+		var logcont = 0
+		$('#start').click(function(){
+			$('#start').css('display', 'none')
+			$('#log').css('display', 'block')
+			$('#stop').css('display', 'block')
+			$('#reset').css('display','none')
+			var timer = setInterval(function(){
+				++cont
+				var tmp
+				var viewcont = cont
+				var viewhour = hour
+				var viewmin = min
+				var viewsec = sec
+				if(cont==100){
+					cont=0
+					++sec
+				}
+				if(cont<10){
+					viewcont='0'+cont
+
+				}
+				viewsec = sec
+				if(sec==60){
+					sec=0
+					++min		
+				}
+				if(sec<10){
+					viewsec='0'+sec
+				}
+				viewmin = min
+				if(min==60){
+						min=0
+						++hour
+				}
+				if(min<10){
+					viewmin='0'+min
+
+				}
+				viewhour = hour
+				if(hour<10){
+					viewhour='0'+hour
+				}
+				tmp = viewhour + ':' + viewmin + ':' + viewsec + ' ' + viewcont
+				$('.timer').text(tmp)
+				$('#stop').click(function(){
+					clearInterval(timer)
+					$('#stop').css('display','none')
+					$('#reset').css('display','block')
+					$('#start').addClass('restart').css('display','block').text('재시작')
+					$('#log').css('display', 'none')
+				})
+			}, 10/*단위 ms*/)
+		})
+		$('#log').click(function(){
+			var prt = '<span>'+$('.timer').text()+'</span>'
+			if(logcont<9){
+				$('.board').children().eq(0).append(prt)
+				++logcont
+			}else if(logcont<18){
+				$('.board').children().eq(1).append(prt)
+				++logcont
+			}else if(logcont==18){
+				$('.board').children().eq(0).children().eq(0).remove()
+				$('.board').children().eq(0).append($('.board').children().eq(1).children().eq(0))
+				$('.board').children().eq(1).append(prt)
+				logcont=18
+			}
+		})
+		$('#reset').click(function(){
+			cont = 0
+			sec = 0
+			min = 0
+			hour = 0
+			logcont = 0
+			log = ''
+			$('#reset').css('display','none')
+			$('#start').css('display', 'block').removeClass('restart').text('시작')
+			$('#log').css('display', 'none')
+			$('#stop').css('display','block')
+			$('.timer').text('00:00:00 00')
+			$('.board').html('')
+		})
+
+
+	</script>
+</body>
+</html>

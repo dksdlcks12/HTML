@@ -225,10 +225,15 @@
 					</div>
 				</div>
 				<div class="rtk-view-box">
-					<strong class="rtk-view-settingtitle">검색어 필터를 먼저 설정해주세요!</strong>
-					<p class="rtk-view-massage">관심사/연령대 설정이 완료되면,<br>검색어 차트가 노출됩니다.</p>
-					<button class="rtk-view-setbt">설정완료</button>
+					<div class="rtk-view-boxset" style="display: none;">
+						<strong class="rtk-view-settingtitle">검색어 필터를 먼저 설정해주세요!</strong>
+						<p class="rtk-view-massage">관심사/연령대 설정이 완료되면,<br>검색어 차트가 노출됩니다.</p>
+						<button class="rtk-view-setbt">설정완료</button>
+					</div>
+					<div class="rtk-view-boxlist">
+					</div>
 				</div>
+
 			</div>
 			<!-- 실시간검색어 키워드설정부분 완료 보이는 창만 하면 됨 -->
 		</div>
@@ -392,7 +397,7 @@
 							<a href="#" class="main-news-isuemedia">연합뉴스</a>
 							<div class="main-news-isuetitlebox">
 								<div class="main-news-isuetitleview">
-									<a href="//news.naver.com/main/list.nhn?mode=LPOD&mid=sec&sid1=001&sid2=140&oid=001&isYeonhapFlash=Y&aid=0011695381" class="main-news-isuetitle">수도권-대전 방판업체 6곳 확진자 총 254명 리치웨이 4명 추가</a>
+									<a href="//news.naver.com/main/list.nhn?mode=LPOD&mid=sec&sid1=001&sid2=140&oid=001&isYeonhapFlash=Y&aid=0011695381" class="main-news-isuetitle">재난지원금 다 썼나…골목상권 '반짝 특수' 뒤 원위치</a>
 								</div>
 							</div>
 						</div>
@@ -404,7 +409,7 @@
 						</div>
 					</div>
 					<div class="main-news-standtitle">
-						<a href="https://newsstand.naver.com/" target="_blank" class="main-news-standhome">뉴스스탠드</a>
+						<a href="//newsstand.naver.com/" target="_blank" class="main-news-standhome">뉴스스탠드</a>
 						<div class="main-news-viewsort">
 							<a href="#" class="main-news-viewsortbt">구독한 언론사</a>
 							<a href="#" class="main-news-viewsortbt main-news-viewsorton">전체언론사</a>
@@ -412,7 +417,329 @@
 						<div class="main-news-setbtbox">
 							<a href="#" class="main-news-setbt"><i class="main-news-listiconbt bg-44265f"></i></a>
 							<a href="#" class="main-news-setbt main-news-seton"><i class="main-news-titleiconbt bg-44265f"></i></a>
-							<a href="#" class="main-news-setting"><i class="main-news-seticonbt bg-44265f"></i></a>
+							<a href="//newsstand.naver.com/config.html" class="main-news-setting"><i class="main-news-seticonbt bg-44265f"></i></a>
+						</div>
+					</div>
+					<div class="main-news-tablebox">
+						<a href="#" class="main-news-prevbt">
+							<i class="main-news-previcon bg-44265f"></i>
+						</a>
+						<a href="#" class="main-news-nextbt">
+							<i class="main-news-nexticon bg-44265f"></i>
+						</a>
+						<div class="main-news-windowbox">
+							<div class="main-news-window">
+								<div class="main-news-frame">
+									<i class="main-news-line main-news-horizon1"></i>
+									<i class="main-news-line main-news-horizon2"></i>
+									<i class="main-news-line main-news-horizon3"></i>
+									<i class="main-news-line main-news-vertical1"></i>
+									<i class="main-news-line main-news-vertical2"></i>
+									<i class="main-news-line main-news-vertical3"></i>
+									<i class="main-news-line main-news-vertical4"></i>
+									<i class="main-news-line main-news-vertical5"></i>
+								</div>
+								<div class="main-news-itembox">
+									<a href="#" class="main-news-logobox"><img src="//s.pstatic.net/static/newsstand/2020/logo/light/0604/022.png" alt="세계일보" class="main-news-newslogo"></a>
+									<div class="main-news-logopopup">
+										<a href="#" class="main-news-popupbt main-news-subscribe">구독</a>
+										<a href="#" class="main-news-popupbt main-news-unsubscribe">해지</a>
+										<a href="#" class="main-news-popupbt main-news-linklogo">기사보기</a>
+									</div>
+								</div>
+								<div class="main-news-itembox">
+									<a href="#" class="main-news-logobox"><img src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/073.png" alt="스포츠서울" class="main-news-newslogo"></a>
+									<div class="main-news-logopopup">
+										<a href="#" class="main-news-popupbt main-news-subscribe">구독</a>
+										<a href="#" class="main-news-popupbt main-news-unsubscribe">해지</a>
+										<a href="#" class="main-news-popupbt main-news-linklogo">기사보기</a>
+									</div>
+								</div>
+								<div class="main-news-itembox">
+									<a href="#" class="main-news-logobox"><img src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/366.png" alt="조선비즈" class="main-news-newslogo"></a>
+									<div class="main-news-logopopup">
+										<a href="#" class="main-news-popupbt main-news-subscribe">구독</a>
+										<a href="#" class="main-news-popupbt main-news-unsubscribe">해지</a>
+										<a href="#" class="main-news-popupbt main-news-linklogo">기사보기</a>
+									</div>
+								</div>
+								<div class="main-news-itembox">
+									<a href="#" class="main-news-logobox"><img src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/422.png" alt="연합뉴스TV" class="main-news-newslogo"></a>
+									<div class="main-news-logopopup">
+										<a href="#" class="main-news-popupbt main-news-subscribe">구독</a>
+										<a href="#" class="main-news-popupbt main-news-unsubscribe">해지</a>
+										<a href="#" class="main-news-popupbt main-news-linklogo">기사보기</a>
+									</div>
+								</div>
+								<div class="main-news-itembox">
+									<a href="#" class="main-news-logobox"><img src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/018.png" alt="이데일리" class="main-news-newslogo"></a>
+									<div class="main-news-logopopup">
+										<a href="#" class="main-news-popupbt main-news-subscribe">구독</a>
+										<a href="#" class="main-news-popupbt main-news-unsubscribe">해지</a>
+										<a href="#" class="main-news-popupbt main-news-linklogo">기사보기</a>
+									</div>
+								</div>
+								<div class="main-news-itembox">
+									<a href="#" class="main-news-logobox"><img src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/057.png" alt="MBN" class="main-news-newslogo"></a>
+									<div class="main-news-logopopup">
+										<a href="#" class="main-news-popupbt main-news-subscribe">구독</a>
+										<a href="#" class="main-news-popupbt main-news-unsubscribe">해지</a>
+										<a href="#" class="main-news-popupbt main-news-linklogo">기사보기</a>
+									</div>
+								</div>
+								<div class="main-news-itembox">
+									<a href="#" class="main-news-logobox"><img src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/052.png" alt="YTN" class="main-news-newslogo"></a>
+									<div class="main-news-logopopup">
+										<a href="#" class="main-news-popupbt main-news-subscribe">구독</a>
+										<a href="#" class="main-news-popupbt main-news-unsubscribe">해지</a>
+										<a href="#" class="main-news-popupbt main-news-linklogo">기사보기</a>
+									</div>
+								</div>
+								<div class="main-news-itembox">
+									<a href="#" class="main-news-logobox"><img src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/376.png" alt="지지통신" class="main-news-newslogo"></a>
+									<div class="main-news-logopopup">
+										<a href="#" class="main-news-popupbt main-news-subscribe">구독</a>
+										<a href="#" class="main-news-popupbt main-news-unsubscribe">해지</a>
+										<a href="#" class="main-news-popupbt main-news-linklogo">기사보기</a>
+									</div>
+								</div>
+								<div class="main-news-itembox">
+									<a href="#" class="main-news-logobox"><img src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/015.png" alt="한국경제" class="main-news-newslogo"></a>
+									<div class="main-news-logopopup">
+										<a href="#" class="main-news-popupbt main-news-subscribe">구독</a>
+										<a href="#" class="main-news-popupbt main-news-unsubscribe">해지</a>
+										<a href="#" class="main-news-popupbt main-news-linklogo">기사보기</a>
+									</div>
+								</div>
+								<div class="main-news-itembox">
+									<a href="#" class="main-news-logobox"><img src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/904.png" alt="JTBC" class="main-news-newslogo"></a>
+									<div class="main-news-logopopup">
+										<a href="#" class="main-news-popupbt main-news-subscribe">구독</a>
+										<a href="#" class="main-news-popupbt main-news-unsubscribe">해지</a>
+										<a href="#" class="main-news-popupbt main-news-linklogo">기사보기</a>
+									</div>
+								</div>
+								<div class="main-news-itembox">
+									<a href="#" class="main-news-logobox"><img src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/005.png" alt="국민일보" class="main-news-newslogo"></a>
+									<div class="main-news-logopopup">
+										<a href="#" class="main-news-popupbt main-news-subscribe">구독</a>
+										<a href="#" class="main-news-popupbt main-news-unsubscribe">해지</a>
+										<a href="#" class="main-news-popupbt main-news-linklogo">기사보기</a>
+									</div>
+								</div>
+								<div class="main-news-itembox">
+									<a href="#" class="main-news-logobox"><img src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/003.png" alt="뉴시스" class="main-news-newslogo"></a>
+									<div class="main-news-logopopup">
+										<a href="#" class="main-news-popupbt main-news-subscribe">구독</a>
+										<a href="#" class="main-news-popupbt main-news-unsubscribe">해지</a>
+										<a href="#" class="main-news-popupbt main-news-linklogo">기사보기</a>
+									</div>
+								</div>
+								<div class="main-news-itembox">
+									<a href="#" class="main-news-logobox"><img src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/025.png" alt="중앙일보" class="main-news-newslogo"></a>
+									<div class="main-news-logopopup">
+										<a href="#" class="main-news-popupbt main-news-subscribe">구독</a>
+										<a href="#" class="main-news-popupbt main-news-unsubscribe">해지</a>
+										<a href="#" class="main-news-popupbt main-news-linklogo">기사보기</a>
+									</div>
+								</div>
+								<div class="main-news-itembox">
+									<a href="#" class="main-news-logobox"><img src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/008.png" alt="머니투데이" class="main-news-newslogo"></a>
+									<div class="main-news-logopopup">
+										<a href="#" class="main-news-popupbt main-news-subscribe">구독</a>
+										<a href="#" class="main-news-popupbt main-news-unsubscribe">해지</a>
+										<a href="#" class="main-news-popupbt main-news-linklogo">기사보기</a>
+									</div>
+								</div>
+								<div class="main-news-itembox">
+									<a href="#" class="main-news-logobox"><img src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/076.png" alt="스포츠조선" class="main-news-newslogo"></a>
+									<div class="main-news-logopopup">
+										<a href="#" class="main-news-popupbt main-news-subscribe">구독</a>
+										<a href="#" class="main-news-popupbt main-news-unsubscribe">해지</a>
+										<a href="#" class="main-news-popupbt main-news-linklogo">기사보기</a>
+									</div>
+								</div>
+								<div class="main-news-itembox">
+									<a href="#" class="main-news-logobox"><img src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/958.png" alt="베리스타알파" class="main-news-newslogo"></a>
+									<div class="main-news-logopopup">
+										<a href="#" class="main-news-popupbt main-news-subscribe">구독</a>
+										<a href="#" class="main-news-popupbt main-news-unsubscribe">해지</a>
+										<a href="#" class="main-news-popupbt main-news-linklogo">기사보기</a>
+									</div>
+								</div>
+								<div class="main-news-itembox">
+									<a href="#" class="main-news-logobox"><img src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/944.png" alt="나우뉴스" class="main-news-newslogo"></a>
+									<div class="main-news-logopopup">
+										<a href="#" class="main-news-popupbt main-news-subscribe">구독</a>
+										<a href="#" class="main-news-popupbt main-news-unsubscribe">해지</a>
+										<a href="#" class="main-news-popupbt main-news-linklogo">기사보기</a>
+									</div>
+								</div>
+								<div class="main-news-itembox">
+									<a href="#" class="main-news-logobox"><img src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/972.png" alt="PD저널" class="main-news-newslogo"></a>
+									<div class="main-news-logopopup">
+										<a href="#" class="main-news-popupbt main-news-subscribe">구독</a>
+										<a href="#" class="main-news-popupbt main-news-unsubscribe">해지</a>
+										<a href="#" class="main-news-popupbt main-news-linklogo">기사보기</a>
+									</div>
+								</div>
+								<div class="main-news-itembox">
+									<a href="#" class="main-news-logobox"><img src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/804.png" alt="데이터뉴스" class="main-news-newslogo"></a>
+									<div class="main-news-logopopup">
+										<a href="#" class="main-news-popupbt main-news-subscribe">구독</a>
+										<a href="#" class="main-news-popupbt main-news-unsubscribe">해지</a>
+										<a href="#" class="main-news-popupbt main-news-linklogo">기사보기</a>
+									</div>
+								</div>
+								<div class="main-news-itembox">
+									<a href="#" class="main-news-logobox"><img src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/826.png" alt="톱데일리" class="main-news-newslogo"></a>
+									<div class="main-news-logopopup">
+										<a href="#" class="main-news-popupbt main-news-subscribe">구독</a>
+										<a href="#" class="main-news-popupbt main-news-unsubscribe">해지</a>
+										<a href="#" class="main-news-popupbt main-news-linklogo">기사보기</a>
+									</div>
+								</div>
+								<div class="main-news-itembox">
+									<a href="#" class="main-news-logobox"><img src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/953.png" alt="디지털투데이" class="main-news-newslogo"></a>
+									<div class="main-news-logopopup">
+										<a href="#" class="main-news-popupbt main-news-subscribe">구독</a>
+										<a href="#" class="main-news-popupbt main-news-unsubscribe">해지</a>
+										<a href="#" class="main-news-popupbt main-news-linklogo">기사보기</a>
+									</div>
+								</div>
+								<div class="main-news-itembox">
+									<a href="#" class="main-news-logobox"><img src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/296.png" alt="코메디닷컴" class="main-news-newslogo"></a>
+									<div class="main-news-logopopup">
+										<a href="#" class="main-news-popupbt main-news-subscribe">구독</a>
+										<a href="#" class="main-news-popupbt main-news-unsubscribe">해지</a>
+										<a href="#" class="main-news-popupbt main-news-linklogo">기사보기</a>
+									</div>
+								</div>
+								<div class="main-news-itembox">
+									<a href="#" class="main-news-logobox"><img src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/243.png" alt="이노코미스트" class="main-news-newslogo"></a>
+									<div class="main-news-logopopup">
+										<a href="#" class="main-news-popupbt main-news-subscribe">구독</a>
+										<a href="#" class="main-news-popupbt main-news-unsubscribe">해지</a>
+										<a href="#" class="main-news-popupbt main-news-linklogo">기사보기</a>
+									</div>
+								</div>
+								<div class="main-news-itembox">
+									<a href="#" class="main-news-logobox"><img src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/075.png" alt="맥스무비" class="main-news-newslogo"></a>
+									<div class="main-news-logopopup">
+										<a href="#" class="main-news-popupbt main-news-subscribe">구독</a>
+										<a href="#" class="main-news-popupbt main-news-unsubscribe">해지</a>
+										<a href="#" class="main-news-popupbt main-news-linklogo">기사보기</a>
+									</div>
+								</div>
+							</div>
+							<div class="main-news-window">
+								<div class="main-news-frame">
+									<i class="main-news-line main-news-horizon1"></i>
+									<i class="main-news-line main-news-horizon2"></i>
+									<i class="main-news-line main-news-horizon3"></i>
+									<i class="main-news-line main-news-vertical1"></i>
+									<i class="main-news-line main-news-vertical2"></i>
+									<i class="main-news-line main-news-vertical3"></i>
+									<i class="main-news-line main-news-vertical4"></i>
+									<i class="main-news-line main-news-vertical5"></i>
+								</div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+							</div>
+							<div class="main-news-window">
+								<div class="main-news-frame">
+									<i class="main-news-line main-news-horizon1"></i>
+									<i class="main-news-line main-news-horizon2"></i>
+									<i class="main-news-line main-news-horizon3"></i>
+									<i class="main-news-line main-news-vertical1"></i>
+									<i class="main-news-line main-news-vertical2"></i>
+									<i class="main-news-line main-news-vertical3"></i>
+									<i class="main-news-line main-news-vertical4"></i>
+									<i class="main-news-line main-news-vertical5"></i>
+								</div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+							</div>
+							<div class="main-news-window">
+								<div class="main-news-frame">
+									<i class="main-news-line main-news-horizon1"></i>
+									<i class="main-news-line main-news-horizon2"></i>
+									<i class="main-news-line main-news-horizon3"></i>
+									<i class="main-news-line main-news-vertical1"></i>
+									<i class="main-news-line main-news-vertical2"></i>
+									<i class="main-news-line main-news-vertical3"></i>
+									<i class="main-news-line main-news-vertical4"></i>
+									<i class="main-news-line main-news-vertical5"></i>
+								</div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+								<div class="main-news-itembox"></div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -426,6 +753,22 @@
 		<div class="container"></div>
 	</div>
 	<script>
+		var newsisuelist = []
+		var newsisuelistindex = 0
+		newsisuelist.push('55→61→92 부산항 확진 러 선원 밀접접촉자 계속 늘어')
+		newsisuelist.push('분당 유주택자가 잠실 집 사면 원래 집 처분계획서 내야')
+		newsisuelist.push("재난지원금 다 썼나…골목상권 '반짝 특수' 뒤 원위치")		
+		var lollingnews = setInterval(function(){
+			$('.main-news-isuetitlebox').append('<div class="main-news-isuetitleview"><a href="//news.naver.com/main/list.nhn?mode=LPOD&mid=sec&sid1=001&sid2=140&oid=001&isYeonhapFlash=Y&aid=0011695381" class="main-news-isuetitle">'+ newsisuelist[newsisuelistindex] +'</a></div>')
+			$('.main-news-isuetitlebox').animate({'margin-top':'-24px'},500,function(){
+				$(this).css('margin-top', '0px')
+				$('.main-news-isuetitlebox').children().eq(0).remove()
+			});
+			newsisuelistindex++
+			if(newsisuelistindex == newsisuelist.length){
+				newsisuelistindex = 0
+			}	
+		},3500)
 		$('.main-news-viewsortbt').click(function(e){
 			$('.main-news-viewsortbt').removeClass('main-news-viewsorton')
 			$(this).addClass('main-news-viewsorton')
@@ -436,6 +779,18 @@
 			$(this).addClass('main-news-seton')
 			e.preventDefault()
 		})
+		$('.main-news-subscribe').click(function(e){
+			$(this).next().css('display','inline-block')
+			$(this).css('display','none')
+			e.preventDefault()
+		})
+		$('.main-news-unsubscribe').click(function(e){
+			$(this).prev().css('display','inline-block')
+			$(this).css('display','none')
+			e.preventDefault()
+		})
+		$('.main-news-logobox').mouseover(function(){$(this).siblings('.main-news-logopopup').css('display','block')})
+		$('.main-news-logopopup').mouseleave(function(){$(this).css('display','none')})
 		var ariacheckedcont
 		$('.rtk-filter-item').click(function(e){
 			$(this).removeClass('rtk-filter-stateinit')

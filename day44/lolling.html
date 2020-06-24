@@ -33,12 +33,12 @@
 		<a href="#" class="link-ad"><img src="//t1.daumcdn.net/b2/creative/193183/4771daea49857be4fe36ab4a566b2d8c.png" alt="" width="750px" height="135px"></a>
 	</div>
 	<script>
-		var i = setInterval(function(){
+
 			$('.link-ad').first().animate({'margin-top':'-135px'},300,function(){
 				$('.link-ad').last().detach().prependTo('.ad').css('margin-top','-270px')
 				$(this).removeAttr('style')
 			});
-		},3500)
+
 	</script>
 </body>
 </html>

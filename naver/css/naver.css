@@ -575,10 +575,25 @@ color: rgb(3, 199, 90);
     color: #000;
 }
 .moremenu-text{
-	color: rgb(32, 32, 32);
+	color: #202020;
 }
 .moremenu-text:hover{
 	text-decoration: underline;
+}
+.moremenu-more-dic{
+    display: inline-block;
+    margin-top: 5px;
+    color: grey;
+}
+.moremenu-more-dic::after{
+    display: inline-block;
+    width: 6px;
+    height: 10px;
+    margin-left: 7px;
+    content: '';
+    vertical-align: top;
+    vertical-align: 0;
+    background-position: -417px -116px;
 }
 .moremenu-setting{
     display: none;
@@ -613,6 +628,7 @@ color: rgb(3, 199, 90);
     position: relative;
     z-index: 1;
     height: 30px;
+    cursor: pointer;
 }
 .link-keyword{
 	display: block;
@@ -1252,6 +1268,7 @@ color: rgb(3, 199, 90);
     white-space: nowrap;
     text-overflow: ellipsis;
     color: inherit;
+    margin-right: 20px;
 }
 .rtk-view-link:hover{
     text-decoration: underline;
@@ -1278,6 +1295,9 @@ color: rgb(3, 199, 90);
     font-size: 15px;
     line-height: 27px;
     margin: 2px 9px 0 0;
+}
+.keyword-window .rtk-view-link:hover{
+    text-decoration: none;
 }
 /* 메인화면 */
 .box-container-content{
@@ -1353,7 +1373,7 @@ color: rgb(3, 199, 90);
 	display: block;
 	width: 100%;
 	overflow: hidden;
-	color: rgb(32, 32, 32);
+	color: #202020;
 	white-space: nowrap;
 	text-overflow: ellipsis;
 }
@@ -1532,12 +1552,26 @@ color: rgb(3, 199, 90);
     vertical-align: top;
     background-position: 0 -308px;
 }
+.main-news-prevbt:hover .main-news-previcon{
+    display: inline-block;
+    width: 44px;
+    height: 44px;
+    vertical-align: top;
+    background-position: -227px -161px;
+}
 .main-news-nextbt{
     position: absolute;
     z-index: 10;
     right: -13px;
     top: 109px;
     color: inherit;
+}
+.main-news-nextbt:hover .main-news-nexticon{
+    display: inline-block;
+    width: 44px;
+    height: 44px;
+    vertical-align: top;
+    background-position: -98px -308px;
 }
 .main-news-nexticon{
     display: inline-block;
@@ -1687,6 +1721,157 @@ color: rgb(3, 199, 90);
 .main-news-popupbt+.main-news-popupbt{
     margin-left: -1px;
 }
+.main-themecast-box{
+    padding: 35px 0 27px;
+    letter-spacing: -.25px;
+}
+.main-themecast-header{
+    overflow: hidden;
+    padding-bottom: 17px;
+}
+.main-themecast-titlebox{
+    float: left;
+}
+.main-themecast-title{
+    font-size: 14px;
+    color: #000;
+}
+.main-themecast-titletext{
+    margin-left: 8px;
+    color: grey;
+}
+.main-themecast-infobox{
+    float: right;
+}
+.main-themecast-info{
+    color: grey;
+}
+.main-themecast-new{
+    color: #000;
+}
+.main-themecast-edit{
+    position: relative;
+    margin-left: 14px;
+    color: #505050;
+}
+.main-themecast-edit::before{
+    display: inline-block;
+    width: 11px;
+    height: 11px;
+    margin-right: 4px;
+    content: '';
+    vertical-align: top;
+    vertical-align: -1px;
+    opacity: .7;
+    background-position: -458px -223px;
+}
+.main-themecast-edit::after{
+    position: absolute;
+    top: 2px;
+    left: -8px;
+    width: 1px;
+    height: 12px;
+    content: '';
+    background-color: #e4e8eb;
+}
+.main-themecast-edit:hover{
+    text-decoration: underline;
+}
+.main-themecast-edit:hover::before{
+    opacity: 1;
+}
+.main-themecast-category{
+    position: relative;
+}
+.main-themecast-categoryprevbt{
+    position: absolute;
+    z-index: 10;
+    top: 6px;
+    left: -23px;
+}
+.main-themecast-categoryprevicon{
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    vertical-align: top;
+    background-position: -47px -357px;
+}
+.main-themecast-categoryprevbt:hover .main-themecast-categoryprevicon{
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    vertical-align: top;
+    background-position: -182px -357px;
+}
+.main-themecast-categorynextbt{
+    position: absolute;
+    z-index: 10;
+    top: 6px;
+    right: -18px;
+}
+.main-themecast-categorynexticon{
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    vertical-align: top;
+    background-position: -92px -357px;
+}
+.main-themecast-categorynextbt:hover .main-themecast-categorynexticon{
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    vertical-align: top;
+    background-position: -137px -357px;
+}
+.main-themecast-categorylist{
+    position: relative;
+    background-color: #fff;
+}
+.main-themecast-categorylist::before{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    content: '';
+    border: 1px solid #dae1e6;
+}
+.main-themecast-categoryitem:first-child{
+    width: 92px;
+}
+.main-themecast-categoryitem{
+    position: relative;
+    z-index: 1;
+    float: left;
+    width: 94px;
+}
+.main-themecast-categorytab{
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 49px;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    border-right: 1px solid #dae1e6;
+    color: #202020;
+}
+.main-themecast-categoryview{
+    position: relative;
+    z-index: 5;
+    overflow: hidden;
+    min-height: 100%;
+    width: 100%;
+    touch-action: pan-y;
+    user-select: none;
+    -webkit-user-drag: none;
+    height: 49px;
+}
+.main-themecast-categorylist::after{
+    display: table;
+    clear: both;
+    table-layout: fixed;
+    content: '';
+}
 /* 메인화면 우측 */
 /* 메인화면 우측 틀 */
 .box-right-content{
@@ -1816,6 +2001,16 @@ color: rgb(3, 199, 90);
     vertical-align: top;
     background-position: -265px -218px;
 }
+.main-timesquare-prevbt:hover{
+    background-color: #fafbfc;
+}
+.main-timesquare-prevbt:hover::before{
+    display: inline-block;
+    width: 6px;
+    height: 9px;
+    vertical-align: top;
+    background-position: -265px -246px;
+}
 .main-timesquare-nextbt{
     float: left;
     margin-left: -1px;
@@ -1830,6 +2025,16 @@ color: rgb(3, 199, 90);
     content: '';
     vertical-align: top;
     background-position: -417px -147px;
+}
+.main-timesquare-nextbt:hover{
+    background-color: #fafbfc;
+}
+.main-timesquare-nextbt:hover::before{
+    display: inline-block;
+    width: 6px;
+    height: 9px;
+    vertical-align: top;
+    background-position: -265px -232px;
 }
 .main-timesquare-view{
     position: relative;
@@ -1852,12 +2057,240 @@ color: rgb(3, 199, 90);
     position: absolute;
     left: 0px; 
     height: 100%;
-    text-align: center;
 }
 .main-timesquare-item:nth-of-type(2){
     width: 281px;
     left: 281px; 
     height: 100%;
+}
+.main-timesquare-cardnews{
+    display: block;
+    overflow: hidden;
+    padding: 14px 0 13px 16px;
+    color: inherit;
+}
+.main-timesquare-cardnews:hover{
+    text-decoration: underline;
+}
+.main-timesquare-cardnewsbadge{
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 18px;
+    font-style: normal;
+    float: left;
+    height: 18px;
+    margin-right: 8px;
+    padding: 0 7px;
+    vertical-align: top;
+    border: 1px solid#202020;;
+    border-radius: 10px;
+}
+.main-timesquare-cardnewsheadline{
+    color: #3291f8;
+    border-color: #3291f8;
+}
+.main-timesquare-cardnewstitle{
+    font-size: 13px;
+    line-height: 20px;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #404040;
+    text-align: left;
+}
+.main-timesquare-weather{
+    font-size: 13px;
+    line-height: 29px;
+    display: block;
+    overflow: hidden;
+    padding: 9px 0 9px 16px;
+    color: inherit;
+}
+.main-timesquare-weather::before{
+    width: 29px;
+    height: 29px;
+    vertical-align: top;
+    background-position: 0 -68px;
+    float: left;
+    margin-right: 9px;
+    content: '';
+}
+.main-timesquare-weather:hover{
+    text-decoration: underline;
+}
+.main-timesquare-weathertextbox{
+    float: left;
+}
+.main-timesquare-weatherrtkdegree{
+    font-size: 15px;
+    vertical-align: top;
+}
+.main-timesquare-weatherrtkstate{
+    margin-left: 5px;
+}
+.main-timesquare-weatherdegreebox{
+    float: left;
+    margin-left: 9px;
+}
+.main-timesquare-weathermindegree{
+    color: #2586ee;
+}
+.main-timesquare-weathermaxdegree{
+    color: #e9564a;
+}
+.main-timesquare-weathermaxdegree::before{
+    display: inline-block;
+    width: 5px;
+    height: 11px;
+    margin: 0 3px;
+    content: '';
+    vertical-align: -1px;
+    background-position: -417px -131px;
+}
+.main-timesquare-weatherlocation{
+    font-size: 12px;
+    display: block;
+    overflow: hidden;
+    padding-left: 9px;
+    text-align: right;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: grey;
+}
+.main-timesquare-cardair{
+    line-height: 18px;
+    display: block;
+    overflow: hidden;
+    padding: 14px 0 15px 16px;
+    white-space: nowrap;
+}
+.main-timesquare-airlist{
+    float: left;
+}
+.main-timesquare-airitem{
+    float: left;
+    color: #505050;
+}
+.main-timesquare-airstate{
+    font-size: 13px;
+    margin-left: 8px;
+    color: #202020;
+}
+.main-timesquare-airstate::before{
+    margin-right: 5px;
+    content: '';
+}
+.main-timesquare-airstategood::before{
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    vertical-align: top;
+    background-position: -382px -357px;
+}
+.main-timesquare-airitem+.main-timesquare-airitem::before{
+    display: inline-block;
+    width: 1px;
+    height: 12px;
+    margin: 0 10px;
+    content: '';
+    vertical-align: -1px;
+    background-color: #e4e8eb;
+}
+.main-timesquare-stockbox{
+    display: block;
+    overflow: hidden;
+    padding: 15px 0 14px 16px;
+    color: #202020;
+}
+.main-timesquare-stocktitle{
+    font-size: 13px;
+    float: left;
+    margin-top: 1px;
+}
+.main-timesquare-stockitembox{
+    font-size: 0;
+    line-height: 0;
+    position: relative;
+    overflow: hidden;
+    height: 17px;
+}
+.main-timesquare-stockitembox::before{
+    display: inline-block;
+    width: 1px;
+    height: 12px;
+    margin: 3px 7px 2px 6px;
+    content: '';
+    vertical-align: top;
+    background-color: #e4e8eb;
+}
+.main-timesquare-stockname{
+    font-size: 12px;
+    line-height: 17px;
+    color: #505050;
+    font-style: normal;
+    display: inline-block;
+    vertical-align: top;
+    white-space: nowrap;
+}
+.main-timesquare-stockcurrent{
+    font-size: 13px;
+    line-height: 17px;
+    margin-left: 6px;
+    display: inline-block;
+    vertical-align: top;
+    white-space: nowrap;
+}
+.main-timesquare-stockrate{
+    font-size: 12px;
+    line-height: 17px;
+    margin-left: 10px;
+    display: inline-block;
+    vertical-align: top;
+    white-space: nowrap;
+}
+.main-timesquare-stockratedown{
+    color: #2586ee;
+}
+.main-timesquare-stockratedown::before{
+    display: inline-block;
+    width: 9px;
+    height: 6px;
+    vertical-align: 1px;
+    background-position: -333px -308px;
+    margin-right: 3px;
+    content: '';
+}
+.main-timesquare-stockexchangebox{
+    padding: 14px 0 13px 16px;
+    display: block;
+    overflow: hidden;
+    color: #202020;
+}
+.main-timesquare-stockexchangebox .main-timesquare-stockname::before{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 7px;
+    content: '';
+    vertical-align: top;
+    background-position: -429px -253px;
+}
+.main-timesquare-stockrateup{
+    color: #f05a5a;
+}
+.main-timesquare-stockrateup::before{
+    display: inline-block;
+    width: 9px;
+    height: 6px;
+    vertical-align: 1px;
+    background-position: -305px -308px;
+    margin-right: 3px;
+    content: '';
+}
+.main-subad-img{
+    width: 350px;
+    height: 200px;
 }
 /* 사이트 하단 */
 .box-container-footer{
@@ -1865,14 +2298,22 @@ color: rgb(3, 199, 90);
 	background-attachment: rgb(250, 251, 252);
 }
 /* 배경 이미지 클래스 */
-.bg-44265f, .bt-close::after, .defult-page::after, .more-bt::after, .setting-menu::before, .more-bt-on::after, .keyword-box::after,
-.rtk-view-close::before, .rtk-filter-helpbt::after, .rtk-filter-helpdetail::after, .rtk-filter-helpclose::before,
-.rtk-filter-guidetooltip::before, .rtk-filter-warningtooltip::before, .reset::before, .rtk-filter-agewarningmassage::before,
-.rtk-view-boxset::before, .main-news-isuemedia::after, .main-news-standhome::before, .main-news-standhome::after,
-.main-login-findbox::before, .main-login-signup::before, .main-timesquare-prevbt::before, .main-timesquare-nextbt::before{
+.bg-44265f, .bt-close::after, .defult-page::after, .more-bt::after, .setting-menu::before, .more-bt-on::after,
+.moremenu-more-dic::after, .keyword-box::after, .rtk-view-close::before, .rtk-filter-helpbt::after, .rtk-filter-helpdetail::after,
+.rtk-filter-helpclose::before, .rtk-filter-guidetooltip::before, .rtk-filter-warningtooltip::before, .reset::before,
+.rtk-filter-agewarningmassage::before, .rtk-view-boxset::before, .main-news-isuemedia::after, .main-news-standhome::before,
+.main-news-standhome::after, .main-login-findbox::before, .main-login-signup::before, .main-timesquare-prevbt::before,
+.main-timesquare-nextbt::before, .main-timesquare-weathermaxdegree::before, .main-timesquare-airstategood::before,
+.main-timesquare-stockratedown::before, .main-timesquare-stockexchangebox .main-timesquare-stockname::before,
+.main-timesquare-stockrateup::before, .main-themecast-edit::before{
 	background-image: url(https://s.pstatic.net/static/www/img/uit/2020/sp_main.44265f.png);
     background-repeat: no-repeat;
 	background-size: 471px 442px;
+}
+.main-timesquare-weather::before{
+    background-image: url(https://s.pstatic.net/static/www/img/uit/2020/sp_weather_time.284fc7.png);
+    background-repeat: no-repeat;
+    background-size: 199px 165px;
 }
 .display-none{
 	display: none;

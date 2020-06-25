@@ -115,11 +115,13 @@ $(function(){
 	// 실시간 검색어창 열기
 	$('.keyword-window').click(function(e){
 		$('.rtk-view').css('display', 'block')
+		rtkhover=1
 		e.preventDefault()
 	})
 	// 실시간 검색어창 닫기
 	$('.rtk-view-close').click(function(e){
 		$('.rtk-view').css('display', 'none')
+		rtkhover=0
 		e.preventDefault()
 	})
 	// 검색어 설정 가이드 닫기
@@ -223,11 +225,6 @@ $(function(){
 		lollnewshover=0
 	})
 	setInterval(function(){
-		if(lollnewshover==1){
-			$('.main-news-isuetitlebox').animate({'margin-top':'0px'},500,function(){
-			$(this).css('margin-top', '0px')
-		})
-		}
 		if(lollnewshover==0){
 			$('.main-news-isuetitlebox').append('<div class="main-news-isuetitleview"><a href="//news.naver.com/main/list.nhn?mode=LPOD&mid=sec&sid1=001&sid2=140&oid=001&isYeonhapFlash=Y&aid=0011695381" class="main-news-isuetitle">'+ newsisuelist[newsisuelistindex] +'</a></div>')
 			$('.main-news-isuetitlebox').animate({'margin-top':'-24px'},500,function(){
@@ -325,4 +322,169 @@ $(function(){
 			$('.main-news-nextbt').css('display', 'none')
 		}
 	}, 15000)
+	var rtkindex=0
+	var rtkhover=0
+	var rtklist = ['토트넘 웨스트햄', '로스트아크', '모바일 운전면허증', '옥택연', '인천공학 정규직', '함연지', '엉덩이 걷기', '구혜선', '대한항공 45r', '강형욱', '개는 훌륭하다 코비', '안재현', '영화 살아있다', '나이키', '정들었다고', '배럴', '카이노스메드', '매드포갈릭', '아우디 a5', '안승진']
+	$('.rtk-filter-item').click(function(e){
+		$(this).removeClass('rtk-filter-stateinit')
+		$('.rtk-filter-warning').css('display', 'none')
+		$('.rtk-filter-guide').css('display', 'none')
+		e.preventDefault()
+	})
+	$('.rtk-filter-range').click(function(e){
+		$(this).siblings('.rtk-filter-range').attr('aria-checked','false')
+		$(this).attr('aria-checked','true')
+		$(this).siblings('.rtk-filter-state').children().css('width', $(this).attr('aria-label'))
+		e.preventDefault()
+	})
+	$('.rtk-filter-agewarningclose').click(function(e){
+		$('.rtk-filter-agewarning').css('display', 'none')
+		e.preventDefault()
+	})
+	$('.rtk-filter-age').click(function(e){
+		$('.rtk-filter-agewarning').css('display', 'none')
+		$(this).parent().siblings('*').children().attr('aria-checked', 'false')
+		$(this).attr('aria-checked', 'true')
+		e.preventDefault()
+	})
+	$('.rtk-view-setbt').click(function(e){
+		ariacheckedcont=0
+		for(i=0; i<5; ++i){
+			if($('.rtk-filter-isue .rtk-filter-slidebox').children().eq(i).attr('aria-checked')=='true'){
+				++ariacheckedcont
+			}
+			if($('.rtk-filter-event .rtk-filter-slidebox').children().eq(i).attr('aria-checked')=='true'){
+				++ariacheckedcont
+			}
+			if($('.rtk-filter-preview .rtk-filter-slidebox').children().eq(i).attr('aria-checked')=='true'){
+				++ariacheckedcont
+			}
+			if($('.rtk-filter-enter .rtk-filter-slidebox').children().eq(i).attr('aria-checked')=='true'){
+				++ariacheckedcont
+			}
+			if($('.rtk-filter-sports .rtk-filter-slidebox').children().eq(i).attr('aria-checked')=='true'){
+				++ariacheckedcont
+			}
+		}
+		if(ariacheckedcont<5){
+			$('.rtk-filter-warning').css('display', 'block')
+		}else{
+			ariacheckedcont=0
+			for(i=0; i<6; ++i){
+				if($('.rtk-filter-agetable').children().eq(i).children().attr('aria-checked')=='true'){
+					++ariacheckedcont
+				}
+			}
+			if(ariacheckedcont==0){
+				$('.rtk-filter-agewarning').css('display', 'block')
+			}else{
+				for(var i=0;i<rtklist.length;i++)
+				if(i<10){
+					$('.rtk-view-tabbox').children('.rtk-view-list').eq(0).append('<li class="rtk-view-item"><a href="#" class="rtk-view-link"><strong class="rtk-view-rank">'+(i+1)+'</strong><span class="rtk-view-keyword">'+rtklist[i]+'</span></a></li>')
+				}else{
+					$('.rtk-view-tabbox').children('.rtk-view-list').eq(1).append('<li class="rtk-view-item"><a href="#" class="rtk-view-link"><strong class="rtk-view-rank">'+(i+1)+'</strong><span class="rtk-view-keyword">'+rtklist[i]+'</span></a></li>')
+				}
+				$('.rtk-view-boxset').css('display','none')
+				$('.rtk-view-tabbox').css('display','block')
+				$('.rtk-view-tabbox').children('.rtk-view-list').eq(0).css('display','block')
+				$('.keyword-window').empty()
+				$('.keyword-window').append('<a href="#" class="rtk-view-link"><strong class="rtk-view-rank">1</strong><span class="rtk-view-keyword">'+rtklist[0]+'</span></a>')
+				$('.keyword-window').children().hover(function(){rtkhover=1})
+				$('.keyword-window').children().mouseleave(function(){rtkhover=0})
+				setInterval(function(){
+					if(rtkhover==0){
+						rtkindex++
+						if(rtkindex==rtklist.length){
+							rtkindex=0
+						}
+						$('.keyword-window').append('<a href="#" class="rtk-view-link"><strong class="rtk-view-rank">'+(rtkindex+1)+'</strong><span class="rtk-view-keyword">'+rtklist[rtkindex]+'</span></a>')
+						$('.keyword-window').animate({'margin-top':'-30px'},function(){
+							$('.keyword-window').children().eq(0).remove()
+							$('.keyword-window').css('margin-top','0px')
+						})
+					}
+					$('.keyword-window').children().hover(function(){rtkhover=1})
+					$('.keyword-window').children().mouseleave(function(){rtkhover=0})
+				},3500)
+			}
+		}
+		e.preventDefault()
+	})
+	$('.rtk-view-tab').click(function(e){
+		$('.rtk-view-tab').attr('aria-selected','false')
+		$(this).attr('aria-selected', 'true')
+		$('.rtk-view-list').css('display','none')
+		$('.rtk-view-tabbox').children('.rtk-view-list').eq($(this).index()).css('display','block')
+		console.log($(this).index())
+		e.preventDefault()
+	})
+	var timesquarelist = []
+		var timesquareindex=0
+		var timesquaremouse=0
+		timesquarelist.push('<a href="#" class="main-timesquare-cardnews"><i class="main-timesquare-cardnewsbadge main-timesquare-cardnewsheadline">신문1면</i><span class="main-timesquare-cardnewstitle">언론사 헤드라인 보기</span></a>')
+		timesquarelist.push('<a href="#" class="main-timesquare-cardnews"><i class="main-timesquare-cardnewsbadge">이슈</i><span class="main-timesquare-cardnewstitle">코로나바이러스감염증19 현황</span></a>')
+		timesquarelist.push('<a href="#" class="main-timesquare-weather"><div class="main-timesquare-weathertextbox"><strong class="main-timesquare-weatherrtkdegree">22.4°</strong><strong class="main-timesquare-weatherrtkstate">흐림</strong></div><div class="main-timesquare-weatherdegreebox"><span class="main-timesquare-weathermindegree">21.0°</span><span class="main-timesquare-weathermaxdegree">25.0°</span></div><span class="main-timesquare-weatherlocation">서초동</span></a>')
+		timesquarelist.push('<div class="main-timesquare-item"><a href="#" class="main-timesquare-cardair"><ul class="main-timesquare-airlist"><li class="main-timesquare-airitem">미세<strong class="main-timesquare-airstate main-timesquare-airstategood">좋음</strong></li><li class="main-timesquare-airitem">초미세<strong class="main-timesquare-airstate main-timesquare-airstategood">좋음</strong></li></ul><span class="main-timesquare-weatherlocation">서초동</span></a></div>')
+		timesquarelist.push('<div class="main-timesquare-item"><a href="#" class="main-timesquare-stockbox"><strong class="main-timesquare-stocktitle">증시</strong><div class="main-timesquare-stockitembox"><em class="main-timesquare-stockname">코스피</em><strong class="main-timesquare-stockcurrent">2,124.18</strong><span class="main-timesquare-stockrate main-timesquare-stockratedown">37.33 -1.73%</span></div></a></div>')
+		timesquarelist.push('<div class="main-timesquare-item"><a href="#" class="main-timesquare-stockbox"><strong class="main-timesquare-stocktitle">증시</strong><div class="main-timesquare-stockitembox"><em class="main-timesquare-stockname">코스닥</em><strong class="main-timesquare-stockcurrent">752.82</strong><span class="main-timesquare-stockrate main-timesquare-stockratedown">6.68 -0.88%</span></div></a></div>')
+		timesquarelist.push('<div class="main-timesquare-item"><a href="" class="main-timesquare-stockexchangebox"><strong class="main-timesquare-stocktitle">환율</strong><div class="main-timesquare-stockitembox"><em class="main-timesquare-stockname">USD</em><strong class="main-timesquare-stockcurrent">1,203.10</strong><span class="main-timesquare-stockrate main-timesquare-stockrateup">0.60 +0.05%</span></div></a></div>')
+		$('.main-timesquare-item').hover(function(){
+			timesquaremouse=1
+		})
+		$('.main-timesquare-item').mouseleave(function(){
+			timesquaremouse=0
+		})
+		$('.main-timesquare-nav').hover(function(){
+			timesquaremouse=1
+		})
+		$('.main-timesquare-nav').mouseleave(function(){
+				timesquaremouse=0
+				$('.main-timesquare-item').hover(function(){timesquaremouse=1})
+			})
+		
+		$('.main-timesquare-prevbt').click(function(){
+			if(!$(".main-timesquare-lolling").is(":animated")) {
+				timesquareindex--
+				AnimationEvent
+				if(timesquareindex<0){
+					timesquareindex=(timesquarelist.length-1)
+				}
+				$('.main-timesquare-lolling').prepend('<div class="main-timesquare-item">'+timesquarelist[timesquareindex]+'</div>')
+				$('.main-timesquare-lolling').css('margin-left', '-281px')
+				$('.main-timesquare-lolling').animate({'margin-left':'0'},400,function(){
+					$('.main-timesquare-lolling').children().eq(1).remove()
+					$('.main-timesquare-lolling').css('margin-left', '0px')
+				})
+			}
+		})
+		$('.main-timesquare-nextbt').filter(":not(:animated)").click(function(){
+			if(!$(".main-timesquare-lolling").is(":animated")) {
+				timesquareindex++
+				if(timesquareindex==timesquarelist.length){
+					timesquareindex=0
+				}
+				$('.main-timesquare-lolling').append('<div class="main-timesquare-item">'+timesquarelist[timesquareindex]+'</div>')
+				$('.main-timesquare-lolling').animate({'margin-left':'-281px'},400,function(){
+					$('.main-timesquare-lolling').children().eq(0).remove()
+					$('.main-timesquare-lolling').css('margin-left', '0px')
+				})
+			}
+		})
+		setInterval(function(){
+			if(timesquaremouse==0){
+				if(!$(".main-timesquare-lolling").is(":animated")) {
+					timesquareindex++
+					if(timesquareindex==timesquarelist.length){
+						timesquareindex=0
+					}
+					$('.main-timesquare-lolling').filter(":not(:animated)").append('<div class="main-timesquare-item">'+timesquarelist[timesquareindex]+'</div>')
+					$('.main-timesquare-lolling').filter(":not(:animated)").animate({'margin-left':'-281px'},400,function(){
+						$('.main-timesquare-lolling').children().eq(0).remove()
+						$('.main-timesquare-lolling').css('margin-left', '0px')
+					})
+				}
+			}
+			$('.main-timesquare-item').hover(function(){timesquaremouse=1})
+			$('.main-timesquare-item').mouseleave(function(){timesquaremouse=0})
+		},4000)
 })

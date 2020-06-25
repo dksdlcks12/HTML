@@ -303,6 +303,7 @@
 					<dd class="moremenu-item"><a href="#" class="moremenu-text">일본어사전</a></dd>
 					<dd class="moremenu-item"><a href="#" class="moremenu-text">중국어사전</a></dd>
 					<dd class="moremenu-item"><a href="#" class="moremenu-text">한자사전</a></dd>
+					<dd class="moremenu-item"><a href="#" class="moremenu-text moremenu-more-dic">사전 더보기</a></dd>
 				</dl>
 				<dl class="moremenu-list">
 					<dt class="moremenu-title">인기/신규 서비스</dt>
@@ -1253,6 +1254,38 @@
 						</div>
 					</div>
 				</div>
+				<div class="main-themecast-box">
+					<div class="main-themecast-headerbox">
+						<div class="main-themecast-header">
+							<div class="main-themecast-titlebox">
+								<strong class="main-themecast-title">오늘 읽을만한 글</strong>
+								<span class="main-themecast-titletext">주제별로 분류된 다양한 글 모음</span>
+							</div>
+							<div class="main-themecast-infobox">
+								<span class="main-themecast-info"><strong class="main-themecast-new">2,185</strong> 개의 글</span>
+								<a href="#" class="main-themecast-edit">관심주제 설정</a>
+							</div>
+						</div>
+						<div class="main-themecast-category">
+							<a href="" class="main-themecast-categoryprevbt"><i class="main-themecast-categoryprevicon bg-44265f"></i></a>
+							<a href="" class="main-themecast-categorynextbt"><i class="main-themecast-categorynexticon bg-44265f"></i></a>
+							<div class="main-themecast-categoryview">
+								<div class="main-themecast-categorylolling">
+									<ul class="main-themecast-categorylist">
+										<li class="main-themecast-categoryitem"><a href="#" class="main-themecast-categorytab"></a></li>
+										<li class="main-themecast-categoryitem"><a href="#" class="main-themecast-categorytab"></a></li>
+										<li class="main-themecast-categoryitem"><a href="#" class="main-themecast-categorytab"></a></li>
+										<li class="main-themecast-categoryitem"><a href="#" class="main-themecast-categorytab"></a></li>
+										<li class="main-themecast-categoryitem"><a href="#" class="main-themecast-categorytab"></a></li>
+										<li class="main-themecast-categoryitem"><a href="#" class="main-themecast-categorytab"></a></li>
+										<li class="main-themecast-categoryitem"><a href="#" class="main-themecast-categorytab"></a></li>
+										<li class="main-themecast-categoryitem"><a href="#" class="main-themecast-categorytab"></a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 			<div class="box-right-content">
 				<div class="right-content">
@@ -1273,12 +1306,15 @@
 								<a href="#" class="main-timesquare-prevbt"></a>
 								<a href="#" class="main-timesquare-nextbt"></a>
 							</div>
-							<div class="main-timesquare-view">
-								<div class="main-timesquare-lolling">
-									<div class="main-timesquare-item">0</div>
-								</div>
+							<div class="main-timesquare-view"><div class="main-timesquare-lolling">
+								<div class="main-timesquare-item"><a href="#" class="main-timesquare-cardnews"><i class="main-timesquare-cardnewsbadge main-timesquare-cardnewsheadline">신문1면</i><span class="main-timesquare-cardnewstitle">언론사 헤드라인 보기</span></a></div></div>
 							</div>
 						</div>
+					</div>
+					<div class="main-subad-box">
+						<a href="#" class="main-subad-link">
+							<img src="https://ssl.pstatic.net/tveta/libs/1293/1293246/75f8d5c924a2a888991c_20200622104551140.png" alt="" class="main-subad-img">
+						</a>
 					</div>
 				</div>
 			</div>
@@ -1288,95 +1324,23 @@
 		<div class="container"></div>
 	</div>
 	<script>
-		var test = 1
-		setInterval(function(){
-			$('.main-timesquare-lolling').append('<div class="main-timesquare-item">'+test+'</div>')
-			$('.main-timesquare-lolling').animate({'margin-left':'-281px'},700,function(){
-				$(this).children().eq(0).remove()
-				$(this).css('margin-left','0')
-			})
-			test++
-			if(test==3){
-				test=0
+		var themecastlist = ['엔터','스포츠','자동차','웹툰','경제M','푸드','게임','영화','JOB&','테크','여행+','과학','리빙','건강','비지니스','연애·결혼','책문화','부모i','법률','패션뷰티','동물공감','디자인','중국','FARM','공연전시','함께N','스쿨잼']
+		var themecastpage = 0
+		var themecastindex = 0
+		var 
+		for(var i=0; i<8;i++){
+			$('.main-themecast-categorylolling').children('.main-themecast-categorylist').eq(themecastpage).children('.main-themecast-categoryitem').eq(i).children().text(themecastlist[i+(themecastpage*8)])
+		}
+		$('.main-themecast-categorynextbt').click(function(){
+			console.log(themecastindex)
+			themecastindex++
+			if(themecastindex%0){
+				++themecastpage
+				$('.main-themecast-categorylolling').append($('.main-themecast-categorylolling').html)
+				for(var i=0; i<8;i++){
+					$('.main-themecast-categorylolling').children('.main-themecast-categorylist').eq(themecastpage).children('.main-themecast-categoryitem').eq(i).children().text(themecastlist[i+(themecastpage*8)])
+				}	
 			}
-		},1000)
-
-		var rtklist = ['토트넘 웨스트햄', '로스트아크', '모바일 운전면허증', '옥택연', '인천공학 정규직', '함연지', '엉덩이 걷기', '구혜선', '대한항공 45r', '강형욱', '개는 훌륭하다 코비', '안재현', '영화 살아있다', '나이키', '정들었다고', '배럴', '카이노스메드', '매드포갈릭', '아우디 a5', '안승진']
-		$('.rtk-filter-item').click(function(e){
-			$(this).removeClass('rtk-filter-stateinit')
-			$('.rtk-filter-warning').css('display', 'none')
-			$('.rtk-filter-guide').css('display', 'none')
-			e.preventDefault()
-		})
-		$('.rtk-filter-range').click(function(e){
-			$(this).siblings('.rtk-filter-range').attr('aria-checked','false')
-			$(this).attr('aria-checked','true')
-			$(this).siblings('.rtk-filter-state').children().css('width', $(this).attr('aria-label'))
-			e.preventDefault()
-		})
-		$('.rtk-filter-agewarningclose').click(function(e){
-			$('.rtk-filter-agewarning').css('display', 'none')
-			e.preventDefault()
-		})
-		$('.rtk-filter-age').click(function(e){
-			$('.rtk-filter-agewarning').css('display', 'none')
-			$(this).parent().siblings('*').children().attr('aria-checked', 'false')
-			$(this).attr('aria-checked', 'true')
-			e.preventDefault()
-		})
-		$('.rtk-view-setbt').click(function(e){
-			ariacheckedcont=0
-			for(i=0; i<5; ++i){
-				if($('.rtk-filter-isue .rtk-filter-slidebox').children().eq(i).attr('aria-checked')=='true'){
-					++ariacheckedcont
-				}
-				if($('.rtk-filter-event .rtk-filter-slidebox').children().eq(i).attr('aria-checked')=='true'){
-					++ariacheckedcont
-				}
-				if($('.rtk-filter-preview .rtk-filter-slidebox').children().eq(i).attr('aria-checked')=='true'){
-					++ariacheckedcont
-				}
-				if($('.rtk-filter-enter .rtk-filter-slidebox').children().eq(i).attr('aria-checked')=='true'){
-					++ariacheckedcont
-				}
-				if($('.rtk-filter-sports .rtk-filter-slidebox').children().eq(i).attr('aria-checked')=='true'){
-					++ariacheckedcont
-				}
-			}
-			if(ariacheckedcont<5){
-				$('.rtk-filter-warning').css('display', 'block')
-			}else{
-				ariacheckedcont=0
-				for(i=0; i<6; ++i){
-					if($('.rtk-filter-agetable').children().eq(i).children().attr('aria-checked')=='true'){
-						++ariacheckedcont
-					}
-				}
-				if(ariacheckedcont==0){
-					$('.rtk-filter-agewarning').css('display', 'block')
-				}else{
-					for(var i=0;i<rtklist.length;i++)
-					if(i<10){
-						$('.rtk-view-tabbox').children('.rtk-view-list').eq(0).append('<li class="rtk-view-item"><a href="#" class="rtk-view-link"><strong class="rtk-view-rank">'+(i+1)+'</strong><span class="rtk-view-keyword">'+rtklist[i]+'</span></a></li>')
-					}else{
-						$('.rtk-view-tabbox').children('.rtk-view-list').eq(1).append('<li class="rtk-view-item"><a href="#" class="rtk-view-link"><strong class="rtk-view-rank">'+(i+1)+'</strong><span class="rtk-view-keyword">'+rtklist[i]+'</span></a></li>')
-					}
-					$('.rtk-view-boxset').css('display','none')
-					$('.rtk-view-tabbox').css('display','block')
-					$('.rtk-view-tabbox').children('.rtk-view-list').eq(0).css('display','block')
-					$('.keyword-window').empty()
-					$('.keyword-window').append('<a href="#" class="rtk-view-link"><strong class="rtk-view-rank">1</strong><span class="rtk-view-keyword">'+rtklist[0]+'</span></a>')
-				}
-			}
-			e.preventDefault()
-		})
-		$('.rtk-view-tab').click(function(e){
-			$('.rtk-view-tab').attr('aria-selected','false')
-			$(this).attr('aria-selected', 'true')
-			$('.rtk-view-list').css('display','none')
-			$('.rtk-view-tabbox').children('.rtk-view-list').eq($(this).index()).css('display','block')
-			console.log($(this).index())
-			e.preventDefault()
 		})
 	</script>
 </body>

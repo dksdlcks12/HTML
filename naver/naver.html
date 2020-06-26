@@ -1316,6 +1316,46 @@
 							<img src="https://ssl.pstatic.net/tveta/libs/1293/1293246/75f8d5c924a2a888991c_20200622104551140.png" alt="" class="main-subad-img">
 						</a>
 					</div>
+					<div class="main-shoppingbox">
+						<div class="main-shopping-header">
+							<h1 class="main-shopping-title"><a href="#" class="main-shopping-titlelink">쇼핑</a></h1>
+							<ul class="main-shopping-headertab">
+								<li class="main-shopping-headeritem"><a href="#" class="main-shopping-headeritemlink" aria-selected="true">상품</a></li>
+								<li class="main-shopping-headeritem"><a href="#" class="main-shopping-headeritemlink" aria-selected="false">쇼핑몰</a></li>
+								<li class="main-shopping-headeritem"><a href="#" class="main-shopping-headeritemlink" aria-selected="false">MEN</a></li>
+							</ul>
+						</div>
+						<div class="main-shopping-goodscontents">
+							<div class="main-shopping-groupmallbox">
+								<div class="main-shopping-groupmall">
+									<a href="" class="main-shopping-groupmallname">G마켓</a>
+									<span class="main-shopping-groupmallicon main-shopping-groupmalliconleftm9"></span>
+									<a href="" class="main-shopping-groupmallname"><strong>옥션</strong></a>
+									<span class="main-shopping-groupmallicon main-shopping-groupmalliconleftm9"></span>
+									<a href="" class="main-shopping-groupmallname">11번가</a>
+									<span class="main-shopping-groupmallicon main-shopping-groupmalliconleftm9"></span>
+									<a href="" class="main-shopping-groupmallname">위메프</a>
+									<span class="main-shopping-groupmallicon main-shopping-groupmalliconleftm9"></span>
+									<a href="" class="main-shopping-groupmallname"><strong>티몬</strong></a>
+									<span class="main-shopping-groupmallicon main-shopping-groupmalliconleftm9"></span>
+									<a href="" class="main-shopping-groupmallname">이마트몰</a>
+								</div>
+								<div class="main-shopping-groupmall">
+									<a href="" class="main-shopping-groupmallname"><strong>올리브영</strong></a>
+									<span class="main-shopping-groupmallicon main-shopping-groupmalliconleftm5"></span>
+									<a href="" class="main-shopping-groupmallname">GS샵</a>
+									<span class="main-shopping-groupmallicon main-shopping-groupmalliconleftm5"></span>
+									<a href="" class="main-shopping-groupmallname">롯데i몰</a>
+									<span class="main-shopping-groupmallicon main-shopping-groupmalliconleftm5"></span>
+									<a href="" class="main-shopping-groupmallname">CJmall</a>
+									<span class="main-shopping-groupmallicon main-shopping-groupmalliconleftm5"></span>
+									<a href="" class="main-shopping-groupmallname">신세계몰</a>
+									<span class="main-shopping-groupmallicon main-shopping-groupmalliconleftm5"></span>
+									<a href="" class="main-shopping-groupmallname"><strong>롯데ON</strong></a>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -1324,22 +1364,477 @@
 		<div class="container"></div>
 	</div>
 	<script>
+		var scrollValue = $(document).scrollTop()
+		var rightcontentbottom = 1950
+		$(window).scroll(function (){
+			var tmp = scrollValue-1
+			scrollValue = $(document).scrollTop()
+			if(tmp<scrollValue){
+				if(rightcontentbottom<$(window).height()+scrollValue&rightcontentbottom>=1950){
+					if($(window).height()<=1184){
+						$('.box-right-content').css({'left': '0px', 'bottom': '-'+($(window).height()+scrollValue-1935)+'px'})
+					}else{
+						$('.box-right-content').css({'left': '0px', 'bottom': '-'+($(window).height()+scrollValue-1985)+'px'})
+					}
+					rightcontentbottom = $(window).height()+scrollValue
+				}else{
+
+				}
+			}else{
+
+			}
+		});
+
 		var themecastlist = ['엔터','스포츠','자동차','웹툰','경제M','푸드','게임','영화','JOB&','테크','여행+','과학','리빙','건강','비지니스','연애·결혼','책문화','부모i','법률','패션뷰티','동물공감','디자인','중국','FARM','공연전시','함께N','스쿨잼']
 		var themecastpage = 0
 		var themecastindex = 0
-		var 
 		for(var i=0; i<8;i++){
 			$('.main-themecast-categorylolling').children('.main-themecast-categorylist').eq(themecastpage).children('.main-themecast-categoryitem').eq(i).children().text(themecastlist[i+(themecastpage*8)])
 		}
+		$categoryitemcolor=function(){
+			$('.main-themecast-categoryitem').mouseenter(function(){
+				if(!($(this).hasClass('selected'))){
+					switch (($(this).index()+(themecastpage*8))) {
+						case 0:
+							$(this).children().css('color','rgb(203, 93, 160)')
+							break;
+						case 1:
+							$(this).children().css('color','rgb(1, 71, 181)')
+							break;
+						case 2:
+							$(this).children().css('color','rgb(74, 148, 225)')
+							break;
+						case 3:
+							$(this).children().css('color','rgb(102, 201, 113)')
+							break;
+						case 4:
+							$(this).children().css('color','rgb(53, 174, 94)')
+							break;
+						case 5:
+							$(this).children().css('color','rgb(231, 124, 67)')
+							break;
+						case 6:
+							$(this).children().css('color','rgb(91, 184, 225)')
+							break;
+						case 7:
+							$(this).children().css('color','rgb(26, 47, 99)')
+							break;
+						case 8:
+							$(this).children().css('color','rgb(211, 79, 18)')
+							break;
+						case 9:
+							$(this).children().css('color','rgb(72, 107, 149)')
+							break;
+						case 10:
+							$(this).children().css('color','rgb(85, 204, 193)')
+							break;
+						case 11:
+							$(this).children().css('color','rgb(34, 90, 198)')
+							break;
+						case 12:
+							$(this).children().css('color','rgb(192, 141, 49)')
+							break;
+						case 13:
+							$(this).children().css('color','rgb(15, 181, 76)')
+							break;
+						case 14:
+							$(this).children().css('color','rgb(0, 126, 200)')
+							break;
+						case 15:
+							$(this).children().css('color','rgb(238, 114, 158)')
+							break;
+						case 16:
+							$(this).children().css('color','rgb(66, 190, 111)')
+							break;
+						case 17:
+							$(this).children().css('color','rgb(234, 191, 1)')
+							break;
+						case 18:
+							$(this).children().css('color','rgb(28, 48, 145)')
+							break;
+						case 19:
+							$(this).children().css('color','rgb(132, 73, 202)')
+							break;
+						case 20:
+							$(this).children().css('color','rgb(149, 95, 14)')
+							break;
+						case 21:
+							$(this).children().css('color','rgb(88, 83, 160)')
+							break;
+						case 22:
+							$(this).children().css('color','rgb(126, 37, 27)')
+							break;
+						case 23:
+							$(this).children().css('color','rgb(106, 204, 89)')
+							break;
+						case 24:
+							$(this).children().css('color','rgb(173, 172, 15)')
+							break;
+						case 25:
+							$(this).children().css('color','rgb(83, 162, 249)')
+							break;
+						case 26:
+							$(this).children().css('color','rgb(236, 175, 66)')
+							break;
+						default:
+							break;
+					}
+				}
+
+			})
+			$('.main-themecast-categoryitem').mouseleave(function(){
+			if(!($(this).hasClass('selected'))){
+				$(this).children().css('color','rgb(32, 32, 32)')
+			}
+			})
+		}
+		$categoryitembackground=function(){
+			$('.main-themecast-categoryitem').click(function(e){
+				$('.main-themecast-categoryitem').removeClass('selected')
+				$(this).addClass('selected')
+				$('.main-themecast-categoryitem').children().css('color','rgb(32, 32, 32)')
+				$('.main-themecast-categoryitem').css('background-color','rgb(255, 255, 255)')
+				switch (($(this).index()+(themecastpage*8))) {
+					case 0:
+						$(this).children().css('color','rgb(255, 255, 255)')
+						$(this).css('background-color','rgb(203, 93, 160)')
+						themecastindex = $(this).index()+(themecastpage*8)
+						break;
+					case 1:
+						$(this).children().css('color','rgb(255, 255, 255)')
+						$(this).css('background-color','rgb(1, 71, 181)')
+						themecastindex = $(this).index()+(themecastpage*8)
+						break;
+					case 2:
+						$(this).children().css('color','rgb(255, 255, 255)')
+						$(this).css('background-color','rgb(74, 148, 225)')
+						themecastindex = $(this).index()+(themecastpage*8)
+						break;
+					case 3:
+						$(this).children().css('color','rgb(255, 255, 255)')
+						$(this).css('background-color','rgb(102, 201, 113)')
+						themecastindex = $(this).index()+(themecastpage*8)
+						break;
+					case 4:
+						$(this).children().css('color','rgb(255, 255, 255)')
+						$(this).css('background-color','rgb(53, 174, 94)')
+						themecastindex = $(this).index()+(themecastpage*8)
+						break;
+					case 5:
+						$(this).children().css('color','rgb(255, 255, 255)')
+						$(this).css('background-color','rgb(231, 124, 67)')
+						themecastindex = $(this).index()+(themecastpage*8)
+						break;
+					case 6:
+						$(this).children().css('color','rgb(255, 255, 255)')
+						$(this).css('background-color','rgb(91, 184, 225)')
+						themecastindex = $(this).index()+(themecastpage*8)
+						break;
+					case 7:
+						$(this).children().css('color','rgb(255, 255, 255)')
+						$(this).css('background-color','rgb(26, 47, 99)')
+						themecastindex = $(this).index()+(themecastpage*8)
+						break;
+					case 8:
+						$(this).children().css('color','rgb(255, 255, 255)')
+						$(this).css('background-color','rgb(211, 79, 18)')
+						themecastindex = $(this).index()+(themecastpage*8)
+						break;
+					case 9:
+						$(this).children().css('color','rgb(255, 255, 255)')
+						$(this).css('background-color','rgb(72, 107, 149)')
+						themecastindex = $(this).index()+(themecastpage*8)
+						break;
+					case 10:
+						$(this).children().css('color','rgb(255, 255, 255)')
+						$(this).css('background-color','rgb(85, 204, 193)')
+						themecastindex = $(this).index()+(themecastpage*8)
+						break;
+					case 11:
+						$(this).children().css('color','rgb(255, 255, 255)')
+						$(this).css('background-color','rgb(34, 90, 198)')
+						themecastindex = $(this).index()+(themecastpage*8)
+						break;
+					case 12:
+						$(this).children().css('color','rgb(255, 255, 255)')
+						$(this).css('background-color','rgb(192, 141, 49)')
+						themecastindex = $(this).index()+(themecastpage*8)
+						break;
+					case 13:
+						$(this).children().css('color','rgb(255, 255, 255)')
+						$(this).css('background-color','rgb(15, 181, 76)')
+						themecastindex = $(this).index()+(themecastpage*8)
+						break;
+					case 14:
+						$(this).children().css('color','rgb(255, 255, 255)')
+						$(this).css('background-color','rgb(0, 126, 200)')
+						themecastindex = $(this).index()+(themecastpage*8)
+						break;
+					case 15:
+						$(this).children().css('color','rgb(255, 255, 255)')
+						$(this).css('background-color','rgb(238, 114, 158)')
+						themecastindex = $(this).index()+(themecastpage*8)
+						break;
+					case 16:
+						$(this).children().css('color','rgb(255, 255, 255)')
+						$(this).css('background-color','rgb(66, 190, 111)')
+						themecastindex = $(this).index()+(themecastpage*8)
+						break;
+					case 17:
+						$(this).children().css('color','rgb(255, 255, 255)')
+						$(this).css('background-color','rgb(234, 191, 1)')
+						themecastindex = $(this).index()+(themecastpage*8)
+						break;
+					case 18:
+						$(this).children().css('color','rgb(255, 255, 255)')
+						$(this).css('background-color','rgb(28, 48, 145)')
+						themecastindex = $(this).index()+(themecastpage*8)
+						break;
+					case 19:
+						$(this).children().css('color','rgb(255, 255, 255)')
+						$(this).css('background-color','rgb(132, 73, 202)')
+						themecastindex = $(this).index()+(themecastpage*8)
+						break;
+					case 20:
+						$(this).children().css('color','rgb(255, 255, 255)')
+						$(this).css('background-color','rgb(149, 95, 14)')
+						themecastindex = $(this).index()+(themecastpage*8)
+						break;
+					case 21:
+						$(this).children().css('color','rgb(255, 255, 255)')
+						$(this).css('background-color','rgb(88, 83, 160)')
+						themecastindex = $(this).index()+(themecastpage*8)
+						break;
+					case 22:
+						$(this).children().css('color','rgb(255, 255, 255)')
+						$(this).css('background-color','rgb(126, 37, 27)')
+						themecastindex = $(this).index()+(themecastpage*8)
+						break;
+					case 23:
+						$(this).children().css('color','rgb(255, 255, 255)')
+						$(this).css('background-color','rgb(106, 204, 89)')
+						themecastindex = $(this).index()+(themecastpage*8)
+						break;
+					case 24:
+						$(this).children().css('color','rgb(255, 255, 255)')
+						$(this).css('background-color','rgb(173, 172, 15)')
+						themecastindex = $(this).index()+(themecastpage*8)
+						break;
+					case 25:
+						$(this).children().css('color','rgb(255, 255, 255)')
+						$(this).css('background-color','rgb(83, 162, 249)')
+						themecastindex = $(this).index()+(themecastpage*8)
+						break;
+					case 26:
+						$(this).children().css('color','rgb(255, 255, 255)')
+						$(this).css('background-color','rgb(236, 175, 66)')
+						themecastindex = $(this).index()+(themecastpage*8)
+						break;
+					default:
+						break;
+				}
+				$('.main-themecast-categoryprevbt').css('display','block')
+				$('.main-themecast-categorynextbt').css('display','block')
+				if(themecastindex==0){
+					$('.main-themecast-categoryprevbt').css('display','none')
+				}
+				if(themecastindex==themecastlist.length-1){
+					$('.main-themecast-categorynextbt').css('display','none')
+				}
+				e.preventDefault()
+			})
+		}
+		$categoryitembackgroundbt=function(){
+			$('.main-themecast-categoryitem').removeClass('selected')
+			$('.main-themecast-categoryitem').eq(parseInt(themecastindex%8)).addClass('selected')
+			$('.main-themecast-categoryitem').children().css('color','rgb(32, 32, 32)')
+			$('.main-themecast-categoryitem').css('background-color','rgb(255, 255, 255)')
+			switch (themecastindex) {
+				case 0:
+					$('.main-themecast-categoryitem').eq(parseInt(themecastindex%8)).children().css('color','rgb(255, 255, 255)')
+					$('.main-themecast-categoryitem').eq(parseInt(themecastindex%8)).css('background-color','rgb(203, 93, 160)')
+					break;
+				case 1:
+					$('.main-themecast-categoryitem').eq(parseInt(themecastindex%8)).children().css('color','rgb(255, 255, 255)')
+					$('.main-themecast-categoryitem').eq(parseInt(themecastindex%8)).css('background-color','rgb(1, 71, 181)')
+					break;
+				case 2:
+					$('.main-themecast-categoryitem').eq(parseInt(themecastindex%8)).children().css('color','rgb(255, 255, 255)')
+					$('.main-themecast-categoryitem').eq(parseInt(themecastindex%8)).css('background-color','rgb(74, 148, 225)')
+					break;
+				case 3:
+					$('.main-themecast-categoryitem').eq(parseInt(themecastindex%8)).children().css('color','rgb(255, 255, 255)')
+					$('.main-themecast-categoryitem').eq(parseInt(themecastindex%8)).css('background-color','rgb(102, 201, 113)')
+					break;
+				case 4:
+					$('.main-themecast-categoryitem').eq(parseInt(themecastindex%8)).children().css('color','rgb(255, 255, 255)')
+					$('.main-themecast-categoryitem').eq(parseInt(themecastindex%8)).css('background-color','rgb(53, 174, 94)')
+					break;
+				case 5:
+					$('.main-themecast-categoryitem').eq(parseInt(themecastindex%8)).children().css('color','rgb(255, 255, 255)')
+					$('.main-themecast-categoryitem').eq(parseInt(themecastindex%8)).css('background-color','rgb(231, 124, 67)')
+					break;
+				case 6:
+					$('.main-themecast-categoryitem').eq(parseInt(themecastindex%8)).children().css('color','rgb(255, 255, 255)')
+					$('.main-themecast-categoryitem').eq(parseInt(themecastindex%8)).css('background-color','rgb(91, 184, 225)')
+					break;
+				case 7:
+					$('.main-themecast-categoryitem').eq(parseInt(themecastindex%8)).children().css('color','rgb(255, 255, 255)')
+					$('.main-themecast-categoryitem').eq(parseInt(themecastindex%8)).css('background-color','rgb(26, 47, 99)')
+					break;
+				case 8:
+					$('.main-themecast-categoryitem').eq(parseInt(themecastindex%8)).children().css('color','rgb(255, 255, 255)')
+					$('.main-themecast-categoryitem').eq(parseInt(themecastindex%8)).css('background-color','rgb(211, 79, 18)')
+					break;
+				case 9:
+					$('.main-themecast-categoryitem').eq(parseInt(themecastindex%8)).children().css('color','rgb(255, 255, 255)')
+					$('.main-themecast-categoryitem').eq(parseInt(themecastindex%8)).css('background-color','rgb(72, 107, 149)')
+					break;
+				case 10:
+					$('.main-themecast-categoryitem').eq(parseInt(themecastindex%8)).children().css('color','rgb(255, 255, 255)')
+					$('.main-themecast-categoryitem').eq(parseInt(themecastindex%8)).css('background-color','rgb(85, 204, 193)')
+					break;
+				case 11:
+					$('.main-themecast-categoryitem').eq(parseInt(themecastindex%8)).children().css('color','rgb(255, 255, 255)')
+					$('.main-themecast-categoryitem').eq(parseInt(themecastindex%8)).css('background-color','rgb(34, 90, 198)')
+					break;
+				case 12:
+					$('.main-themecast-categoryitem').eq(parseInt(themecastindex%8)).children().css('color','rgb(255, 255, 255)')
+					$('.main-themecast-categoryitem').eq(parseInt(themecastindex%8)).css('background-color','rgb(192, 141, 49)')
+					break;
+				case 13:
+					$('.main-themecast-categoryitem').eq(parseInt(themecastindex%8)).children().css('color','rgb(255, 255, 255)')
+					$('.main-themecast-categoryitem').eq(parseInt(themecastindex%8)).css('background-color','rgb(15, 181, 76)')
+					break;
+				case 14:
+					$('.main-themecast-categoryitem').eq(parseInt(themecastindex%8)).children().css('color','rgb(255, 255, 255)')
+					$('.main-themecast-categoryitem').eq(parseInt(themecastindex%8)).css('background-color','rgb(0, 126, 200)')
+					break;
+				case 15:
+					$('.main-themecast-categoryitem').eq(parseInt(themecastindex%8)).children().css('color','rgb(255, 255, 255)')
+					$('.main-themecast-categoryitem').eq(parseInt(themecastindex%8)).css('background-color','rgb(238, 114, 158)')
+					break;
+				case 16:
+					$('.main-themecast-categoryitem').eq(parseInt(themecastindex%8)).children().css('color','rgb(255, 255, 255)')
+					$('.main-themecast-categoryitem').eq(parseInt(themecastindex%8)).css('background-color','rgb(66, 190, 111)')
+					break;
+				case 17:
+					$('.main-themecast-categoryitem').eq(parseInt(themecastindex%8)).children().css('color','rgb(255, 255, 255)')
+					$('.main-themecast-categoryitem').eq(parseInt(themecastindex%8)).css('background-color','rgb(234, 191, 1)')
+					break;
+				case 18:
+					$('.main-themecast-categoryitem').eq(parseInt(themecastindex%8)).children().css('color','rgb(255, 255, 255)')
+					$('.main-themecast-categoryitem').eq(parseInt(themecastindex%8)).css('background-color','rgb(28, 48, 145)')
+					break;
+				case 19:
+					$('.main-themecast-categoryitem').eq(parseInt(themecastindex%8)).children().css('color','rgb(255, 255, 255)')
+					$('.main-themecast-categoryitem').eq(parseInt(themecastindex%8)).css('background-color','rgb(132, 73, 202)')
+					break;
+				case 20:
+					$('.main-themecast-categoryitem').eq(parseInt(themecastindex%8)).children().css('color','rgb(255, 255, 255)')
+					$('.main-themecast-categoryitem').eq(parseInt(themecastindex%8)).css('background-color','rgb(149, 95, 14)')
+					break;
+				case 21:
+					$('.main-themecast-categoryitem').eq(parseInt(themecastindex%8)).children().css('color','rgb(255, 255, 255)')
+					$('.main-themecast-categoryitem').eq(parseInt(themecastindex%8)).css('background-color','rgb(88, 83, 160)')
+					break;
+				case 22:
+					$('.main-themecast-categoryitem').eq(parseInt(themecastindex%8)).children().css('color','rgb(255, 255, 255)')
+					$('.main-themecast-categoryitem').eq(parseInt(themecastindex%8)).css('background-color','rgb(126, 37, 27)')
+					break;
+				case 23:
+					$('.main-themecast-categoryitem').eq(parseInt(themecastindex%8)).children().css('color','rgb(255, 255, 255)')
+					$('.main-themecast-categoryitem').eq(parseInt(themecastindex%8)).css('background-color','rgb(106, 204, 89)')
+					break;
+				case 24:
+					$('.main-themecast-categoryitem').eq(parseInt(themecastindex%8)).children().css('color','rgb(255, 255, 255)')
+					$('.main-themecast-categoryitem').eq(parseInt(themecastindex%8)).css('background-color','rgb(173, 172, 15)')
+					break;
+				case 25:
+					$('.main-themecast-categoryitem').eq(parseInt(themecastindex%8)).children().css('color','rgb(255, 255, 255)')
+					$('.main-themecast-categoryitem').eq(parseInt(themecastindex%8)).css('background-color','rgb(83, 162, 249)')
+					break;
+				case 26:
+					$('.main-themecast-categoryitem').eq(parseInt(themecastindex%8)).children().css('color','rgb(255, 255, 255)')
+					$('.main-themecast-categoryitem').eq(parseInt(themecastindex%8)).css('background-color','rgb(236, 175, 66)')
+					break;
+				default:
+					break;
+			}
+		}
+		$categoryitemcolor()
+		$categoryitembackground()
+		$categoryitembackgroundbt()
+		if(themecastindex==0){
+			$('.main-themecast-categoryprevbt').css('display','none')
+		}
+		if(themecastindex==themecastlist.length-1){
+			$('.main-themecast-categorynextbt').css('display','none')
+		}
 		$('.main-themecast-categorynextbt').click(function(){
-			console.log(themecastindex)
-			themecastindex++
-			if(themecastindex%0){
-				++themecastpage
-				$('.main-themecast-categorylolling').append($('.main-themecast-categorylolling').html)
-				for(var i=0; i<8;i++){
-					$('.main-themecast-categorylolling').children('.main-themecast-categorylist').eq(themecastpage).children('.main-themecast-categoryitem').eq(i).children().text(themecastlist[i+(themecastpage*8)])
-				}	
+			if(!$('.main-themecast-categorylolling').is(':animated')){
+				if(themecastindex<themecastlist.length-1){
+					themecastindex++
+					$('.main-themecast-categoryprevbt').css('display','block')
+					if(themecastindex%8==0){
+						++themecastpage
+						$('.main-themecast-categorylolling').append($('.main-themecast-categorylolling').html())
+						for(var i=0; i<8;i++){
+							if(i+(themecastpage*8)<themecastlist.length){
+								$('.main-themecast-categorylolling').children('.main-themecast-categorylist').eq(1).children('.main-themecast-categoryitem').eq(i).children().text(themecastlist[i+(themecastpage*8)])
+							}else{
+								$('.main-themecast-categorylolling').children('.main-themecast-categorylist').eq(1).children('.main-themecast-categoryitem').eq(i).children().text('')
+							}
+						}
+						$('.main-themecast-categorylolling').children().eq(1).children().eq(7).children().css('color','rgb(32, 32, 32)')
+						$('.main-themecast-categorylolling').children().eq(1).children().eq(7).css('background-color','rgb(255, 255, 255)')
+						$categoryitemcolor()
+						$categoryitembackground()
+						$('.main-themecast-categorylolling').animate({'margin-left': '-750px'},500,function(){
+							$('.main-themecast-categorylolling').children('.main-themecast-categorylist').eq(0).remove()
+							$categoryitembackgroundbt()
+							$('.main-themecast-categorylolling').css('margin-left', '0px')
+						})
+					}else{
+						$categoryitembackgroundbt()
+					}
+				}
+				if(themecastindex==themecastlist.length-1){
+					$(this).css('display','none')
+				}
+			}
+		})
+		$('.main-themecast-categoryprevbt').click(function(){
+			if(!$('.main-themecast-categorylolling').is(':animated')){
+				if(0<themecastindex){
+					$('.main-themecast-categorynextbt').css('display','block')
+					themecastindex--
+					if(themecastindex%8==7){
+						--themecastpage
+						$('.main-themecast-categorylolling').prepend($('.main-themecast-categorylolling').html())
+						for(var i=0; i<8;i++){
+							if(i+(themecastpage*8)<themecastlist.length){
+								$('.main-themecast-categorylolling').children('.main-themecast-categorylist').eq(0).children('.main-themecast-categoryitem').eq(i).children().text(themecastlist[i+(themecastpage*8)])
+							}else{
+								$('.main-themecast-categorylolling').children('.main-themecast-categorylist').eq(0).children('.main-themecast-categoryitem').eq(i).children().text('')
+							}
+						}
+						$('.main-themecast-categorylolling').children().eq(0).children().eq(0).children().css('color','rgb(32, 32, 32)')
+						$('.main-themecast-categorylolling').children().eq(0).children().eq(0).css('background-color','rgb(255, 255, 255)')
+						$categoryitemcolor()
+						$categoryitembackground()
+						$('.main-themecast-categorylolling').css('margin-left', '-750px')
+						$('.main-themecast-categorylolling').animate({'margin-left': '0px'},500,function(){
+							$('.main-themecast-categorylolling').children('.main-themecast-categorylist').eq(1).remove()
+							$categoryitembackgroundbt()
+						})
+					}else{
+						$categoryitembackgroundbt()
+					}	
+				}
+				if(themecastindex==0){
+					$(this).css('display','none')
+				}
 			}
 		})
 	</script>

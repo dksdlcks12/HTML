@@ -477,8 +477,8 @@ $(function(){
 					if(timesquareindex==timesquarelist.length){
 						timesquareindex=0
 					}
-					$('.main-timesquare-lolling').filter(":not(:animated)").append('<div class="main-timesquare-item">'+timesquarelist[timesquareindex]+'</div>')
-					$('.main-timesquare-lolling').filter(":not(:animated)").animate({'margin-left':'-281px'},400,function(){
+					$('.main-timesquare-lolling').append('<div class="main-timesquare-item">'+timesquarelist[timesquareindex]+'</div>')
+					$('.main-timesquare-lolling').animate({'margin-left':'-281px'},400,function(){
 						$('.main-timesquare-lolling').children().eq(0).remove()
 						$('.main-timesquare-lolling').css('margin-left', '0px')
 					})

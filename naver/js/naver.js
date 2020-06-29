@@ -1,5 +1,8 @@
 $(function(){
 	window.onload = function(){
+		$('.box-right-content').css({'left': '0px', 'bottom': '0%'})
+		scrollValue = 0
+		rightcontentbottom = 1950
 		setTimeout(function(){
 			scrollTo(0,0)
 		}, 100)

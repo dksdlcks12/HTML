@@ -2394,10 +2394,176 @@ color: rgb(3, 199, 90);
 .main-shopping-groupmalliconleftm5{
     margin: 10px 5px 0;
 }
+.main-shopping-groupmallcontent{
+    position: relative;
+    padding: 55px 7px 16px 9px;
+}
+.main-shopping-groupmallbt{
+    position: absolute;
+    top: 16px;
+    right: 8px;
+    text-align: right;
+}
+.main-shopping-groupmallnumbox{
+    float: left;
+    padding: 5px 0;
+    color: grey;
+}
+.main-shopping-groupmallnumnow{
+    font-weight: 700;
+    margin-right: 4px;
+    color: #202020;
+    font-style: normal;
+}
+.main-shopping-groupmallbtbox{
+    float: left;
+    overflow: hidden;
+    margin-left: 7px;
+}
+.main-shopping-groupmallprevbt{
+    float: left;
+    border: 1px solid #dae1e6;
+    background-color: #fff;
+}
+.main-shopping-groupmallprevbt::before{
+    display: inline-block;
+    width: 5px;
+    height: 9px;
+    margin: 8px 10px 7px 8px;
+    content: '';
+    vertical-align: top;
+    background-position: 0 -29px;
+}
+.main-shopping-groupmallprevbt:hover::before{
+    display: inline-block;
+    width: 5px;
+    height: 9px;
+    vertical-align: top;
+    background-position: -39px -14px;
+}
+.main-shopping-groupmallnextbt{
+    float: left;
+    border: 1px solid #dae1e6;
+    background-color: #fff;
+}
+.main-shopping-groupmallnextbt::before{
+    display: inline-block;
+    width: 5px;
+    height: 9px;
+    margin: 8px 8px 7px 10px;
+    content: '';
+    vertical-align: top;
+    background-position: -39px 0;
+}
+.main-shopping-groupmallnextbt:hover::before{
+    display: inline-block;
+    width: 5px;
+    height: 9px;
+    vertical-align: top;
+    background-position: -29px -14px;
+}
+.main-shopping-groupmallbtbox::after{
+    display: table;
+    clear: both;
+    table-layout: fixed;
+    content: '';
+}
+.main-shopping-groupmallbt::after{
+    display: table;
+    clear: both;
+    table-layout: fixed;
+    content: '';
+}
+.main-shopping-groupmallgoodsbox{
+    overflow: hidden;
+}
+.main-shopping-groupmallgoodslist{
+    margin-top: -18px;
+    overflow: hidden;
+    margin-right: -5px;
+}
+.main-shopping-groupmallgoodsitem{
+    margin-top: 18px;
+    float: left;
+    width: 107px;
+    margin-right: 5px;
+}
+.main-shopping-groupmallgoodsimg{
+    width: 107px;
+    height: 146px;
+}
+.main-shopping-groupmallgoodstitlebox{
+    margin-top: 9px;
+}
+.main-shopping-groupmallgoodstitle{
+    line-height: 18px;
+    display: block;
+    overflow: hidden;
+    text-align: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.main-shopping-groupmallpage{
+    margin-top: 17px;
+    text-align: center;
+}
+.main-shopping-groupmallpagenumbox{
+    display: inline-block;
+    min-width: 80px;
+    padding: 5px 0;
+    text-align: center;
+    vertical-align: top;
+    color: grey;
+}
+.main-shopping-groupmallpageprevbt{
+    display: inline-block;
+    vertical-align: top;
+    border: 1px solid #dae1e6;
+    background-color: #fff;
+}
+.main-shopping-groupmallpageprevbt::before{
+    display: inline-block;
+    width: 5px;
+    height: 9px;
+    margin: 8px 10px 7px 8px;
+    content: '';
+    vertical-align: top;
+    background-position: 0 -29px;
+}
+.main-shopping-groupmallpageprevbt:hover::before{
+    display: inline-block;
+    width: 5px;
+    height: 9px;
+    vertical-align: top;
+    background-position: -39px -14px;
+}
+.main-shopping-groupmallpagenextbt{
+    display: inline-block;
+    vertical-align: top;
+    border: 1px solid #dae1e6;
+    background-color: #fff;
+}
+.main-shopping-groupmallpagenextbt::before{
+    display: inline-block;
+    width: 5px;
+    height: 9px;
+    margin: 8px 8px 7px 10px;
+    content: '';
+    vertical-align: top;
+    background-position: -39px 0;
+}
+.main-shopping-groupmallpagenextbt:hover::before{
+    display: inline-block;
+    width: 5px;
+    height: 9px;
+    vertical-align: top;
+    background-position: -29px -14px;
+}
 /* 사이트 하단 */
 .box-container-footer{
-	height: 423px;
-	background-attachment: rgb(250, 251, 252);
+    height: 423px;
+    border-top: 1px solid #e4e8eb;
+    background-color: rgb(250, 251, 252);
 }
 /* 배경 이미지 클래스 */
 .bg-44265f, .bt-close::after, .defult-page::after, .more-bt::after, .setting-menu::before, .more-bt-on::after,
@@ -2416,6 +2582,12 @@ color: rgb(3, 199, 90);
     background-image: url(https://s.pstatic.net/static/www/img/uit/2020/sp_weather_time.284fc7.png);
     background-repeat: no-repeat;
     background-size: 199px 165px;
+}
+.main-shopping-groupmallprevbt::before, .main-shopping-groupmallnextbt::before, .main-shopping-groupmallpagenextbt::before,
+.main-shopping-groupmallpageprevbt::before{
+    background-image: url(https://s.pstatic.net/static/www/img/uit/2020/sp_shop.2ab465.png);
+    background-repeat: no-repeat;
+    background-size: 44px 38px;
 }
 .display-none{
 	display: none;

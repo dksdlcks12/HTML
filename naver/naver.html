@@ -1484,7 +1484,7 @@
 		var scrollValue = 0
 		var rightcontentbottom = $(window).height()+384
 		var rightcontenttop = 285
-		console.log((parseInt(Math.round(window.devicePixelRatio * 100))-parseInt(Math.round(window.devicePixelRatio * 100)%10))/10)
+		var zoomnum = (parseInt(Math.round(window.devicePixelRatio * 100))-parseInt(Math.round(window.devicePixelRatio * 100)%10))/10
 		$(window).scroll(function (){
 			var tmp = scrollValue-1
 			scrollValue = $(document).scrollTop()
@@ -1495,19 +1495,21 @@
 						$('.box-right-content').css({'left': '0px', 'bottom': '-'+($(window).height()+scrollValue-1935)+'px'})
 						if(($(window).height()+scrollValue)>3130){
 							$('.box-right-content').css({'left': '0px', 'bottom': '-42.5%'})
-							rightcontenttop = (rightcontentbottom - $(window).height()+760)
+							rightcontenttop = (rightcontentbottom - $(window).height()+(10-zoomnum)*190)
 							console.log(rightcontentbottom - ($(window).height()))
 						}else{
 							rightcontentbottom = $(window).height()+scrollValue
-							rightcontenttop = (rightcontentbottom - ($(window).height()-700))
+							rightcontenttop = (rightcontentbottom - ($(window).height()+100-(10-zoomnum)*200))
 						}
 					}else{
 						$('.box-right-content').css({'left': '0px', 'bottom': '-'+($(window).height()+scrollValue-1985)+'px'})
 						if(($(window).height()+scrollValue)>3130){
 							$('.box-right-content').css({'left': '0px', 'bottom': '-39%'})
+							rightcontenttop = (rightcontentbottom - $(window).height()+(10-zoomnum)*290)
+							console.log(rightcontentbottom - ($(window).height()))
 						}else{
 							rightcontentbottom = $(window).height()+scrollValue
-							rightcontenttop = (rightcontentbottom - $(window).height())
+							rightcontenttop = (rightcontentbottom - ($(window).height()+100-(10-zoomnum)*300))
 						}
 					}	
 				}		

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>rollingEx1</title>
+	<script src="//code.jquery.com/jquery-3.4.1.js"></script>
+	<style>
+		.boxview{
+			margin-left: 600px;
+			width: 300px;
+			height: 100px;
+			overflow: hidden;
+		}
+		.box0{
+			background-color: red;
+			width: 300px;
+			height: 100px;
+			position: relative;
+			float: left;
+		}
+		.box1{
+			background-color: yellow;
+			width: 300px;
+			height: 100px;
+			position: relative;
+			float: left;
+		}
+		.box2{
+			background-color: green;
+			width: 300px;
+			height: 100px;
+			position: relative;
+			float: left;
+		}
+		.bt{
+			width: 100px;
+			height: 50px;
+			border: 1px solid black;
+			box-sizing: border-box;
+			text-align: center;
+			line-height: 50px;
+			cursor: pointer;
+			margin-top: 20px;
+			margin-left: 600px;
+		}
+		.bt::selection{
+			background-color: rgba(255, 255, 255, 0);
+		}
+		.boxrolling{
+			position: relative;
+			width: 600px;
+			height: 100px;
+		}
+	</style>
+</head>
+<body>
+	<div class="boxview">
+		<div class="boxrolling">
+			<div class="box0"></div>
+		</div>
+	</div>
+	<script>
+		var cont = 1
+		function rollingview(){
+			return setInterval(function(){
+				$('.boxrolling').prepend('<div class="box'+cont+'"></div>')
+				$('.boxrolling').css('left','-300px')
+				$('.boxrolling').animate({'left': '0px'},600,function(){
+					$('.boxrolling').children('div').eq(1).remove()
+					++cont
+					if(cont==3){
+						cont=0
+					}
+				})
+			},3000)
+		}
+		var rolling = rollingview()
+		$('.boxrolling').hover(function(){
+			clearInterval(rolling)
+		}, function(){
+			rolling = rollingview()
+		})
+	</script>
+</body>
+</html>

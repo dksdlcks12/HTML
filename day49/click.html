@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>clickEx1</title>
+	<script src="//code.jquery.com/jquery-3.4.1.js"></script>
+	<style>
+		body{
+			padding: 100px 100px;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			float: left;
+		}
+		div+div{
+			margin-left: 100px;
+		}
+		.box2{
+			background-color: aquamarine;
+		}
+		.box3{
+			background-color: blue;
+		}
+		body::after{
+			display: block;
+			content: '';
+			clear: both;
+		}
+	</style>
+</head>
+<body>
+	<div class="box box1" style="background-color: aqua;"></div>
+	<div class="box box2"></div>
+	<div class="box box3"></div>
+	<script>
+		$('.box').click(function(){
+			alert($(this).css('background-color'))
+		})
+	</script>
+</body>
+</html>

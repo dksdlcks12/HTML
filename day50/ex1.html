@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ex1</title>
+	<script src="//code.jquery.com/jquery-3.4.1.js"></script>
+	<script src="https://kit.fontawesome.com/32a9fe5527.js" crossorigin="anonymous"></script>
+	<style>
+		*{
+			margin: 0;
+		}
+		.bt{
+			position: absolute;
+			top: 30px;
+			right: 10px;
+			font-size: 30px;
+			color: gray;
+			text-align: center;
+			z-index: 2;
+		}
+		.bt:hover{
+			color: black;
+		}
+		.bt[aria-selected=true]{
+			color: greenyellow;
+		}
+		.bt[aria-selected=true]:hover{
+			color: darkgreen;
+		}
+		.sidemenu{
+			position: absolute;
+			top: 30px;
+			right: -140px;
+			height: 700px;
+			width: 100px;
+			background-color: green;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<a href="#" class="bt" aria-selected="false"><i class="fas fa-bars"></i></a>
+	<ul class="sidemenu"></ul>
+	<script>
+		$(function(){
+			window.onload = function(){
+				setTimeout(function(){
+					scrollTo(0,0)
+				}, 200)
+			}
+			$('.bt').click(function(){
+				if(!$('.sidemenu').is(':animated')){
+					if($('.bt').attr('aria-selected')=='false'){
+						$('.sidemenu').css('display','block')
+						$('.sidemenu').animate({'right':'0'},200)
+						$('.bt').html('<i class="fas fa-times"></i>')		
+						$('.bt').attr('aria-selected','true')
+					}else{
+						$('.sidemenu').animate({'right':'-140px'},200,function(){
+							$('.sidemenu').css('display','none')
+						})
+						$('.bt').html('<i class="fas fa-bars"></i>')
+						$('.bt').attr('aria-selected','false')					
+					}
+				}
+			})
+		})
+	</script>
+</body>
+</html>

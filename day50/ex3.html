@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ex3</title>
+	<script src="//code.jquery.com/jquery-3.4.1.js"></script>
+	<style>
+		*{margin: 0; padding: 0;}
+		ul{
+			list-style: none;
+		}
+		.header{
+			position: relative;
+			margin: 0 auto;
+			margin-top: 20px;
+			background-color: turquoise;
+			border: 1px solid black;
+			box-sizing: border-box;
+			width: 900px;
+			height: 100px;
+		}
+		.menu{
+			width: calc(100% / 3);
+			height: 100%;
+			float: left;
+			border-left: 1px solid black;
+			box-sizing: border-box;
+			text-align: center;
+			line-height: 100px;
+		}
+		.header::after{
+			clear: both;
+			display: block;
+			content: '';
+		}
+		.menu:first-of-type{
+			border: none;
+		}
+		.contentbox{
+			position: absolute;
+			top : 150px;
+			left: calc(50% - 450px);
+			width: 900px;
+			height: 500px;
+			border: 1px solid black;
+			box-sizing: border-box;
+		}
+		.contentbox>*{
+			height: 100%;
+			text-align: center;
+			line-height: 400px;
+			display: none;
+		}
+		.content1[aria-selected=true]{
+			background-color: blanchedalmond;
+		}
+		.content2[aria-selected=true]{
+			background-color: burlywood;
+		}
+		.content3[aria-selected=true]{
+			background-color: cadetblue;
+		}
+	</style>
+</head>
+<body>
+	<ul class="header">
+		<li class="menu" data-target="content1">메뉴1</li>
+		<li class="menu" data-target="content2">메뉴2</li>
+		<li class="menu" data-target="content3">메뉴3</li>
+	</ul>
+	<div class="contentbox">
+		<div class="content1" aria-selected="false">컨텐츠1</div>
+		<div class="content2" aria-selected="false">컨텐츠2</div>
+		<div class="content3" aria-selected="false">컨텐츠3</div>
+	</div>
+	<script>
+		$(function(){
+			$('.menu').click(function(){
+				$('.contentbox').children().css('display','none').attr('aria-selected', 'false')
+				$('.'+$(this).attr('data-target')).css('display','block').attr('aria-selected', 'true')
+			})
+		})
+	</script>
+</body>
+</html>

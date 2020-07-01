@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>rollingEx1</title>
+	<script src="//code.jquery.com/jquery-3.4.1.js"></script>
+	<style>
+		.boxview{
+			margin-left: 600px;
+			width: 300px;
+			height: 100px;
+			overflow: hidden;
+		}
+		.box0{
+			background-image: url('https://ssl.pstatic.net/tveta/libs/1285/1285371/3cf85e99b732868b4269_20200630174253829.jpg');
+			background-size: 300px 100px;
+			background-repeat: no-repeat;
+			width: 300px;
+			height: 100px;
+			position: relative;
+			float: left;
+		}
+		.box1{
+			background-image: url('https://ssl.pstatic.net/tveta/libs/1292/1292855/cfb464c0d63291e253af_20200619120901586.jpg');
+			background-size: 300px 100px;
+			background-repeat: no-repeat;
+			width: 300px;
+			height: 100px;
+			position: relative;
+			float: left;
+			
+		}
+		.box2{
+			background-image: url('https://ssl.pstatic.net/tveta/libs/1285/1285371/ae9e2bfe996665026038_20200630174504549.jpg');
+			background-size: 300px 100px;
+			background-repeat: no-repeat;
+			width: 300px;
+			height: 100px;
+			position: relative;
+			float: left;
+		}
+		.bt::selection{
+			background-color: rgba(255, 255, 255, 0);
+		}
+		.boxrolling{
+			position: relative;
+			width: 600px;
+			height: 100px;
+		}
+		.prevbt{
+			position: absolute;
+			float: left;
+			z-index: 2;
+			left : 608px;
+			top : 45px;
+			border: 1px solid #e4e8eb;;
+			background-color: ivory;
+
+		}
+		.prevbt::before{
+			display: inline-block;
+ 			width: 6px;
+ 			height: 9px;
+ 			margin: 7px 8px 6px;
+ 			content: '';
+ 			vertical-align: top;
+ 			background-position: -265px -218px;
+		}
+		.nextbt{
+			position: absolute;
+			float: left;
+			z-index: 2;
+			left : 884px;
+			top : 45px;
+			border: 1px solid #e4e8eb;;
+			background-color: ivory;
+
+		}
+		.nextbt::before{
+			display: inline-block;
+    		width: 6px;
+    		height: 9px;
+    		margin: 7px 8px 6px;
+    		content: '';
+    		vertical-align: top;
+    		background-position: -417px -147px;
+		}
+		.prevbt::before, .nextbt::before{
+			background-image: url(https://s.pstatic.net/static/www/img/uit/2020/sp_main.44265f.png);
+    		background-repeat: no-repeat;
+    		background-size: 471px 442px;
+		}
+	</style>
+</head>
+<body>
+	<a href="#" class="bt prevbt"></a>
+	<a href="#" class="bt nextbt"></a>
+	<div class="boxview">
+		<div class="boxrolling">
+			<div class="box0"></div>
+		</div>
+	</div>
+	<script>
+		var cont = 0
+		function rollingview(){
+			return setInterval(function(){
+				++cont
+				if(cont==3){
+					cont=0
+				}
+				$('.boxrolling').prepend('<div class="box'+cont+'"></div>')
+				$('.boxrolling').css('left','-300px')
+				$('.boxrolling').animate({'left': '0px'},600,function(){
+					$('.boxrolling').children('div').eq(1).remove()
+				})
+			},3000)
+		}
+		var rolling = rollingview()
+		$('.boxrolling').hover(function(){
+			clearInterval(rolling)
+		}, function(){
+			rolling = rollingview()
+		})
+		$('.bt').hover(function(){
+			clearInterval(rolling)
+		}, function(){
+			rolling = rollingview()
+		})
+		$('.prevbt').click(function(){
+			if(!$('.boxrolling').is(':animated')){
+				--cont
+				if(cont==-1){
+					cont=2
+				}
+				$('.boxrolling').append('<div class="box'+cont+'"></div>')
+				$('.boxrolling').css('left','0px')
+				$('.boxrolling').animate({'left': '-300px'},600,function(){
+					$('.boxrolling').children('div').eq(0).remove()
+					$('.boxrolling').css('left','0px')
+				})
+			}
+		})
+		$('.nextbt').click(function(){
+			if(!$('.boxrolling').is(':animated')){
+				++cont
+				if(cont==3){
+					cont=0
+				}
+				$('.boxrolling').prepend('<div class="box'+cont+'"></div>')
+				$('.boxrolling').css('left','-300px')
+				$('.boxrolling').animate({'left': '0px'},600,function(){
+					$('.boxrolling').children('div').eq(1).remove()
+				})
+			}	
+		})
+	</script>
+</body>
+</html>

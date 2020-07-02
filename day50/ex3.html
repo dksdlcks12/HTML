@@ -5,6 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>ex3</title>
 	<script src="//code.jquery.com/jquery-3.4.1.js"></script>
+	<script src="https://kit.fontawesome.com/32a9fe5527.js" crossorigin="anonymous"></script>
 	<style>
 		*{margin: 0; padding: 0;}
 		ul{
@@ -14,28 +15,53 @@
 			position: relative;
 			margin: 0 auto;
 			margin-top: 20px;
+			box-sizing: border-box;
+			width: 900px;
+			height: 100px;
+		}
+		.headerview{
+			position: relative;
 			background-color: turquoise;
 			border: 1px solid black;
 			box-sizing: border-box;
 			width: 900px;
 			height: 100px;
+			overflow: hidden;
+		}
+		.headerrolling{
+			position: relative;
+			width: 1800px;
+			height: 100%;
+		}
+		.menubox{
+			width:900px;
+			height: 100%;
+			float: left;
 		}
 		.menu{
-			width: calc(100% / 3);
+			width: 300px;
 			height: 100%;
 			float: left;
 			border-left: 1px solid black;
 			box-sizing: border-box;
 			text-align: center;
 			line-height: 100px;
+			cursor: pointer;
 		}
-		.header::after{
+		.headerview::after{
 			clear: both;
 			display: block;
 			content: '';
 		}
 		.menu:first-of-type{
 			border: none;
+		}
+		.menu[aria-selected=true]{
+			background-color: aqua
+		}
+		.menutitle{
+			color: black;
+			text-decoration: none;
 		}
 		.contentbox{
 			position: absolute;
@@ -61,24 +87,154 @@
 		.content3[aria-selected=true]{
 			background-color: cadetblue;
 		}
+		.menu::selection, .contentbox>*::selection{
+			background-color: rgba(255, 255, 255, 0);
+		}
+		.prevbt{
+			position: absolute;
+			z-index: 2;
+			background-color: white;
+			display: block;
+			width: 30px;
+			height: 30px;
+			text-align: center;
+			line-height: 28px;
+			box-sizing: border-box;
+			border: 1px solid grey;
+			border-radius: 15px;
+			font-size: 20px;
+			top: 35px;
+			left: -15px;
+		}
+		.nextbt{
+			position: absolute;
+			z-index: 2;
+			background-color: white;
+			display: block;
+			width: 30px;
+			height: 30px;
+			text-align: center;
+			line-height: 28px;
+			box-sizing: border-box;
+			border: 1px solid grey;
+			border-radius: 15px;
+			font-size: 20px;
+			top: 35px;
+			right: -15px;
+		}
 	</style>
 </head>
 <body>
-	<ul class="header">
-		<li class="menu" data-target="content1">메뉴1</li>
-		<li class="menu" data-target="content2">메뉴2</li>
-		<li class="menu" data-target="content3">메뉴3</li>
-	</ul>
+	<div class="header">
+		<a href="#" class="prevbt"><i class="fas fa-angle-left"></i></a>
+		<ul class="headerview">
+			<div class="headerrolling">
+				<div class="menubox">
+					<li class="menu" data-target="content1" aria-selected="true">메뉴1</li>
+					<li class="menu" data-target="content2" aria-selected="false">메뉴2</li>
+					<li class="menu" data-target="content3" aria-selected="false">메뉴3</li>
+				</div>
+			</div>
+		</ul>
+		<a href="#" class="nextbt"><i class="fas fa-angle-right"></i></a>
+	</div>
 	<div class="contentbox">
-		<div class="content1" aria-selected="false">컨텐츠1</div>
+		<div class="content1" aria-selected="true">컨텐츠1</div>
 		<div class="content2" aria-selected="false">컨텐츠2</div>
 		<div class="content3" aria-selected="false">컨텐츠3</div>
+		<div class="content4" aria-selected="false">컨텐츠4</div>
+		<div class="content5" aria-selected="false">컨텐츠5</div>
+		<div class="content6" aria-selected="false">컨텐츠6</div>
 	</div>
 	<script>
 		$(function(){
-			$('.menu').click(function(){
-				$('.contentbox').children().css('display','none').attr('aria-selected', 'false')
-				$('.'+$(this).attr('data-target')).css('display','block').attr('aria-selected', 'true')
+			var pagenum = 0
+			var menuindex = 0
+			$('.content1').css('display','block')
+			$menuclick = function(){
+				$('.menu').click(function(){
+					menuindex=$(this).index()
+					$('.menu').attr('aria-selected', 'false')
+					$('.contentbox').children().css('display','none').attr('aria-selected', 'false')
+					$('.'+$(this).attr('data-target')).css('display','block').attr('aria-selected', 'true')
+					$(this).attr('aria-selected', 'true')
+					if(pagenum*3+menuindex==5){
+						$('.nextbt').css('display','none')
+					}else{
+						$('.nextbt').css('display','block')
+					}
+					if(pagenum*3+menuindex==0){
+						$('.prevbt').css('display','none')
+					}else{
+						$('.prevbt').css('display','block')
+					}
+				})
+			}
+			if(pagenum*3+menuindex==0){
+				$('.prevbt').css('display','none')
+			}
+			$menuclick()
+			$('.nextbt').click(function(){
+				if(!$('.headerrolling').is(':animated')){
+					$('.prevbt').css('display','block')
+					++menuindex
+					if(menuindex==3){
+						++pagenum
+						menuindex=0
+						$('.headerrolling').append('<div class="menubox"></div>')
+						for(var i=0; i<3; ++i){
+							$('.menubox').eq(1).append('<li class="menu" data-target="content'+((pagenum*3)+i+1)+'" aria-selected="false">메뉴'+((pagenum*3)+i+1)+'</li>')
+						}
+						$('.headerrolling').animate({'left':'-900px'}, 600, function(){
+							$('.menubox').eq(0).remove()
+							$('.headerrolling').css('left','0')
+							$('.menu').attr('aria-selected', 'false')
+							$('.contentbox').children().css('display','none').attr('aria-selected', 'false')
+							$('.menu').eq(menuindex).attr('aria-selected', 'true')
+							$('.'+$('.menu').eq(menuindex).attr('data-target')).css('display','block').attr('aria-selected', 'true')
+							$menuclick()
+						})
+					}else{
+						$('.menu').attr('aria-selected', 'false')
+						$('.contentbox').children().css('display','none').attr('aria-selected', 'false')
+						$('.menu').eq(menuindex).attr('aria-selected', 'true')
+						$('.'+$('.menu').eq(menuindex).attr('data-target')).css('display','block').attr('aria-selected', 'true')
+					}
+				}
+				if(pagenum*3+menuindex==5){
+				$('.nextbt').css('display','none')
+				}
+			})
+			$('.prevbt').click(function(){
+				if(!$('.headerrolling').is(':animated')){
+					$('.nextbt').css('display','block')
+					--menuindex
+					if(menuindex==-1){
+						--pagenum
+						menuindex=2
+						$('.headerrolling').prepend('<div class="menubox"></div>')
+						for(var i=0; i<3; ++i){
+							$('.menubox').eq(0).append('<li class="menu" data-target="content'+((pagenum*3)+i+1)+'" aria-selected="false">메뉴'+((pagenum*3)+i+1)+'</li>')
+						}
+						$('.headerrolling').css('left','-900px')
+						$('.headerrolling').animate({'left':'0px'}, 600, function(){
+							$('.menubox').eq(1).remove()
+							$('.menu').attr('aria-selected', 'false')
+							$('.contentbox').children().css('display','none').attr('aria-selected', 'false')
+							$('.menu').eq(menuindex).attr('aria-selected', 'true')
+							$('.'+$('.menu').eq(menuindex).attr('data-target')).css('display','block').attr('aria-selected', 'true')
+							$menuclick()
+						})
+					}else{
+						$('.menu').attr('aria-selected', 'false')
+						$('.contentbox').children().css('display','none').attr('aria-selected', 'false')
+						$('.menu').eq(menuindex).attr('aria-selected', 'true')
+						$('.'+$('.menu').eq(menuindex).attr('data-target')).css('display','block').attr('aria-selected', 'true')
+					}
+				}
+				if(pagenum*3+menuindex==0){
+				$('.prevbt').css('display','none')
+				}
 			})
 		})
 	</script>

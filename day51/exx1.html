@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ex1</title>
+	<script src="//code.jquery.com/jquery-3.4.1.js"></script>
+	<style>
+		*{margin: 0; padding: 0; outline-style: none;}
+		.board{
+			position: relative;
+			width: 400px;
+			top: 50px;
+			left: calc(50% - 200px);
+			border: 1px solid black;
+			box-sizing: border-box;
+		}
+		.input{
+			position: relative;
+			width: 100%;
+			height: 100px;
+			background-color: blanchedalmond;
+		}
+		.title{
+			position: absolute;
+			top: 15px;
+			left: 10px;
+			width: 50px;
+			height: 70px;
+			text-align: center;
+			line-height: 70px;
+			cursor: default;
+		}
+		.title::selection{
+			background-color: rgba(255, 255, 255, 0);
+		}
+		.input .title{
+			border: 1px solid black;
+			line-height: 68px;
+			box-sizing: border-box;
+		}
+		.text{
+			position: absolute;
+			height: 70px;
+			width: 235px;
+			left: 70px;
+			top: 15px;
+			border: 1px solid black;
+			resize: none;
+			box-sizing: border-box;
+		}
+		.text[readonly=readonly]{
+			cursor: default;
+		}
+		.inputbt, .delbt{
+			position: absolute;
+			display: block;
+			height: 70px;
+			width: 70px;
+			top: 15px;
+			left: 315px;
+			border: 1px solid black;
+			box-sizing: border-box;
+			color: black;
+			text-align: center;
+			text-decoration: none;
+			line-height: 68px;
+		}
+		.output{
+			position: relative;
+			width: 100%;
+			height: 100px;
+			background-color: blanchedalmond;
+		}
+		.output .title{
+			left: 0;
+			width: 70px;
+		}
+		.output>*{
+			height: auto;
+			line-height: normal;
+		}
+	</style>
+</head>
+<body>
+	<div class="board">
+		<div class="input">
+			<span class="title">댓글</span>
+			<textarea name="" id="" cols="auto" rows="auto" maxlength="300" class="text"></textarea>
+			<a href="#" class="inputbt">등록</a>
+		</div>
+	</div>
+	<script>
+		$(function(){
+			var cont = 1
+			$('.inputbt').click(function(){
+				if($('.input .text').val()!=''){
+					$('.input').before('<div class="output"></div>')
+					$('.output').eq(($('.input').index()-1)).append($('.input').html())
+					$('.output').eq(($('.input').index()-1)).children('.inputbt').attr('class','delbt').text('삭제')
+					$('.board').children('.output').eq(($('.input').index()-1)).children('.text').attr('readonly','true').val($('.input .text').val())
+					$('.board').children('.output').eq(($('.input').index()-1)).children('.title').text('작성자'+cont)
+					$('.input .text').val('')
+					$('.delbt').click(function(){
+						$(this).parent().remove()
+					})
+					cont++
+				}
+			})
+		})
+	</script>
+</body>
+</html>

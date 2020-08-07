@@ -12,31 +12,26 @@
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
     <title>게시판 글쓰기 화면(공통)</title>
+    <script type="text/javascript">
+        $(document).ready( function() {
+            $("#contents").load("user_tilesSet.html");        
+        });
+	</script>
+	<div id="contents"></div>
     <style>
 		*{
             margin: 0;
             padding: 0;
 		}
-        .header{
-            height: 150px;
-            width: 1400px;
-            background-color: limegreen;
-            margin: 0 auto;
-		}
-		.banner{
-            width: 100%;
-            height: 150px;
-            background-color: mediumaquamarine;
-        }
-		.user-boardWrite-box{
+		.common-boardWrite-box{
             width: 1400px;
 			height: 100%;
-			padding: 50px 0;
+			padding: 100px 0 50px 0;
             margin: 0 auto;
 			background-color: palegoldenrod;
 			box-sizing: border-box;
 		}
-        .user-boardWrite-writeBox{
+        .common-boardWrite-writeBox{
             width: 1000px;
             height: 100%;
             margin-left: 200px;
@@ -44,7 +39,7 @@
             background-color: cadetblue;
             box-sizing: border-box;
         }
-        .user-boardWrite-titleBox{
+        .common-boardWrite-titleBox{
             width: 900px;
             height: 40px;   
             margin-left: 50px;
@@ -52,60 +47,66 @@
             border-color: black;
             border-collapse: collapse;
         }
-        .user-boardWrite-rowTitle{
+        .common-boardWrite-rowTitle{
             background-color: blanchedalmond;
             width: 30%;
             text-align: center;
             font-size: 30px;
         }
-        .user-boardWrite-rowContent{
+        .common-boardWrite-rowContent{
             background-color: azure;
         }
-        .user-boardWrite-title{
+        .common-boardWrite-title{
             width: 730px;
             height: 45px;
             outline: none;
             padding: 0 20px;
             font-size: 20px;
+            border: none;
             box-sizing: border-box;
         }
-        .user-boardWrite-password{
+        .common-boardWrite-password, .common-boardWrite-reviewWriter{
             height: 45px;
             outline: none;
             padding: 0 20px;
             font-size: 20px;
+            border: none;
+            border-right: 1px solid black;
             box-sizing: border-box;
         }
-        .user-boardWrite-Content{
+        .common-boardWrite-Content{
             width: 900px;
             margin-left: 50px;
             margin-bottom: 30px;
         }
-        .user-boardWrite-button{
+        .common-boardWrite-button{
             margin-left: calc(50% - 50px);
             width: 100px;
             height: 40px;
             font-size: 20px;
         }
 	</style>
-	<div class="header"></div>
-	<div class="banner"></div>
 </head>
 <body>
-	<div class="user-boardWrite-box">
-		<div class="user-boardWrite-writeBox">
+	<div class="common-boardWrite-box">
+		<div class="common-boardWrite-writeBox">
             <form action="">
-                <table class="user-boardWrite-titleBox" border="1">
+                <table class="common-boardWrite-titleBox" border="1">
                     <tr>
-                        <td class="user-boardWrite-rowTitle">제 목</td>
-                        <td class="user-boardWrite-rowContent"><input type="text" class="user-boardWrite-title"></td>
+                        <td class="common-boardWrite-rowTitle">제 목</td>
+                        <td class="common-boardWrite-rowContent"><input type="text" class="common-boardWrite-title"></td>
+                    </tr>
+                    <!-- 리뷰에서만 작성자와 비밀번호 사용 -->
+                    <tr>
+                        <td class="common-boardWrite-rowTitle">작성자</td>
+                        <td class="common-boardWrite-rowContent"><input type="text" class="common-boardWrite-reviewWriter"></td>
                     </tr>
                     <tr>
-                        <td class="user-boardWrite-rowTitle">비밀번호</td>
-                        <td class="user-boardWrite-rowContent"><input type="text" class="user-boardWrite-password"></td>
+                        <td class="common-boardWrite-rowTitle">비밀번호</td>
+                        <td class="common-boardWrite-rowContent"><input type="text" class="common-boardWrite-password"></td>
                     </tr>
                 </table>
-                <div class="user-boardWrite-Content">
+                <div class="common-boardWrite-Content">
                     <div id="summernote"></div>
                         <script>
                         $('#summernote').summernote({
@@ -121,9 +122,10 @@
                         });
                         </script>
                 </div>
-                <button class="user-boardWrite-button">등 록</button>
+                <button class="common-boardWrite-button">등 록</button>
             </form>
         </div>
 	</div>
 </body>
+<footer><div id="contents"></div></footer>
 </html>

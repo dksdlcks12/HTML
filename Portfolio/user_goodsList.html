@@ -8,23 +8,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 	<script src="https://kit.fontawesome.com/32a9fe5527.js" crossorigin="anonymous"></script>
-    <title>이용자 제품리스트 화면</title>
+	<title>이용자 제품리스트 화면</title>
+	<script type="text/javascript">
+        $(document).ready( function() {
+            $("#contents").load("user_tilesSet.html");        
+        });
+	</script>
+	<div id="contents"></div>
     <style>
         *{
             margin: 0;
             padding: 0;
 		}
-        .header{
-            height: 150px;
-            width: 1400px;
-            background-color: limegreen;
-            margin: 0 auto;
-		}
-		.banner{
-            width: 100%;
-            height: 150px;
-            background-color: mediumaquamarine;
-        }
 		a{
 			text-decoration: none;
 			color: black;
@@ -35,8 +30,7 @@
 		}
         .user-goodsList-box{
             width: 1400px;
-			height: 100%;
-			padding: 50px 0;
+			padding: 100px 0 50px 0;
             margin: 0 auto;
 			background-color: palegoldenrod;
 			box-sizing: border-box;
@@ -48,6 +42,7 @@
 		.user-goodsList-goodsListBox{
 			margin: 0 auto;
 			width: 1320px;
+			height: auto;
 			background-color: cadetblue;
 		}
 		.user-goodsList-goodsBox{
@@ -168,4 +163,5 @@
 		</ul>
     </div>
 </body>
+<footer><div id="contents"></div></footer>
 </html>

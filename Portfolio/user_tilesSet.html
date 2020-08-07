@@ -10,6 +10,7 @@
 		*{
 			margin: 0;
 			padding: 0;
+			color: black;
 		}
 		body{
 			width: 100%;
@@ -24,12 +25,15 @@
 		li{
 			list-style: none;
 		}
-		a{
+		a, a:hover{
 			text-decoration: none;
 			color: black;
 		}
+		a:hover{
+			color: white;
+		}
 		.user-set-center{
-			height: 100%;
+			height: auto;
 			position: relative;
 			margin: 0 auto;
 			width: 1400px;
@@ -55,6 +59,7 @@
 			float: left;
 		}
 		.user-set-topMenuBox{
+			margin: 0;
 			height: 50px;
 			width: 100%;
 			padding: 10px;
@@ -120,7 +125,14 @@
 			width: 60px;
 			height: 60px;
 			box-sizing: border-box;
+			position: relative;
 			float: left;
+		}
+		.user-set-searchButton>i{
+			font-size: 20px;
+			position: absolute;
+			top: 20px;
+			left: 20px;
 		}
 		.user-set-banner{
 			position: relative;
@@ -177,7 +189,6 @@
 		}
 		.user-set-goodsCloseImg{
 			font-size: 30px;
-			color: black;
 		}
 		.user-set-goodsList-pageBox{
 			height: 40px;
@@ -225,7 +236,7 @@
 					</ul>
 					<div class="user-set-searchBox">
 						<input type="text" class="user-set-search" placeholder="Search">
-						<button class="user-set-searchButton" type="submit">Go</button>
+						<button class="user-set-searchButton" type="submit"><i class="fas fa-search"></i></button>
 					</div>
 				</ul>
 			</div>

@@ -7,31 +7,26 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-    <title>이용자 메인화면</title>
+	<title>이용자 메인화면</title>
+	<script src="//code.jquery.com/jquery-3.4.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready( function() {
+            $("#contents").load("user_tilesSet.html");        
+        });
+    </script>
+    <div id="contents"></div>
     <style>
         *{
             margin: 0;
             padding: 0;
 		}
-        .header{
-            height: 150px;
-            width: 1400px;
-            background-color: limegreen;
-            margin: 0 auto;
-		}
-		.banner{
-            width: 100%;
-            height: 150px;
-            background-color: mediumaquamarine;
-        }
 		a, a:hover{
 			text-decoration: none;
 			color: black;
 		}
         .user-main-box{
             width: 1400px;
-			height: 100%;
-			padding: 50px 0;
+			padding: 100px 0 50px 0;
             margin: 0 auto;
 			background-color: palegoldenrod;
 			box-sizing: border-box;
@@ -108,8 +103,6 @@
 			display: block;
 		}
     </style>
-	<div class="header"></div>
-	<div class="banner"></div>
 </head>
 <body>
     <div class="user-main-box"> 
@@ -237,4 +230,5 @@
 		</div>
     </div>
 </body>
+<footer><div id="contents"></div></footer>
 </html>

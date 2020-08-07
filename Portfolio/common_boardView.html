@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>게시판 조회</title>
+	<script src="//code.jquery.com/jquery-3.4.1.js"></script>
+	<script type="text/javascript">
+        $(document).ready( function() {
+            $("#contents").load("user_tilesSet.html");        
+        });
+	</script>
+	<div id="contents"></div>
+    <style>
+		*{
+            margin: 0;
+            padding: 0;
+		}
+		td{
+			cursor: default;
+		}
+		.common-boardView-box{
+            width: 1400px;
+			height: 620px;
+			padding: 100px 0 50px 0;
+            margin: 0 auto;
+			background-color: palegoldenrod;
+			box-sizing: border-box;
+		}
+        .common-boardView-ViewBox{
+            width: 1000px;
+            padding: 30px 0;
+			margin: 0 auto;
+            box-sizing: border-box;
+			background-color: aquamarine;
+        }
+		.common-boardView-titleBox{
+            width: 900px;
+            height: 40px;   
+            margin-left: 50px;
+            margin-bottom: 30px;
+            border-color: black;
+            border-collapse: collapse;
+        }
+        .common-boardView-rowTitle{
+            background-color: blanchedalmond;
+            width: 30%;
+            text-align: center;
+            font-size: 30px;
+        }
+        .common-boardView-rowContent{
+            background-color: azure;
+			font-size: 25px;
+			padding-left: 20px;
+			box-sizing: border-box;
+        }
+		.common-boardView-menu{
+			width: 25%;
+			height: 45px;
+			background-color: blanchedalmond;
+			text-align: center;
+			font-size: 25px;
+		}
+		.common-boardView-menu:nth-child(even){
+			background-color: azure;
+		}
+		.common-boardView-content{
+			width: 900px;
+			height: auto;
+			padding: 30px 0;
+			margin-left: 50px;
+			background-color: azure;
+			box-sizing: border-box;
+		}
+		.common-boardView-button{
+			margin-top: 20px;
+			width: 100px;
+			height: 40px;
+			font-size: 25px;
+		}
+		.common-boardView-goList{
+			margin-left: 50px;
+		}
+		.common-boardView-goModify{
+			margin-left: 580px;
+		}
+		.common-boardView-goDelete{
+			margin-left: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div class="common-boardView-box">
+		<div class="common-boardView-ViewBox">
+			<table class="common-boardView-titleBox" border="1">
+				<tr>
+					<td class="common-boardView-rowTitle">제 목</td>
+					<td class="common-boardView-rowContent" colspan="3"></td>
+				</tr>
+				<!-- 리뷰에서만 작성자와 비밀번호 사용 -->
+				<tr>
+					<td class="common-boardView-menu">작 성 자</td>
+					<td class="common-boardView-menu"></td>
+					<td class="common-boardView-menu">게 시 일</td>
+					<td class="common-boardView-menu"></td>
+				</tr>
+			</table>
+			<div class="common-boardView-content"></div>
+			<div></div>
+			<button class="common-boardView-button common-boardView-goList">목 록</button>
+			<button class="common-boardView-button common-boardView-goModify">수 정</button>
+			<button class="common-boardView-button common-boardView-goDelete">삭 제</button>
+		</div>
+	</div>
+</body>
+<footer><div id="contents"></div></footer>
+</html>

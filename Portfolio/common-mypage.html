@@ -7,7 +7,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-	<title>이용자 회원가입 화면</title>
+	<title>마이페이지(공통)</title>
 	<script src="//code.jquery.com/jquery-3.4.1.js"></script>
     <script type="text/javascript">
         $(document).ready( function() {
@@ -20,48 +20,50 @@
             margin: 0;
             padding: 0;
 		}
-		.user-signup-box{
+		.user-mypage-box{
             width: 1400px;
+			height: 620px;
 			padding: 100px 0 50px 0;
             margin: 0 auto;
 			background-color: palegoldenrod;
 			box-sizing: border-box;
 		}
-        .user-signup-signupBox{
+        .user-mypage-mypageBox{
             width: 1000px;
             margin: 0 auto;
             background-color: aqua;
             padding: 20px 50px;
             box-sizing: border-box;
+			position: relative;
         }
-		.user-signup-title{
+		.user-mypage-title{
 			margin-bottom: 20px;
 		}
-		.user-signup-table{
+		.user-mypage-table{
 			width: 900px;
 			margin-bottom: 40px;
 			border-color: black;
 		}
-		.user-signup-rowTitle{
+		.user-mypage-rowTitle{
 			width: 200px;
 			height: 40px;
 			font-size: 20px;
 			text-align: center;
 			background-color: lightpink;
 		}
-		.user-signup-rowContent{
+		.user-mypage-rowContent{
 			width: 700px;
 			height: 40px;
 			background-color: ivory;
 			padding-left: 10px;
 			box-sizing: border-box;
 		}
-		.user-signup-inputInfo{
+		.user-mypage-inputInfo{
 			width: 200px;
 			height: 20px;
 			font-size: 15px;
 		}
-		.user-signup-lawBox, .user-signup-personalInfoConsent{
+		.user-mypage-lawBox, .user-mypage-personalInfoConsent{
 			width: 900px;
 			height: 220px;
 			margin-bottom: 30px;
@@ -69,66 +71,61 @@
 			background-color: mistyrose;
 			box-sizing: border-box;
 		}
-		.user-signup-lawInfo{
+		.user-mypage-lawInfo{
 			margin-top: 10px;
 			width: 850px;
 			height: 120px;
 			resize: none;
 		}
-		.user-signup-lawSpan{
+		.user-mypage-lawSpan{
 			font-size: 15px;	
 		}
-		.user-signup-termsOfUse{
+		.user-mypage-termsOfUse{
 			margin: 0 5px;
 			width: 15px;
 			height: 15px;
 			cursor: pointer;
 		}
-		.user-signup-signupButton{
+		.user-mypage-mypageButton{
 			width: 200px;
 			height: 50px;
 			font-size: 30px;
 			margin-left: calc(50% - 100px);
 		}
+		.user-mypage-memberOut{
+			width: 200px;
+			height: 50px;
+			font-size: 30px;
+			position: absolute;
+			right: 50px;
+		}
 	</style>
 </head>
 <body>
-	<div class="user-signup-box">
-		<div class="user-signup-signupBox">
-			<h3 class="user-signup-title">회 원 가 입</h3>
+	<div class="user-mypage-box">
+		<div class="user-mypage-mypageBox">
+			<h3 class="user-mypage-title">마 이 페 이 지</h3>
 			<form action="">
-				<table class="user-signup-table" border="1">
+				<table class="user-mypage-table" border="1">
 					<tbody>
 						<tr>
-							<td class="user-signup-rowTitle">아이디(필수)</td>
-							<td class="user-signup-rowContent"><input type="text" class="user-signup-inputInfo"> (영문자, 숫자 8~16자)</td>
+							<td class="user-mypage-rowTitle">비밀번호 수정</td>
+							<td class="user-mypage-rowContent"><input type="password" class="user-mypage-inputInfo"> (영문자, 숫자 포함 4~8자)</td>
 						</tr>
 						<tr>
-							<td class="user-signup-rowTitle">비밀번호(필수)</td>
-							<td class="user-signup-rowContent"><input type="password" class="user-signup-inputInfo"> (영문자, 숫자 포함 4~8자)</td>
+							<td class="user-mypage-rowTitle">비밀번호 확인</td>
+							<td class="user-mypage-rowContent"><input type="password" class="user-mypage-inputInfo"></td>
 						</tr>
 						<tr>
-							<td class="user-signup-rowTitle">비밀번호 확인(필수)</td>
-							<td class="user-signup-rowContent"><input type="password" class="user-signup-inputInfo"></td>
-						</tr>
-						<tr>
-							<td class="user-signup-rowTitle">이메일(필수)</td>
-							<td class="user-signup-rowContent"><input type="email" class="user-signup-inputInfo"> (비밀번호를 찾을 때 필요합니다.)</td>
+							<td class="user-mypage-rowTitle">이메일 수정</td>
+							<td class="user-mypage-rowContent"><input type="email" class="user-mypage-inputInfo"></td>
 						</tr>
 					</tbody>
 				</table>
-				<div class="user-signup-lawBox">
-					<h3>이용약관</h3>
-					<textarea class="user-signup-lawInfo" readonly></textarea>
-					<span class="user-signup-lawSpan">이용약관에 동의 하십니까?</span><input type="checkbox" class="user-signup-termsOfUse"><span class="user-signup-lawSpan">동의함</span>
-				</div>
-				<div class="user-signup-personalInfoConsent">
-					<h3>개인정보 수집 및 이용 동의</h3>
-					<textarea class="user-signup-lawInfo" readonly></textarea>
-					<span class="user-signup-lawSpan">개인정보 수집 및 이용에 동의하십니까?</span><input type="checkbox" class="user-signup-termsOfUse"><span class="user-signup-lawSpan">동의함</span>
-				</div>
-				<button class="user-signup-signupButton">회 원 가 입</button>
+				<button class="user-mypage-mypageButton">수 정 완 료</button>
+				<a href="#"><button type="button" class="user-mypage-memberOut">회 원 탈 퇴</button></a>
 			</form>
+			
         </div>
 	</div>
 </body>

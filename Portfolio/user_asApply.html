@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이용자 AS신청 화면</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready( function() {
+            $("#contents").load("user_tilesSet.html");        
+        });
+    </script>
+    <div id="contents"></div>
+    <style>
+		*{
+            margin: 0;
+            padding: 0;
+		}
+		.user-asApply-box{
+            width: 1400px;
+			padding: 100px 0 50px 0;
+            margin: 0 auto;
+			background-color: palegoldenrod;
+			box-sizing: border-box;
+		}
+        .user-asApply-asApplyBox{
+            width: 1200px;
+            margin-left: 100px;
+            background-color: lavender;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+        .user-asApply-asApplyBox>h2{
+            margin-left: 100px;
+        }
+        .user-asApply-asApplyInfoBox{
+            width: 1000px;
+            margin-left: 100px;
+            background-color: lemonchiffon;
+            padding: 10px 0 10px 0;
+        }
+        .user-asApply-orderNumberBox{
+            width: 400px;
+            height: 50px;
+            background-color: lightcyan;
+        }
+        .user-asApply-orderNumberBox>*{
+            display: inline-block;
+            width: 200px;
+            height: 50px;
+            border: 1px solid black;
+            box-sizing: border-box;
+            font-size: 20px;
+            text-align: center;
+            line-height: 50px;
+        }
+        .user-asApply-orderNumberBox>div+div{
+            border-left: none;
+        }
+        .user-asApply-goodsBox{
+            width: 980px;
+            margin-top: 20px;
+            background-color: cyan;
+            border-collapse: collapse;
+            border-color: black;
+        }
+        .user-asApply-goodsCheck, .user-asApply-goodsCheckAll{
+            cursor: pointer;
+        }
+        .user-asApply-goodsCheck{
+            margin-left: 17px;
+        }
+        .user-asApply-goodsImgTitle{
+            width: 10%;
+        }
+        .user-asApply-goodsInfoTitle{
+            width: 50%;
+        }
+        .user-asApply-goodsPriceTitle{
+            width: 20%;
+        }
+        .user-asApply-goddsCountTitle{
+            width: 15%;
+        }
+        .user-asApply-goodsImg>img{
+            margin: 5px;
+            width: 90px;
+            height: 90px;
+        }
+        .user-asApply-goodsInfo{
+            padding-left: 10px;
+            font-size: 20px;
+        }
+        .user-asApply-goodsPrice{
+            text-align: right;
+            font-size: 20px;
+            padding-right: 10px;
+        }
+        .user-asApply-goddsCount{
+            font-size: 20px;
+            width: 60px;
+            text-align: center;
+        }
+		.user-asApply-asOptionBox{
+			width: 1000px;
+			height: 50px;
+			position: relative;
+		}
+        .user-asApply-selectGoodsBox{
+            width: 700px;
+            height: 50px;
+            margin-top: 20px;
+            background-color: lightcyan;
+            box-sizing: border-box;
+            border: 1px solid black;
+        }
+        .user-asApply-selectGoodsTitle{
+            width: 200px;
+            height: 50px;
+            text-align: center;
+            font-size: 25px;
+            line-height: 50px;
+            box-sizing: border-box;
+            border-right: 1px solid black;
+            float: left;
+        }
+        .user-asApply-selectGoods{
+            width: 488px;
+            height: 50px;
+            margin-left: 10px;
+            font-size: 15px;
+            line-height: 50px;
+            float: left;
+        }
+        .user-asApply-asApplyInfoBox h2{
+            margin-top: 10px;
+        }
+		.user-asApply-board{
+			margin-top: 10px;
+			width: 1000px;
+			height: 150px;
+			resize: none;
+		}
+		.user-asApply-button{
+			margin-top: 10px;
+			margin-left: calc(50% - 100px);
+			width: 200px;
+			height: 50px;
+			font-size: 30px;
+		}
+	</style>
+</head>
+<body>
+	<div class="user-asApply-box">
+		<div class="user-asApply-asApplyBox">
+            <h2>A/S신청</h2>
+            <div class="user-asApply-asApplyInfoBox">
+				<form>
+					<div class="user-asApply-orderNumberBox">
+						<div>주문번호</div><div>1</div>
+					</div>
+					<div style="overflow-x: hidden;width:1000px;height: 200px;">
+						<table class="user-asApply-goodsBox" border="1">
+							<tr>
+								<th><input type="checkbox" class="user-asApply-goodsCheckAll"></th>
+								<th class="user-asApply-goodsImgTitle">이미지</th>
+                                <th class="user-asApply-goodsInfoTitle">제품 정보</th>
+                                <th class="user-asApply-goodsPriceTitle">판매가</th>
+								<th class="user-asApply-goddsCountTitle">수량</th>
+							</tr>
+							<tr>
+								<td><input type="checkbox" class="user-asApply-goodsCheck"></td>
+								<td class="user-asApply-goodsImg"><img src="상품대용.gif" alt="" ></td>
+                                <td class="user-asApply-goodsInfo"></td>
+                                <td class="user-asApply-goodsPrice"></td>
+								<td class="user-asApply-goddsCount"></td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" class="user-asApply-goodsCheck"></td>
+								<td class="user-asApply-goodsImg"><img src="상품대용.gif" alt="" ></td>
+                                <td class="user-asApply-goodsInfo"></td>
+                                <td class="user-asApply-goodsPrice"></td>
+								<td class="user-asApply-goddsCount"></td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" class="user-asApply-goodsCheck"></td>
+								<td class="user-asApply-goodsImg"><img src="상품대용.gif" alt="" ></td>
+                                <td class="user-asApply-goodsInfo"></td>
+                                <td class="user-asApply-goodsPrice"></td>
+								<td class="user-asApply-goddsCount"></td>
+							</tr>
+						</table>
+					</div>
+					<div class="user-asApply-asOptionBox">
+						<div class="user-asApply-selectGoodsBox">
+							<div class="user-asApply-selectGoodsTitle">선택된 상품명</div><div class="user-asApply-selectGoods"></div>
+						</div>
+                    </div>
+                    <h2>상세설명</h2>
+                    <div id="summernote" class="user-asApply-board"></div>
+                    <script>
+                      $('#summernote').summernote({
+                            tabsize: 2,
+                            height: 300,
+                            lang : 'ko-KR',
+                            toolbar: [
+                                ['style', ['style']],
+                                ['font', ['bold', 'underline', 'clear']],
+                                ['color', ['color']],
+                                ['insert', ['picture']],
+                            ]
+                        });
+                    </script>
+					<button class="user-asApply-button">A/S신청</button>
+				</form>
+			</div>
+        </div>
+	</div>
+</body>
+<footer><div id="contents"></div></footer>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/32a9fe5527.js" crossorigin="anonymous"></script>
+    <title>이용자 주문조회</title>
+    <script src="//code.jquery.com/jquery-3.4.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready( function() {
+            $("#contents").load("user_tilesSet.html");        
+        });
+    </script>
+    <div id="contents"></div>
+    <style>
+		*{
+            margin: 0;
+            padding: 0;
+		}
+        input[type="number"]::-webkit-inner-spin-button {
+			-webkit-appearance: none;
+			margin: 0;
+		}
+		.user-orderView-box{
+            width: 1400px;
+			padding: 100px 0 50px 0;
+            margin: 0 auto;
+			background-color: palegoldenrod;
+			box-sizing: border-box;
+		}
+        .user-orderView-orderViewBox{
+            width: 1200px;
+            background-color: cornsilk;
+            padding: 50px 0;
+            margin-left: 100px;
+        }
+        .user-orderView-goodsBox{
+            width: 1000px;
+            background-color: cyan;
+            margin-left: 100px;
+            margin-bottom: 30px;
+            border-collapse: collapse;
+            border-color: black;
+        }
+        .user-orderView-goodsCheck, .user-orderView-goodsCheckAll{
+            cursor: pointer;
+        }
+        .user-orderView-goodsCheck{
+            margin-left: 19px;
+        }
+        .user-orderView-goodsImgTitle{
+            width: 10%;
+        }
+        .user-orderView-goodsInfoTitle{
+            width: 20%;
+        }
+        .user-orderView-addressTitle{
+            width: 30%;
+        }
+        .user-orderView-goodsPriceTitle{
+            width: 20%;
+        }
+        .user-orderView-goddsCountTitle{
+            width: 15%;
+        }
+        .user-orderView-goodsImg>img{
+            margin: 5px;
+            width: 90px;
+            height: 90px;
+        }
+        .user-orderView-goodsInfo{
+            padding-left: 10px;
+            font-size: 20px;
+        }
+        .user-orderView-address{
+            padding-left: 10px;
+            font-size: 20px;
+        }
+        .user-orderView-goodsPrice{
+            text-align: right;
+            font-size: 20px;
+            padding-right: 10px;
+        }
+        .user-orderView-goddsCount>input{
+            font-size: 20px;
+            width: 60px;
+            margin-left: 45px;
+            text-align: right;
+        }
+        .user-orderView-orderViewBox::after{
+            clear: both;
+            content: '';
+            display: block;
+        }
+    </style>
+</head>
+<body>
+	<div class="user-orderView-box">
+        <div class="user-orderView-orderViewBox">
+            <table class="user-orderView-goodsBox" border="1">
+                <tr>
+                    <th><input type="checkbox" class="user-orderView-goodsCheckAll"></th>
+                    <th class="user-orderView-goodsImgTitle">이미지</th>
+                    <th class="user-orderView-goodsInfoTitle">제품 정보</th>
+                    <th class="user-orderView-addressTitle">배송지</th>
+                    <th class="user-orderView-goodsPriceTitle">판매가</th>
+                    <th class="user-orderView-goddsCountTitle">수량</th>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="user-orderView-goodsCheck"></td>
+                    <td class="user-orderView-goodsImg"><img src="상품대용.gif" alt="" ></td>
+                    <td class="user-orderView-goodsInfo"></td>
+                    <td class="user-orderView-address"></td>
+                    <td class="user-orderView-goodsPrice"></td>
+                    <td class="user-orderView-goddsCount"><input type="number"></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="user-orderView-goodsCheck"></td>
+                    <td class="user-orderView-goodsImg"><img src="상품대용.gif" alt="" ></td>
+                    <td class="user-orderView-goodsInfo"></td>
+                    <td class="user-orderView-address"></td>
+                    <td class="user-orderView-goodsPrice"></td>
+                    <td class="user-orderView-goddsCount"><input type="number"></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="user-orderView-goodsCheck"></td>
+                    <td class="user-orderView-goodsImg"><img src="상품대용.gif" alt="" ></td>
+                    <td class="user-orderView-goodsInfo"></td>
+                    <td class="user-orderView-address"></td>
+                    <td class="user-orderView-goodsPrice"></td>
+                    <td class="user-orderView-goddsCount"><input type="number"></td>
+                </tr>
+            </table>
+        </div>
+	</div>
+</body>
+<footer>
+    <div id="contents"></div>
+</footer>
+</html>

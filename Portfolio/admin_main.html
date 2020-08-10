@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>관리자 메인화면</title>
+    <script src="//code.jquery.com/jquery-3.4.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready( function() {
+            $("#contents").load("user_tilesSet.html");        
+        });
+    </script>
+    <div id="contents"></div>
+    <style>
+		*{
+            margin: 0;
+            padding: 0;
+		}
+		.admin-main-box{
+            width: 1400px;
+			padding: 100px 0 50px 0;
+            margin: 0 auto;
+			background-color: palegoldenrod;
+			box-sizing: border-box;
+		}
+        .admin-main-box>*{
+            margin-left: 100px;
+        }
+        .admin-main-contentBox{
+            width: 1200px;
+            height: 187px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            background-color: cornsilk;
+        }
+        .admin-main-leftContent{
+            width: 500px;
+            height: 187px;
+            float: left;
+            border: 1px solid black;
+            box-sizing: border-box;
+        }
+        .admin-main-boardLine{
+            border-bottom: 1px solid black;
+            width: 500px;
+            height: 30px;
+        }
+        .admin-main-boardTitle{
+			width: 310px;
+			margin-left: 10px;
+			float: left;
+            line-height: 30px;
+		}
+		.admin-main-boardDate{
+			width: 180px;
+            height: 30px;
+            border-left: 1px solid black;
+			text-align: center;
+            box-sizing: border-box;
+            line-height: 30px;
+			float: left;
+		}
+        .admin-main-rightContent{
+            width: 700px;
+            height: 187px;
+            border: 1px solid black;
+            border-left: none;
+            float: left;
+            box-sizing: border-box;
+            font-size: 40px;
+            text-align: center;
+            line-height: 180px;
+        }
+	</style>
+</head>
+<body>
+	<div class="admin-main-box">
+        <h2 class="admin-main-title">미확인 주문</h2>
+        <div class="admin-main-contentBox">
+            <div class="admin-main-leftContent">
+                <div class="admin-main-boardLine">
+                    <a href="#" class="admin-main-board">
+                        <div class="admin-main-boardTitle">미확인 주문 1</div>
+                    </a>
+                        <div class="admin-main-boardDate">2020/08/10 11:33:22</div>
+                </div>
+            </div>
+            <div class="admin-main-rightContent">
+                미확인 주문 개수 : n개
+            </div>
+        </div>
+        <h2 class="admin-main-title">미확인 반품</h2>
+        <div class="admin-main-contentBox">
+            <div class="admin-main-leftContent">
+                <div class="admin-main-boardLine">
+                    <a href="#" class="admin-main-board">
+                        <div class="admin-main-boardTitle">미확인 반품 1</div>
+                    </a>
+                        <div class="admin-main-boardDate">2020/08/10 11:33:22</div>
+                </div>
+            </div>
+            <div class="admin-main-rightContent">
+                미확인 반품 개수 : n개
+            </div>
+        </div>
+        <h2 class="admin-main-title">미확인 A/S</h2>
+        <div class="admin-main-contentBox">
+            <div class="admin-main-leftContent">
+                <div class="admin-main-boardLine">
+                    <a href="#" class="admin-main-board">
+                        <div class="admin-main-boardTitle">미확인 A/S 1</div>
+                    </a>
+                        <div class="admin-main-boardDate">2020/08/10 11:33:22</div>
+                </div>
+            </div>
+            <div class="admin-main-rightContent">
+                미확인 A/S 개수 : n개
+            </div>
+        </div>
+        <h2 class="admin-main-title">미확인 Q&A</h2>
+        <div class="admin-main-contentBox">
+            <div class="admin-main-leftContent">
+                <div class="admin-main-boardLine">
+                    <a href="#" class="admin-main-board">
+                        <div class="admin-main-boardTitle">미확인 Q&A 1</div>
+                    </a>
+                        <div class="admin-main-boardDate">2020/08/10 11:33:22</div>
+                </div>
+            </div>
+            <div class="admin-main-rightContent">
+                미확인 Q&A 개수 : n개
+            </div>
+        </div>
+	</div>
+</body>
+<footer><div id="contents"></div></footer>
+</html>

@@ -17,6 +17,10 @@
             margin: 0;
             padding: 0;
 		}
+        input[type="number"]::-webkit-inner-spin-button {
+			-webkit-appearance: none;
+			margin: 0;
+		}
 		.user-cart-box{
             width: 1400px;
 			padding: 100px 0 50px 0;
@@ -113,21 +117,21 @@
                     <td class="user-cart-goodsImg"><img src="상품대용.gif" alt="" ></td>
                     <td class="user-cart-goodsInfo"></td>
                     <td class="user-cart-goodsPrice"></td>
-                    <td class="user-cart-goddsCount"><input type="text"></td>
+                    <td class="user-cart-goddsCount"><input type="number"></td>
                 </tr>
                 <tr>
                     <td><input type="checkbox" class="user-cart-goodsCheck"></td>
                     <td class="user-cart-goodsImg"><img src="상품대용.gif" alt="" ></td>
                     <td class="user-cart-goodsInfo"></td>
                     <td class="user-cart-goodsPrice"></td>
-                    <td class="user-cart-goddsCount"><input type="text"></td>
+                    <td class="user-cart-goddsCount"><input type="number"></td>
                 </tr>
                 <tr>
                     <td><input type="checkbox" class="user-cart-goodsCheck"></td>
                     <td class="user-cart-goodsImg"><img src="상품대용.gif" alt="" ></td>
                     <td class="user-cart-goodsInfo"></td>
                     <td class="user-cart-goodsPrice"></td>
-                    <td class="user-cart-goddsCount"><input type="text"></td>
+                    <td class="user-cart-goddsCount"><input type="number"></td>
                 </tr>
             </table>
             <button class="user-cart-sendCart">선택상품 장바구니 이동</button>

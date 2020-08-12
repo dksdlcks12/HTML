@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>관리자 반품 조회</title>
+    <script src="//code.jquery.com/jquery-3.4.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready( function() {
+            $("#contents").load("user_tilesSet.html");        
+        });
+    </script>
+    <div id="contents"></div>
+    <style>
+		*{
+            margin: 0;
+            padding: 0;
+		}
+		.admin-recallView-box{
+            width: 1400px;
+			padding: 100px 0 50px 0;
+            margin: 0 auto;
+			background-color: palegoldenrod;
+			box-sizing: border-box;
+		}
+		.admin-recallView-recallViewBox{
+			width: 1200px;
+			margin-left: 100px;
+			padding: 20px 0 20px 0;
+			background-color: blanchedalmond;
+			box-sizing: border-box;
+		}
+		.admin-recallView-recallViewBox>h2{
+			margin-left: calc(50% - 50px);
+			margin-bottom: 20px;
+		}
+		.admin-recallView-recallNumberBox, .admin-recallView-recallGoodsTitleBox, .admin-recallView-recallGoodsBox, .admin-recallView-recallStateBox{
+			position: relative;
+			width: 800px;
+			height: 50px;
+			margin-left: 100px;
+			background-color: cornsilk;
+			border: 1px solid black;
+			border-right: none;
+			margin-bottom: 20px;
+		}
+		.admin-recallView-recallNumberBox>*, .admin-recallView-recallGoodsTitleBox>*, .admin-recallView-recallGoodsBox>*, .admin-recallView-recallStateBox>*{
+			position: absolute;
+			width: 200px;
+			height: 50px;
+			background-color: honeydew;
+			font-size: 25px;
+			line-height: 50px;
+			text-align: center;
+			border-right: 1px solid black;
+			box-sizing: border-box;
+		}
+		.admin-recallView-recallNumber{
+			left: 200px;
+		}
+		.admin-recallView-orderTitleNumber{
+			left: 400px;
+		}
+		.admin-recallView-orderNumber{
+			left: 600px;
+		}
+		.admin-recallView-recallGoodsTitleBox, .admin-recallView-recallGoodsBox{
+			width: 1000px;
+			margin-bottom: 0;
+		}
+		.admin-recallView-recallGoodsBox{
+			border-top: none;
+		}
+		.admin-recallView-recallGoodsTitleType, .admin-recallView-recallGoodsType{
+			width: 150px;
+		}
+		.admin-recallView-recallGoodsTitleName, .admin-recallView-recallGoodsName{
+			width: 500px;
+			left: 150px;
+		}
+		.admin-recallView-recallGoodsTitleColor, .admin-recallView-recallGoodsColor{
+			left: 650px;
+		}
+		.admin-recallView-recallGoodsTitleCount, .admin-recallView-recallGoodsCount{
+			width: 150px;
+			left: 850px;
+		}
+		.admin-recallView-recallGoodsName{
+			text-align: left;
+			padding-left: 10px;
+		}
+		.admin-recallView-recallReasonBox{
+			width: 300px;
+			height: 50px;
+			margin: 10px 0 0 100px;
+			position: relative;
+		}
+		.admin-recallView-recallReasonBox>*{
+			width: 150px;
+			height: 50px;
+			position: absolute;
+			border: 1px solid black;
+			box-sizing: border-box;
+			text-align: center;
+			font-size: 25px;
+			line-height: 50px;
+			background-color: honeydew;
+		}
+		.admin-recallView-recallReasonBox>div:nth-of-type(2){
+			left: 150px;
+		}
+		.admin-recallView-board{
+			margin: 10px 0 0 100px;
+			width: 1000px;
+			border: 1px solid black;
+            box-sizing: border-box;
+            background-color: white;
+            padding: 20px;
+		}
+		.admin-recallView-recallStateBox{
+			margin-top: 10px;
+			width: 400px;
+		}
+		.admin-recallView-recallState{
+			left: 200px;
+			padding-left: 10px;
+		}
+		.admin-recallView-recallStateButton{
+			width: 200px;
+			height: 50px;
+			font-size: 25px;
+			margin-left: calc(50% - 100px);
+		}
+	</style>
+</head>
+<body>
+	<div class="admin-recallView-box">
+		<div class="admin-recallView-recallViewBox">
+			<h2>반품조회</h2>
+			<div class="admin-recallView-recallNumberBox">
+				<div class="admin-recallView-recallTitleNumber">
+					반품번호
+				</div>
+				<div class="admin-recallView-recallNumber">
+					1
+				</div>
+				<div class="admin-recallView-orderTitleNumber">
+					주문번호
+				</div>
+				<div class="admin-recallView-orderNumber">
+					1
+				</div>
+			</div>
+			<div class="admin-recallView-recallGoodsTitleBox">
+				<div class="admin-recallView-recallGoodsTitleType">제품타입</div>
+				<div class="admin-recallView-recallGoodsTitleName">제품명</div>
+				<div class="admin-recallView-recallGoodsTitleColor">색상</div>
+				<div class="admin-recallView-recallGoodsTitleCount">반품량</div>
+			</div>
+			<div class="admin-recallView-recallGoodsBox">
+				<div class="admin-recallView-recallGoodsType"></div>
+				<div class="admin-recallView-recallGoodsName"></div>
+				<div class="admin-recallView-recallGoodsColor"></div>
+				<div class="admin-recallView-recallGoodsCount"></div>
+			</div>
+			<div class="admin-recallView-recallGoodsBox">
+				<div class="admin-recallView-recallGoodsType"></div>
+				<div class="admin-recallView-recallGoodsName"></div>
+				<div class="admin-recallView-recallGoodsColor"></div>
+				<div class="admin-recallView-recallGoodsCount"></div>
+			</div>
+			<div class="admin-recallView-recallGoodsBox">
+				<div class="admin-recallView-recallGoodsType"></div>
+				<div class="admin-recallView-recallGoodsName"></div>
+				<div class="admin-recallView-recallGoodsColor"></div>
+				<div class="admin-recallView-recallGoodsCount"></div>
+			</div>
+			<div class="admin-recallView-recallReasonBox">
+				<div>반품사유</div><div></div>
+			</div>
+			<div class="admin-recallView-board"></div>
+			<form action="#">
+				<div class="admin-recallView-recallStateBox">
+					<div class="admin-recallView-recallTitleState">반품상태</div>
+					<select name="" id="" class="admin-recallView-recallState">
+						<option value="0">미확인</option>
+						<option value="1">반품 대기</option>
+						<option value="2">배송 중</option>
+						<option value="3">반품 완료</option>
+						<option value="4">반품 불가</option>
+					</select>
+				</div>
+				<button class="admin-recallView-recallStateButton">반품상태 수정</button>
+			</form>
+		</div>
+	</div>
+</body>
+<footer><div id="contents"></div></footer>
+</html>

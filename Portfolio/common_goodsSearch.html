@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+	<script src="https://kit.fontawesome.com/32a9fe5527.js" crossorigin="anonymous"></script>
+	<title>이용자 제품 검색화면</title>
+	<script type="text/javascript">
+        $(document).ready( function() {
+            $("#contents").load("common_tilesSet.html");        
+        });
+	</script>
+	<div id="contents"></div>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+		}
+		a{
+			text-decoration: none;
+			color: black;
+		}
+		a:hover{
+			text-decoration: none;
+			color: black;
+		}
+		input[type="number"]::-webkit-inner-spin-button {
+			-webkit-appearance: none;
+			margin: 0;
+		}
+		.common-goodsSearch-optionBox{
+			width: 1200px;
+			padding-top: 10px;
+			padding-bottom: 10px;
+			margin-left: 100px;
+			margin-bottom: 50px;
+			background-color: aliceblue;
+			position: relative;
+		}
+		.common-goodsSearch-optionBox>h2{
+			margin-left: 30px;
+		}
+		.common-goodSearch-optionSubBox{
+			height: 50px;
+			margin: 10px 0 10px 20px;
+			position: relative;
+		}
+		.common-goodsSearch-optionTitle{
+			width: 200px;
+			height: 50px;
+			background-color: aquamarine;
+			text-align: center;
+			line-height: 50px;
+			font-size: 30px;
+		}
+		.common-goodsSearch-option{
+			width: 200px;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 220px;
+		}
+		.common-goodsSearch-option + span{
+			position: absolute;
+			top: 0;
+			left: 440px;
+			font-size: 60px;
+			line-height: 40px;
+		}
+		span + .common-goodsSearch-option{
+			left: 500px;
+		}
+		.common-goodSearch-optionSearchButton{
+			width: 200px;
+			height: 50px;
+			position: absolute;
+			bottom: 20px;
+			right: 20px;
+			font-size: 30px;
+		}
+        .common-goodsSearch-box{
+            width: 1400px;
+			padding: 100px 0 50px 0;
+            margin: 0 auto;
+			background-color: palegoldenrod;
+			box-sizing: border-box;
+		}
+		.common-goodsSearch-goodsTitle{
+			margin-left: 50px;
+			margin-bottom: 30px;
+		}
+		.common-goodsSearch-goodsSearchBox{
+			margin: 0 auto;
+			width: 1320px;
+			height: auto;
+			background-color: cadetblue;
+		}
+		.common-goodsSearch-goodsBox{
+			width: 300px;
+			height: 380px;
+			background-color: chartreuse;
+			float: left;
+			margin: 15px;
+		}
+		.common-goodsSearch-goods{
+			width: 100%;
+			height: 300px;
+			background-color: cyan;
+		}
+		.common-goodsSearch-goodsInfo{
+			width: 100%;
+			height: 80px;
+			background-color: darkgray;
+		}
+		.common-goodsSearch-goodsName{
+			width: 100%;
+			height: 50px;
+			background-color: cornsilk;
+		}
+		.common-goodsSearch-goodsPrice{
+			width: 100%;
+			height: 30px;
+			background-color: lightpink;
+		}
+		.common-goodsSearch-pagination>*{
+			width: 50px;
+			font-size: 30px;
+			text-align: center;
+		}
+		.common-goodsSearch-goodsSearchBox::after{
+			clear: both;
+			content: '';
+			display: block;
+		}
+    </style>
+	<div class="header"></div>
+	<div class="banner"></div>
+</head>
+<body>
+    <div class="common-goodsSearch-box"> 
+		<div class="common-goodsSearch-optionBox">
+			<h2>상세검색</h2>
+			<div class="common-goodSearch-optionSubBox"><div class="common-goodsSearch-optionTitle">제품명</div><input type="text" class="common-goodsSearch-option"></div>
+			<div class="common-goodSearch-optionSubBox"><div class="common-goodsSearch-optionTitle">가격</div><input type="number" class="common-goodsSearch-option"><span>~</span><input type="text" class="common-goodsSearch-option"></div>
+			<div class="common-goodSearch-optionSubBox"><div class="common-goodsSearch-optionTitle">할인율</div><input type="number" class="common-goodsSearch-option"><span>~</span><input type="text" class="common-goodsSearch-option"></div>
+			<button class="common-goodSearch-optionSearchButton">검 색</button>
+		</div>
+		<div class="common-goodsSearch-goodsSearchBox">
+			<div class="common-goodsSearch-goodsBox">
+				<img src="상품대용.gif" class="common-goodsSearch-goods">
+				<div class="common-goodsSearch-goodsInfo">
+					<div class="common-goodsSearch-goodsName">제품명</div>
+					<div class="common-goodsSearch-goodsPrice">제품 가격</div>
+				</div>
+			</div>
+			<div class="common-goodsSearch-goodsBox">
+				<img src="배경11.jpg" class="common-goodsSearch-goods">
+				<div class="common-goodsSearch-goodsInfo">
+					<div class="common-goodsSearch-goodsName"></div>
+					<div class="common-goodsSearch-goodsPrice"></div>
+				</div>
+			</div>
+			<div class="common-goodsSearch-goodsBox">
+				<img src="배경13.jpg" class="common-goodsSearch-goods">
+				<div class="common-goodsSearch-goodsInfo">
+					<div class="common-goodsSearch-goodsName"></div>
+					<div class="common-goodsSearch-goodsPrice"></div>
+				</div>
+			</div>
+			<div class="common-goodsSearch-goodsBox">
+				<img src="배경4.jpg" class="common-goodsSearch-goods">
+				<div class="common-goodsSearch-goodsInfo">
+					<div class="common-goodsSearch-goodsName"></div>
+					<div class="common-goodsSearch-goodsPrice"></div>
+				</div>
+			</div>
+			<div class="common-goodsSearch-goodsBox">
+				<img src="상품대용.gif" class="common-goodsSearch-goods">
+				<div class="common-goodsSearch-goodsInfo">
+					<div class="common-goodsSearch-goodsName"></div>
+					<div class="common-goodsSearch-goodsPrice"></div>
+				</div>
+			</div>
+			<div class="common-goodsSearch-goodsBox">
+				<img src="상품대용.gif" class="common-goodsSearch-goods">
+				<div class="common-goodsSearch-goodsInfo">
+					<div class="common-goodsSearch-goodsName"></div>
+					<div class="common-goodsSearch-goodsPrice"></div>
+				</div>
+			</div>
+			<div class="common-goodsSearch-goodsBox">
+				<img src="상품대용.gif" class="common-goodsSearch-goods">
+				<div class="common-goodsSearch-goodsInfo">
+					<div class="common-goodsSearch-goodsName"></div>
+					<div class="common-goodsSearch-goodsPrice"></div>
+				</div>
+			</div>
+			<div class="common-goodsSearch-goodsBox">
+				<img src="상품대용.gif" class="common-goodsSearch-goods">
+				<div class="common-goodsSearch-goodsInfo">
+					<div class="common-goodsSearch-goodsName"></div>
+					<div class="common-goodsSearch-goodsPrice"></div>
+				</div>
+			</div>
+			<div class="common-goodsSearch-goodsBox">
+				<img src="상품대용.gif" class="common-goodsSearch-goods">
+				<div class="common-goodsSearch-goodsInfo">
+					<div class="common-goodsSearch-goodsName"></div>
+					<div class="common-goodsSearch-goodsPrice"></div>
+				</div>
+			</div>
+		</div>
+		<ul class="common-goodsSearch-pagination pagination justify-content-center">
+			<li class="page-item"><a class="page-link" href="#"><i class="fas fa-angle-left"></i></a></li>
+			<li class="page-item"><a class="page-link" href="#">1</a></li>
+			<li class="page-item active"><a class="page-link" href="#">2</a></li>
+			<li class="page-item"><a class="page-link" href="#">3</a></li>
+			<li class="page-item"><a class="page-link" href="#"><i class="fas fa-angle-right"></i></a></li>
+		</ul>
+    </div>
+</body>
+<footer><div id="contents"></div></footer>
+</html>

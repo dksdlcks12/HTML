@@ -154,15 +154,15 @@
 			z-index: 10;
 		}
 		.user-set-orderCheck, .user-set-deliveryCheck,  .user-set-csTel{
-			height: 60px;
+			height: 40px;
 			background-color: aqua;
-			margin-bottom: 20px;
-			font-size: 35px;
+			margin-bottom: 10px;
+			font-size: 25px;
 			text-align: center;
-			line-height: 60px;
+			line-height: 40px;
 		}
 		.user-set-csTel{
-			height: 130px;
+			height: 80px;
 		}
 		.user-set-latelyViewGoodsList{
 			height: 370px;
@@ -222,19 +222,20 @@
 			height: 30px;
 			width: 120px;
 			font-size: 20px;
-			margin:0 8px;
+			margin:0 15px;
 			background-color: cornsilk;
 			text-align: center;
 			float: left;
 		}
 		.admin-set-loginInfo{
-			width: 210px;
+			width: 250px;
 		}
 		.admin-set-rightInfo{
+			padding-top: 5px;
 			height: 150px;
 			background-color: aqua;
 			margin-bottom: 20px;
-			font-size: 35px;
+			font-size: 30px;
 			text-align: center;
 		}
 		.admin-set-rightInfo span{
@@ -247,7 +248,7 @@
     	<div class="user-set-header">
 			<a href="#"><img src="로고대용.jpg" alt="" class="user-set-header-logo"></a>
         	<div class="user-set-header-menuBox">
-            	<ul class="user-set-topMenuBox" style="display: none;">
+            	<ul class="user-set-topMenuBox">
 					<a href="#" class="user-set-logInButton">로그인</a>
 					<a href="#" class="user-set-signUpButton">회원가입</a>
 					<a href="#" class="user-set-myPage">마이페이지</a>
@@ -256,15 +257,14 @@
 					<a href="#" class="user-set-QA">Q&A</a>
 					<a href="#" class="user-set-notice">공지사항</a>
 				</ul>
-				<ul class="admin-set-topMenuBox">
+				<ul class="admin-set-topMenuBox" style="display: none;">
 					<div class="admin-set-loginInfo">관리자님 환영합니다.</div>
 					<a href="#" class="admin-set-logout">로그아웃</a>
 					<a href="#" class="admin-set-notice">공지사항</a>
 					<a href="#" class="admin-set-QA">Q&A</a>
 					<a href="#" class="admin-set-review">리뷰</a>
-					<a href="#" class="admin-set-boardManage">게시판관리</a>
-					<a href="#" class="admin-set-goodsManage">상품관리</a>
-					<a href="#" class="admin-set-myPage">상품관리</a>
+					<a href="#" class="admin-set-goodsManage">상품등록</a>
+					<a href="#" class="admin-set-myPage">마이페이지</a>
 				</ul>
 				<ul class="user-set-bottomMenuBox">
 					<a href="#" class="user-set-goNecklace">목걸이</a>
@@ -280,12 +280,14 @@
 				</ul>
 			</div>
 		</div>
-		<div class="user-set-banner" style="display: none;"></div>
+		<div class="user-set-banner" ></div>
 	</div>
-	<div class="user-set-right" style="display: none;">
-		<a href="#"><div class="user-set-orderCheck">주문조회</div></a>
-		<a href="#"><div class="user-set-deliveryCheck">배송조회</div></a>
-		<div class="user-set-csTel">C/S관련</div>
+	<div class="user-set-right">
+		<a href="#"><div class="user-set-orderCheck">주문 조회</div></a>
+		<a href="#"><div class="user-set-orderCheck">반품 조회</div></a>
+		<a href="#"><div class="user-set-orderCheck">A/S 조회</div></a>
+		<a href="#"><div class="user-set-deliveryCheck">배송 조회</div></a>
+		<div class="user-set-csTel">C/S 관련</div>
 		<div class="user-set-latelyViewGoodsList">
 			<div class="user-set-goods"><a href="" ><img src="상품대용.gif" alt="" class="user-set-goodsImg"></a><div class="user-set-goodsClose"><i class="user-set-goodsCloseImg far fa-times-circle"></i></div></div>
 			<div class="user-set-goods"><a href="" ><img src="상품대용.gif" alt="" class="user-set-goodsImg"></a><div class="user-set-goodsClose"><i class="user-set-goodsCloseImg far fa-times-circle"></i></div></div>
@@ -298,8 +300,8 @@
 		</div>
 		<div class="user-set-goTop">T O P</div>
 	</div>
-	<div class="user-set-right">
-		<a href="#"><div class="admin-set-rightInfo">미확인<br>주문 개수</div></a>
+	<div class="user-set-right" style="display: none;">
+		<a href="#"><div class="admin-set-rightInfo">미확인<br>주문 개수<br></div></a>
 		<a href="#"><div class="admin-set-rightInfo">미확인<br>반품 개수</div></a>
 		<a href="#"><div class="admin-set-rightInfo">미확인<br>A/S 개수</div></a>
 		<a href="#"><div class="admin-set-rightInfo">미확인<br>Q<span>&</span>A 개수</div></a>

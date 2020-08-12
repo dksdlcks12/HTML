@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>관리자 A/S 조회</title>
+    <script src="//code.jquery.com/jquery-3.4.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready( function() {
+            $("#contents").load("user_tilesSet.html");        
+        });
+    </script>
+    <div id="contents"></div>
+    <style>
+		*{
+            margin: 0;
+            padding: 0;
+		}
+		.admin-asView-box{
+            width: 1400px;
+			padding: 100px 0 50px 0;
+            margin: 0 auto;
+			background-color: palegoldenrod;
+			box-sizing: border-box;
+		}
+		.admin-asView-asViewBox{
+			width: 1200px;
+			margin-left: 100px;
+			padding: 20px 0 20px 0;
+			background-color: blanchedalmond;
+			box-sizing: border-box;
+		}
+		.admin-asView-asViewBox>h2{
+			margin-left: calc(50% - 50px);
+			margin-bottom: 20px;
+		}
+		.admin-asView-asNumberBox, .admin-asView-asGoodsTitleBox, .admin-asView-asGoodsBox, .admin-asView-asStateBox{
+			position: relative;
+			width: 400px;
+			height: 50px;
+			margin-left: 100px;
+			background-color: cornsilk;
+			border: 1px solid black;
+			border-right: none;
+			margin-bottom: 20px;
+		}
+		.admin-asView-asNumberBox>*, .admin-asView-asGoodsTitleBox>*, .admin-asView-asGoodsBox>*, .admin-asView-asStateBox>*{
+			position: absolute;
+			width: 200px;
+			height: 50px;
+			background-color: honeydew;
+			font-size: 25px;
+			line-height: 50px;
+			text-align: center;
+			border-right: 1px solid black;
+			box-sizing: border-box;
+		}
+		.admin-asView-asNumber{
+			left: 200px;
+		}
+		.admin-asView-asGoodsTitleBox, .admin-asView-asGoodsBox{
+			width: 1000px;
+			margin-bottom: 0;
+		}
+		.admin-asView-asGoodsBox{
+			border-top: none;
+		}
+		.admin-asView-asGoodsTitleType, .admin-asView-asGoodsType{
+			width: 200px;
+		}
+		.admin-asView-asGoodsTitleName, .admin-asView-asGoodsName{
+			width: 600px;
+			left: 200px;
+		}
+		.admin-asView-asGoodsTitleColor, .admin-asView-asGoodsColor{
+			left: 800px;
+		}
+		.admin-asView-asGoodsName{
+			text-align: left;
+			padding-left: 10px;
+		}
+		.admin-asView-asReasonBox{
+			width: 300px;
+			height: 50px;
+			margin: 10px 0 0 100px;
+			position: relative;
+		}
+		.admin-recallView-board{
+			margin: 10px 0 0 100px;
+			width: 1000px;
+			border: 1px solid black;
+            box-sizing: border-box;
+            background-color: white;
+            padding: 20px;
+		}
+		.admin-asView-asStateBox{
+			margin-top: 10px;
+		}
+		.admin-asView-asState{
+			left: 200px;
+			padding-left: 10px;
+		}
+		.admin-asView-asStateButton{
+			width: 200px;
+			height: 50px;
+			font-size: 25px;
+			margin-left: calc(50% - 100px);
+		}
+	</style>
+</head>
+<body>
+	<div class="admin-asView-box">
+		<div class="admin-asView-asViewBox">
+			<h2>A/S조회</h2>
+			<div class="admin-asView-asNumberBox">
+				<div class="admin-asView-asTitleNumber">
+					A/S번호
+				</div>
+				<div class="admin-asView-asNumber">
+					1
+				</div>
+			</div>
+			<div class="admin-asView-asGoodsTitleBox">
+				<div class="admin-asView-asGoodsTitleType">제품타입</div>
+				<div class="admin-asView-asGoodsTitleName">제품명</div>
+				<div class="admin-asView-asGoodsTitleColor">색상</div>
+			</div>
+			<div class="admin-asView-asGoodsBox">
+				<div class="admin-asView-asGoodsType"></div>
+				<div class="admin-asView-asGoodsName"></div>
+				<div class="admin-asView-asGoodsColor"></div>
+			</div>
+			<div class="admin-asView-asGoodsBox">
+				<div class="admin-asView-asGoodsType"></div>
+				<div class="admin-asView-asGoodsName"></div>
+				<div class="admin-asView-asGoodsColor"></div>
+			</div>
+			<div class="admin-asView-asGoodsBox">
+				<div class="admin-asView-asGoodsType"></div>
+				<div class="admin-asView-asGoodsName"></div>
+				<div class="admin-asView-asGoodsColor"></div>
+			</div>
+			<div class="admin-recallView-board"></div>
+			<form action="#">
+				<div class="admin-asView-asStateBox">
+					<div class="admin-asView-asTitleState">A/S상태</div>
+					<select name="" id="" class="admin-asView-asState">
+						<option value="0">미확인</option>
+						<option value="1">반송 대기</option>
+						<option value="2">반송 중</option>
+						<option value="3">AS 대기</option>
+						<option value="4">AS 완료</option>
+						<option value="5">배송 중</option>
+						<option value="6">AS 불가</option>
+					</select>
+				</div>
+				<button class="admin-asView-asStateButton">A/S상태 수정</button>
+			</form>
+		</div>
+	</div>
+</body>
+<footer><div id="contents"></div></footer>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/32a9fe5527.js" crossorigin="anonymous"></script>
+    <title>이용자 반품신청 리스트</title>
+    <script src="//code.jquery.com/jquery-3.4.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready( function() {
+            $("#contents").load("user_tilesSet.html");        
+        });
+    </script>
+    <div id="contents"></div>
+    <style>
+		*{
+            margin: 0;
+            padding: 0;
+		}
+		.user-recallApplyList-box{
+            width: 1400px;
+			padding: 100px 0 50px 0;
+            margin: 0 auto;
+			background-color: palegoldenrod;
+			box-sizing: border-box;
+		}
+        .user-recallApplyList-recallApplyListBox{
+            width: 1200px;
+            background-color: cornsilk;
+            padding: 20px 0;
+            margin-left: 100px;
+        }
+        .user-recallApplyList-title{
+            margin-left: 100px;
+            margin-bottom: 10px;
+        }
+        .user-recallApplyList-orderTitle{
+            width: 1000px;
+            background-color: cyan;
+            margin-left: 100px;
+            border-collapse: collapse;
+            border-color: black;
+        }
+        .user-recallApplyList-orderNumberTitle{
+            width: 10%;
+        }
+        .user-recallApplyList-orderInfoTitle{
+            width: 20%;        
+        }
+        .user-recallApplyList-addressTitle{
+            width: 45%;
+        }
+        .user-recallApplyList-orderDateTitle{
+            width: 15%;
+        }
+        .user-recallApplyList-goodsCountTitle{
+            width: 10%;
+        }
+        .user-recallApplyList-orderBox{
+            width: 1000px;
+            height: 50px;
+            margin-left: 100px;
+            border: 1px solid black;
+            border-right: none;
+            position: relative;
+            box-sizing: border-box;
+        }
+        .user-recallApplyList-orderBox>a>*{
+            border-right: 1px solid black;
+            line-height: 50px;
+            box-sizing: border-box;
+        }
+        .user-recallApplyList-orderBox + .user-recallApplyList-orderBox{
+            border-top: none;
+        }
+        .user-recallApplyList-orderNumber{
+            width: 110px;
+            height: 100%;
+            font-size: 20px;
+            text-align: center;
+            line-height: 100px;
+            border: none;
+        }
+        .user-recallApplyList-orderInfo{
+            padding-left: 10px;
+            height: 100%;
+            width: 222px;
+            font-size: 20px;
+            position: absolute;
+            top: 0;
+            left: 110px;
+            box-sizing: border-box;
+        }
+        .user-recallApplyList-address{
+            padding-left: 10px;
+            height: 100%;
+            width: 500px;
+            font-size: 20px;
+            position: absolute;
+            top: 0;
+            left: 332px;
+            box-sizing: border-box;
+            line-height: normal;
+        }
+        .user-recallApplyList-orderDate{
+            text-align: center;
+            height: 100%;
+            width: 167px;
+            font-size: 20px;
+            position: absolute;
+            top: 0;
+            left: 832px;
+            box-sizing: border-box;
+
+        }
+        .user-recallApplyList-pagination{
+            margin-top: 20px;
+        }
+        .user-recallApplyList-recallApplyListBox::after{
+            clear: both;
+            content: '';
+            display: block;
+        }
+    </style>
+</head>
+<body>
+	<div class="user-recallApplyList-box">
+        <div class="user-recallApplyList-recallApplyListBox">
+            <h2 class="user-recallApplyList-title">반품신청</h2>
+            <table class="user-recallApplyList-orderTitle" border="1">
+                <tr>
+                    <th class="user-recallApplyList-orderNumberTitle">주문 번호</th>
+                    <th class="user-recallApplyList-orderInfoTitle">주문 정보</th>
+                    <th class="user-recallApplyList-addressTitle">배송지</th>
+                    <th class="user-recallApplyList-orderDateTitle">주문날짜</th>
+                </tr>
+            </table>
+            <div class="user-recallApplyList-orderBox">
+                <a href="#">
+                    <div class="user-recallApplyList-orderNumber">1</div>
+                    <div class="user-recallApplyList-orderInfo">1</div>
+                    <div class="user-recallApplyList-address">1</div>
+                    <div class="user-recallApplyList-orderDate">1</div>
+                </a>
+            </div>
+            <div class="user-recallApplyList-orderBox">
+                <a href="#">
+                    <div class="user-recallApplyList-orderNumber"></div>
+                    <div class="user-recallApplyList-orderInfo"></div>
+                    <div class="user-recallApplyList-address"></div>
+                    <div class="user-recallApplyList-orderDate"></div>
+                </a>
+            </div>
+            <div class="user-recallApplyList-orderBox">
+                <a href="#">
+                    <div class="user-recallApplyList-orderNumber"></div>
+                    <div class="user-recallApplyList-orderInfo"></div>
+                    <div class="user-recallApplyList-address"></div>
+                    <div class="user-recallApplyList-orderDate"></div>
+                </a>
+            </div>
+            <ul class="user-recallApplyList-pagination pagination justify-content-center">
+				<li class="page-item"><a class="page-link" href="#"><i class="fas fa-angle-left"></i></a></li>
+				<li class="page-item"><a class="page-link" href="#">1</a></li>
+				<li class="page-item active"><a class="page-link" href="#">2</a></li>
+				<li class="page-item"><a class="page-link" href="#">3</a></li>
+				<li class="page-item"><a class="page-link" href="#"><i class="fas fa-angle-right"></i></a></li>
+			</ul>
+        </div>
+	</div>
+</body>
+<footer>
+    <div id="contents"></div>
+</footer>
+</html>

@@ -4,7 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>이용자 반품신청 화면</title>
-    <script src="//code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
     <script type="text/javascript">
         $(document).ready( function() {
             $("#contents").load("user_tilesSet.html");        
@@ -31,17 +38,18 @@
             padding-bottom: 20px;
         }
         .user-recallApply-recallApplyBox>h2{
-            margin-left: 100px;
+            margin-left: 110px;
         }
         .user-recallApply-recallApplyInfoBox{
             width: 1000px;
             margin-left: 100px;
             background-color: lemonchiffon;
-            padding: 10px 0 10px 0;
+            padding: 10px
         }
         .user-recallApply-orderNumberBox{
             width: 400px;
             height: 50px;
+            margin-bottom: 20px;
             background-color: lightcyan;
         }
         .user-recallApply-orderNumberBox>*{
@@ -58,8 +66,7 @@
             border-left: none;
         }
         .user-recallApply-goodsBox{
-            width: 980px;
-            margin-top: 20px;
+            width: 960px;
             background-color: cyan; 
             border-collapse: collapse;
             border-color: black;
@@ -67,20 +74,24 @@
         .user-recallApply-goodsCheck, .user-recallApply-goodsCheckAll{
             cursor: pointer;
         }
-        .user-recallApply-goodsCheck{
+        .user-recallApply-goodsCheck, .user-recallApply-goodsCheckAll{
             margin-left: 17px;
         }
         .user-recallApply-goodsImgTitle{
             width: 10%;
+            text-align: center;
         }
         .user-recallApply-goodsInfoTitle{
             width: 50%;
+            text-align: center;
         }
         .user-recallApply-goodsPriceTitle{
             width: 20%;
+            text-align: center;
         }
-        .user-recallApply-goddsCountTitle{
+        .user-recallApply-goodsCountTitle{
             width: 15%;
+            text-align: center;
         }
         .user-recallApply-goodsImg>img{
             margin: 5px;
@@ -96,7 +107,7 @@
             font-size: 20px;
             padding-right: 10px;
         }
-        .user-recallApply-goddsCount{
+        .user-recallApply-goodsCount{
             font-size: 20px;
             width: 60px;
             text-align: center;
@@ -164,55 +175,71 @@
 					<div class="user-recallApply-orderNumberBox">
 						<div>주문번호</div><div>1</div>
 					</div>
-					<div style="overflow-x: hidden;width:1000px;height: 200px;">
+					<div style="overflow-x: hidden;width:980px;height: 200px;">
 						<table class="user-recallApply-goodsBox" border="1">
 							<tr>
 								<th><input type="checkbox" class="user-recallApply-goodsCheckAll"></th>
 								<th class="user-recallApply-goodsImgTitle">이미지</th>
 								<th class="user-recallApply-goodsInfoTitle">제품 정보</th>
 								<th class="user-recallApply-goodsPriceTitle">판매가</th>
-								<th class="user-recallApply-goddsCountTitle">수량</th>
+                                <th class="user-recallApply-goodsCountTitle">수량</th>
 							</tr>
 							<tr>
 								<td><input type="checkbox" class="user-recallApply-goodsCheck"></td>
 								<td class="user-recallApply-goodsImg"><img src="상품대용.gif" alt="" ></td>
 								<td class="user-recallApply-goodsInfo"></td>
 								<td class="user-recallApply-goodsPrice"></td>
-								<td class="user-recallApply-goddsCount"></td>
+								<td class="user-recallApply-goodsCount"></td>
 							</tr>
 							<tr>
 								<td><input type="checkbox" class="user-recallApply-goodsCheck"></td>
 								<td class="user-recallApply-goodsImg"><img src="상품대용.gif" alt="" ></td>
 								<td class="user-recallApply-goodsInfo"></td>
 								<td class="user-recallApply-goodsPrice"></td>
-								<td class="user-recallApply-goddsCount"></td>
+								<td class="user-recallApply-goodsCount"></td>
 							</tr>
 							<tr>
 								<td><input type="checkbox" class="user-recallApply-goodsCheck"></td>
 								<td class="user-recallApply-goodsImg"><img src="상품대용.gif" alt="" ></td>
 								<td class="user-recallApply-goodsInfo"></td>
 								<td class="user-recallApply-goodsPrice"></td>
-								<td class="user-recallApply-goddsCount"></td>
+								<td class="user-recallApply-goodsCount"></td>
 							</tr>
 						</table>
 					</div>
 					<div class="user-recallApply-recallOptionBox">
 						<div class="user-recallApply-selectGoodsBox">
 							<div class="user-recallApply-selectGoodsTitle">선택된 상품명</div><div class="user-recallApply-selectGoods"></div>
-						</div><select name="" id="" class="user-recallApply-recallReason">
+                        </div>
+                        <select name="" id="" class="user-recallApply-recallReason">
 							<option selected>----반품사유----</option>
-							<option value="">단순변심</option>
-							<option value="">제품파손</option>
-							<option value="">배송지연</option>
-							<option value="">오배송</option>
+							<option value="0">단순변심</option>
+							<option value="1">제품파손</option>
+							<option value="2">배송지연</option>
+							<option value="3">오배송</option>
 						</select>
-					</div>
-					<textarea name="" id="" maxlength="300" class="user-recallApply-board"></textarea>
+					</div><br>
+                    <div class="common-boardWrite-Content">
+                        <div id="summernote"></div>
+                            <script>
+                            $('#summernote').summernote({
+                                tabsize: 2,
+                                height: 300,
+                                lang : 'ko-KR',
+                                toolbar: [
+                                    ['style', ['style']],
+                                    ['font', ['bold', 'underline', 'clear']],
+                                    ['color', ['color']],
+                                    ['insert', ['picture']]
+                                ]
+                            });
+                            </script>
+                    </div>
 					<button class="user-recallApply-button">반품신청</button>
 				</form>
-			</div>
+            </div>
         </div>
-	</div>
+    </div>
 </body>
 <footer><div id="contents"></div></footer>
 </html>

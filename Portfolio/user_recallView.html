@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이용자 반품조회 화면</title>
+    <script src="//code.jquery.com/jquery-3.4.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready( function() {
+            $("#contents").load("user_tilesSet.html");        
+        });
+    </script>
+    <div id="contents"></div>
+    <style>
+		*{
+            margin: 0;
+            padding: 0;
+		}
+		.user_recallView-box{
+            width: 1400px;
+			padding: 100px 0 50px 0;
+            margin: 0 auto;
+			background-color: palegoldenrod;
+			box-sizing: border-box;
+		}
+        .user_recallView-recallApplyBox{
+            width: 1200px;
+            margin-left: 100px;
+            background-color: lavender;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+        .user_recallView-recallApplyBox>h2{
+            margin-left: 100px;
+        }
+        .user_recallView-recallApplyInfoBox{
+            width: 1000px;
+            margin-left: 100px;
+            background-color: lemonchiffon;
+            padding: 10px;
+        }
+        .user_recallView-orderNumberBox, .user_recallView-recallStateBox{
+            width: 800px;
+            height: 50px;
+            background-color: lightcyan;
+        }
+        .user_recallView-orderNumberBox>*, .user_recallView-recallStateBox>*{
+            display: inline-block;
+            width: 200px;
+            height: 50px;
+            border: 1px solid black;
+            box-sizing: border-box;
+            font-size: 20px;
+            text-align: center;
+            line-height: 50px;
+        }
+        .user_recallView-orderNumberBox>div+div{
+            border-left: none;
+        }
+        .user_recallView-goodsBox{
+            width: 980px;
+            margin-top: 20px;
+            background-color: cyan; 
+            border-collapse: collapse;
+            border-color: black;
+        }
+        .user_recallView-goodsCheck, .user_recallView-goodsCheckAll{
+            cursor: pointer;
+        }
+        .user_recallView-goodsCheck{
+            margin-left: 17px;
+        }
+        .user_recallView-goodsImgTitle{
+            width: 10%;
+        }
+        .user_recallView-goodsInfoTitle{
+            width: 50%;
+        }
+        .user_recallView-goodsPriceTitle{
+            width: 20%;
+        }
+        .user_recallView-goodsCountTitle{
+            width: 15%;
+        }
+        .user_recallView-goodsImg>img{
+            margin: 5px;
+            width: 90px;
+            height: 90px;
+        }
+        .user_recallView-goodsInfo{
+            padding-left: 10px;
+            font-size: 20px;
+        }
+        .user_recallView-goodsPrice{
+            text-align: right;
+            font-size: 20px;
+            padding-right: 10px;
+        }
+        .user_recallView-goodsCount{
+            font-size: 20px;
+            width: 60px;
+            text-align: center;
+        }
+		.user_recallView-recallOptionBox{
+			width: 1000px;
+			height: 50px;
+			position: relative;
+		}
+        .user_recallView-selectGoodsBox{
+            width: 700px;
+            height: 50px;
+            margin-top: 20px;
+            background-color: lightcyan;
+            box-sizing: border-box;
+            border: 1px solid black;
+        }
+        .user_recallView-selectGoodsTitle{
+            width: 200px;
+            height: 50px;
+            text-align: center;
+            font-size: 25px;
+            line-height: 50px;
+            box-sizing: border-box;
+            border-right: 1px solid black;
+            float: left;
+        }
+        .user_recallView-selectGoods{
+            width: 488px;
+            height: 50px;
+            margin-left: 10px;
+            font-size: 15px;
+            line-height: 50px;
+            float: left;
+        }
+        .user_recallView-recallReasonTitle{
+            position: absolute;
+			width: 101px;
+			height: 50px;
+			font-size: 20px;
+			top: 0;
+			left: 720px;
+            border: 1px solid black;
+            box-sizing: border-box;
+            background-color: white;
+            text-align: center;
+            line-height: 50px;
+        }
+		.user_recallView-recallReason{
+			position: absolute;
+			width: 180px;
+			height: 50px;
+			font-size: 20px;
+			top: 0;
+			left: 820px;
+            border: 1px solid black;
+            box-sizing: border-box;
+            background-color: white;
+            line-height: 50px
+		}
+		.user_recallView-board{
+			margin-top: 10px;
+			width: 1000px;
+			border: 1px solid black;
+            box-sizing: border-box;
+            background-color: white;
+            padding: 20px;
+		}
+        .user_recallView-recallStateBox{
+            margin-top: 10px;
+            width: 400px;
+        }
+		.user_recallView-button{
+			margin-top: 10px;
+			margin-left: calc(50% - 100px);
+			width: 200px;
+			height: 50px;
+			font-size: 30px;
+		}
+	</style>
+</head>
+<body>
+	<div class="user_recallView-box">
+		<div class="user_recallView-recallApplyBox">
+            <h2>반품조회</h2>
+            <div class="user_recallView-recallApplyInfoBox">
+                <div class="user_recallView-orderNumberBox">
+                    <div>반품번호</div><div>1</div><div>주문번호</div><div>1</div>
+                </div>
+                <div style="overflow-x: hidden;width:1000px;height: 200px;">
+                    <table class="user_recallView-goodsBox" border="1">
+                        <tr>
+                            <th class="user_recallView-goodsImgTitle">이미지</th>
+                            <th class="user_recallView-goodsInfoTitle">제품 정보</th>
+                            <th class="user_recallView-goodsPriceTitle">판매가</th>
+                            <th class="user_recallView-goodsCountTitle">수량</th>
+                        </tr>
+                        <tr>
+                            <td class="user_recallView-goodsImg"><img src="상품대용.gif" alt="" ></td>
+                            <td class="user_recallView-goodsInfo"></td>
+                            <td class="user_recallView-goodsPrice"></td>
+                            <td class="user_recallView-goodsCount"></td>
+                        </tr>
+                        <tr>
+                            <td class="user_recallView-goodsImg"><img src="상품대용.gif" alt="" ></td>
+                            <td class="user_recallView-goodsInfo"></td>
+                            <td class="user_recallView-goodsPrice"></td>
+                            <td class="user_recallView-goodsCount"></td>
+                        </tr>
+                        <tr>
+                            <td class="user_recallView-goodsImg"><img src="상품대용.gif" alt="" ></td>
+                            <td class="user_recallView-goodsInfo"></td>
+                            <td class="user_recallView-goodsPrice"></td>
+                            <td class="user_recallView-goodsCount"></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="user_recallView-recallOptionBox">
+                    <div class="user_recallView-selectGoodsBox">
+                        <div class="user_recallView-selectGoodsTitle">선택된 상품명</div><div class="user_recallView-selectGoods"></div>
+                    </div>
+                    <div class="user_recallView-recallReasonTitle">반품사유</div>
+                    <div class="user_recallView-recallReason"></div>
+                </div>
+                <div class="user_recallView-recallStateBox">
+                    <div>반품상태</div><div>미확인</div>
+                </div>
+                <div class="user_recallView-board"></div>
+			</div>
+        </div>
+	</div>
+</body>
+<footer><div id="contents"></div></footer>
+</html>

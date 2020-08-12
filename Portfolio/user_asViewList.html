@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+	<script src="https://kit.fontawesome.com/32a9fe5527.js" crossorigin="anonymous"></script>
+    <title>이용자 A/S조회 리스트</title>
+    <script src="//code.jquery.com/jquery-3.4.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready( function() {
+            $("#contents").load("user_tilesSet.html");        
+        });
+    </script>
+    <div id="contents"></div>
+    <style>
+		*{
+            margin: 0;
+            padding: 0;
+		}
+		.user-asViewList-box{
+            width: 1400px;
+			padding: 100px 0 50px 0;
+            margin: 0 auto;
+			background-color: palegoldenrod;
+			box-sizing: border-box;
+		}
+        .user-asViewList-asViewListBox{
+            width: 1200px;
+            background-color: cornsilk;
+            padding: 20px 0;
+            margin-left: 100px;
+        }
+        .user-asViewList-title{
+            margin-left: 100px;
+            margin-bottom: 10px;
+        }
+        .user-asViewList-recallTitle{
+            width: 1000px;
+            background-color: cyan;
+            margin-left: 100px;
+            border-collapse: collapse;
+            border-color: black;
+        }
+        .user-asViewList-recallNumberTitle{
+            width: 10%;
+        }
+        .user-asViewList-recallInfoTitle{
+            width: 40%;        
+        }
+        .user-asViewList-recallDateTitle{
+            width: 15%;
+        }
+        .user-asViewList-recallStateTitle{
+            width: 10%;
+        }
+        .user-asViewList-recallBox{
+            width: 1000px;
+            height: 50px;
+            margin-left: 100px;
+            border: 1px solid black;
+            border-right: none;
+            position: relative;
+            box-sizing: border-box;
+        }
+        .user-asViewList-recallBox>a>*{
+            border-right: 1px solid black;
+            line-height: 50px;
+            box-sizing: border-box;
+        }
+        .user-asViewList-recallBox + .user-asViewList-recallBox{
+            border-top: none;
+        }
+        .user-asViewList-recallNumber{
+            width: 132px;
+            height: 50px;
+            font-size: 20px;
+            text-align: center;
+            line-height: 100px;
+            border: none;
+        }
+        .user-asViewList-recallInfo{
+            padding-left: 10px;
+            height: 100%;
+            width: 534px;
+            font-size: 20px;
+            position: absolute;
+            top: 0;
+            left: 132px;
+            box-sizing: border-box;
+        }
+        .user-asViewList-recallDate{
+            text-align: center;
+            height: 100%;
+            width: 200px;
+            font-size: 20px;
+            position: absolute;
+            top: 0;
+            left: 666px;
+            box-sizing: border-box;
+
+        }
+        .user-asViewList-recallState{
+            font-size: 20px;
+            height: 100%;
+            width: 133px;
+            font-size: 20px;
+            position: absolute;
+            top: 0;
+            left: 866px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        .user-asViewList-pagination{
+            margin-top: 20px;
+        }
+        .user-asViewList-asViewListBox::after{
+            clear: both;
+            content: '';
+            display: block;
+        }
+    </style>
+</head>
+<body>
+	<div class="user-asViewList-box">
+        <div class="user-asViewList-asViewListBox">
+            <h2 class="user-asViewList-title">A/S조회</h2>
+            <table class="user-asViewList-recallTitle" border="1">
+                <tr>
+                    <th class="user-asViewList-recallNumberTitle">A/S 번호</th>
+                    <th class="user-asViewList-recallInfoTitle">A/S 정보</th>
+                    <th class="user-asViewList-recallDateTitle">A/S 신청날짜</th>
+                    <th class="user-asViewList-recallStateTitle">A/S 상태</th>
+                </tr>
+            </table>
+            <div class="user-asViewList-recallBox">
+                <a href="#">
+                    <div class="user-asViewList-recallNumber">1</div>
+                    <div class="user-asViewList-recallInfo">1</div>
+                    <div class="user-asViewList-recallDate">1</div>
+                    <div class="user-asViewList-recallState">1</div>
+                </a>
+            </div>
+            <div class="user-asViewList-recallBox">
+                <a href="#">
+                    <div class="user-asViewList-recallNumber"></div>
+                    <div class="user-asViewList-recallInfo"></div>
+                    <div class="user-asViewList-recallDate"></div>
+                    <div class="user-asViewList-recallState"></div>
+                </a>
+            </div>
+            <div class="user-asViewList-recallBox">
+                <a href="#">
+                    <div class="user-asViewList-recallNumber"></div>
+                    <div class="user-asViewList-recallInfo"></div>
+                    <div class="user-asViewList-recallDate"></div>
+                    <div class="user-asViewList-recallState"></div>
+                </a>
+            </div>
+            <ul class="user-asViewList-pagination pagination justify-content-center">
+				<li class="page-item"><a class="page-link" href="#"><i class="fas fa-angle-left"></i></a></li>
+				<li class="page-item"><a class="page-link" href="#">1</a></li>
+				<li class="page-item active"><a class="page-link" href="#">2</a></li>
+				<li class="page-item"><a class="page-link" href="#">3</a></li>
+				<li class="page-item"><a class="page-link" href="#"><i class="fas fa-angle-right"></i></a></li>
+			</ul>
+        </div>
+	</div>
+</body>
+<footer>
+    <div id="contents"></div>
+</footer>
+</html>

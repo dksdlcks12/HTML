@@ -137,7 +137,26 @@
             <button class="user-cart-sendCart">선택상품 장바구니 이동</button>
             <button class="user-cart-goodsDelete">선택 삭제</button>
         </div>
-	</div>
+    </div>
+    <script>
+        $(function(){
+            $('.user-cart-goodsCheckAll').click(function(){
+                if($('.user-cart-goodsCheckAll').is(":checked")){
+                    $('.user-cart-goodsCheck').prop('checked', true);
+                }else{
+                    $('.user-cart-goodsCheck').prop('checked', false);
+                }
+            })
+            $('.user-cart-goodsDelete').click(function(){
+                $('.user-cart-goodsCheck').each(function(){
+                    if($(this).is(':checked')){
+                        $(this).parent().parent().remove();
+                    }
+                })
+                $('.user-cart-goodsCheckAll').prop('checked', false);
+            })
+        })
+    </script>
 </body>
 <footer>
     <div id="contents"></div>

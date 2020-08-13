@@ -240,6 +240,17 @@
             </div>
         </div>
     </div>
+    <script>
+        $(function(){
+            $('.user-recallApply-goodsCheckAll').click(function(){
+                if($('.user-recallApply-goodsCheckAll').is(':checked')){
+                    $('.user-recallApply-goodsCheck').prop('checked', true);
+                }else{
+                    $('.user-recallApply-goodsCheck').prop('checked', false);
+                }
+            })
+        })
+    </script>
 </body>
-<footer><div id="contents"></div></footer>
+<footer></footer>
 </html>

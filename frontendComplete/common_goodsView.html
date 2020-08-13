@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://kit.fontawesome.com/32a9fe5527.js" crossorigin="anonymous"></script>
+    <title>제품 조회</title>
+    <script src="//code.jquery.com/jquery-3.4.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready( function() {
+            $("#contents").load("user_tilesSet.html");        
+        });
+    </script>
+    <div id="contents"></div>
+    <style>
+		*{
+            margin: 0;
+            padding: 0;
+		}
+		input[type="number"]::-webkit-inner-spin-button {
+			-webkit-appearance: none;
+			margin: 0;
+		}
+		button{
+			cursor: pointer;
+		}
+		.common-goodsView-box{
+            width: 1400px;
+			padding: 100px 0 50px 0;
+            margin: 0 auto;
+			background-color: palegoldenrod;
+			box-sizing: border-box;
+		}
+        .common-goodsView-goodsAddBox{
+            width: 1200px;
+            margin-left: 100px;
+            background-color: aquamarine;
+            padding: 30px 0 20px 100px;
+            box-sizing: border-box;
+            position: relative;
+        }
+		.common-goodsView-leftBox{
+			float: left;
+		}
+		.common-goodsView-rightBox{
+			margin-left: 500px;
+			height: 450px;
+		}
+		.common-goodsView-goodsAddBox::after{
+			display: block;
+			content: '';
+			clear: both;
+		}
+		.common-goodsView-goodsImg{
+			margin-bottom: 10px;
+			width: 450px;
+			height: 450px;
+			border: 1px solid black;
+			box-sizing: border-box;
+			font-size: 20px;
+			background-color: whitesmoke;
+			text-align: center;
+			line-height: 400px;
+		}
+		.common-goodsView-goodsNameBox, .common-goodsView-goodsPriceBox, .common-goodsView-goodsTypeBox, .common-goodsView-goodsOptionAddBox, .common-goodsView-goodsOptionBox{
+			margin-top: 10px;
+			margin-bottom: 10px;
+			width: 500px;
+			height: 50px;
+			position: relative;
+		}
+		.common-goodsView-goodsNameBox{
+			margin-top: 0;
+		}
+		.common-goodsView-goodsNameTitle, .common-goodsView-goodsPriceTitle, .common-goodsView-goodsPayPointTitle, .common-goodsView-goodsTypeTitle, .common-goodsView-goodsColorTitle, .common-goodsView-goodsStockTitle{
+			position: absolute;
+			width: 101px;
+			height: 50px;
+			background-color: antiquewhite;
+			border: 1px solid black;
+			box-sizing: border-box;
+			font-size: 25px;
+			line-height: 45px;
+			text-align: center;			
+		}
+        .common-goodsView-goodsName, .common-goodsView-goodsType{
+			position: absolute;
+			left: 100px;
+            width: 400px;
+            height: 50px;
+            font-size: 20px;
+            padding-left: 10px;
+            line-height: 50px;
+			box-sizing: border-box;
+			border: 1px solid black;
+			background-color: white;
+        }
+		.common-goodsView-goodsPrice, .common-goodsView-goodsPayPoint, .common-goodsView-goodsColor, .common-goodsView-goodsStock{
+			position: absolute;
+			width: 100px;
+			height: 50px;
+			font-size: 20px;
+			text-align: right;
+			padding-right: 10px;
+			line-height: 48px;
+			box-sizing: border-box;
+			left: 100px;
+			border: 1px solid black;
+			background-color: white;
+		}
+		.common-goodsView-goodsPayPointTitle, .common-goodsView-goodsStockTitle{
+			left: 225px;
+		}
+		.common-goodsView-goodsPayPoint, .common-goodsView-goodsStock{
+			left: 325px;
+		}
+		.common-goodsView-goodsColor{
+			text-align: left;
+			padding: 0;
+			padding-left: 10px;
+		}
+		.common-goodsView-goodsBuyBox{
+			position: absolute;
+			top: 70px;
+			width: 500px;
+			height: 260px;
+			background-color: white;
+			border: 1px solid black;
+			box-sizing: border-box;
+		}
+		.common-goodsView-selectBox{
+			width: 498px;
+			height: 150px;
+			border-bottom: 1px solid black;
+			box-sizing: border-box;
+		}
+		.common-goodsView-selectOptionBox{
+			position: relative;
+			width: 478px;
+			height: 50px;
+			background-color: cornflowerblue;
+			box-sizing: border-box;
+			border-top: 1px solid black;
+		}
+		.common-goodsView-selectOptionBox:first-of-type{
+			border: none;
+		}
+		.common-goodsView-selectOptionBox:last-of-type{
+			border-bottom: 1px solid black;
+		}
+		.common-goodsView-optionName{
+			width: 150px;
+			height: 100%;
+			background-color: cornsilk;
+			padding-left: 20px;
+			line-height: 50px;
+			font-size: 20px;
+			box-sizing: border-box;
+		}
+		.common-goodsView-optionCount{
+			position: absolute;
+			top: 0;
+			left: 150px;
+			width: 100px;
+			height: 100%;
+			text-align: center;
+			line-height: 50px;
+			font-size: 20px;
+			border: 1px solid black;
+			border-top: none;
+			border-bottom: none;
+			box-sizing: border-box;
+			
+		}
+		.common-goodsView-optionCountButtonBox{
+			position: absolute;
+			top: 0;
+			left: 250px;
+			width: 70px;
+			height: 100%;
+			background-color: white;
+			box-sizing: border-box;
+		}
+		.common-goodsView-optionCountButton{
+			width: 70px;
+			height: 25px;
+			border-left: 1px solid black;
+			border-right: 1px solid black;
+			box-sizing: border-box;
+			border-left: none;
+			text-align: center;
+			cursor: pointer;
+		}
+		.common-goodsView-optionCountButton:nth-of-type(2){
+			border-top: 1px solid black;
+		}
+		.common-goodsView-optionPrice{
+			position: absolute;
+			top: 0;
+			left: 320px;
+			width: 100px;
+			height: 100%;
+			background-color: white;
+			padding-right: 10px;
+			text-align: right;
+			line-height: 50px;
+		}
+		.common-goodsView-optionCancel{
+			position: absolute;
+			top: 0;
+			left: 430px;
+			width: 48px;
+			height: 100%;
+			background-color: white;
+		}
+		.common-goodsView-optionCancelButton{
+			width: 20px;
+			height: 20px;
+			background-color: gray;
+			line-height: 20px;
+			text-align: center;
+			margin-top: 14px;
+			margin-left: 14px;
+			cursor: pointer;
+		}
+		.common-goodsView-optionCancelButton>i{
+			color: white;
+		}
+		.common-goodsView-selectPriceBox{
+			width: 498px;
+			height: 108px;
+			position: relative;
+			background-color: cornsilk;
+		}
+		.common-goodsView-selectAllPrice{
+			width: 400px;
+			height: 108px;
+			background-color: white;
+			text-align: right;
+			padding-right: 20px;
+			font-size: 20px;
+			line-height: 108px;
+			box-sizing: border-box;
+		}
+		.common-goodsView-goCart, .common-goodsView-goBuy{
+			position: absolute;
+			top: 0;
+			left: 400px;
+			width: 98px;
+			background-color: bisque;
+			text-align: center;
+			font-size: 20px;
+			line-height: 54px;
+			border-left: 1px solid black;
+			box-sizing: border-box;
+			cursor: pointer;
+		}
+		.common-goodsView-goBuy{
+			top: 53px;
+			border-top: 1px solid black;
+		}
+		.common-goodsView-goodsExplainMenuBox, .common-goodsView-deliveryExplainMenuBox{
+			margin: 10px 0;
+			width: 1000px;
+			height: 100px;
+
+			position: relative;
+			box-sizing: border-box;
+			border: 1px solid black;
+		}
+		.common-goodsView-goodsExplainMenuBox div, .common-goodsView-deliveryExplainMenuBox div{
+			position: absolute;
+			background-color: aliceblue;
+			top: 0;
+			left: 0;
+			font-size: 30px;
+			width: 499px;
+			height: 98px;
+			line-height: 90px;
+			text-align: center;
+		}
+		.common-goodsView-goodsExplainMenuBox>*:nth-of-type(2)>div, .common-goodsView-deliveryExplainMenuBox>*:nth-of-type(2)>div{
+			box-sizing: border-box;
+			border-left: 1px solid black;
+			left: 499px;
+		}
+		.common-goodsView-goodsExplainMenuBox>*:nth-of-type(1), .common-goodsView-deliveryExplainMenuBox>*:nth-of-type(2){
+			background-color: grey;
+			color: white;
+		}
+		#common-goodsView-goodsExplainMenuBox, #common-goodsView-deliveryExplainMenuBox{
+			position: absolute;
+			top: 330px;
+		}
+		.common-goodsView-goodsExplainImg{
+			width: 1000px;
+			height: 1000px;
+		}
+		.common-goodsView-deliveryExplainImg{
+			width: 1000px;
+			height: 500px;
+		}
+	</style>
+</head>
+<body>
+	<div class="common-goodsView-box">
+		<div class="common-goodsView-goodsAddBox">
+				<div class="common-goodsView-leftBox">
+					<img src="상품대용.gif" alt="" class="common-goodsView-goodsImg">
+				</div>
+			<form action="">
+				<div class="common-goodsView-rightBox">
+					<div class="common-goodsView-goodsNameBox">
+						<div class="common-goodsView-goodsNameTitle">제품명</div>
+						<div class="common-goodsView-goodsName">test</div>
+					</div>
+					<div class="common-goodsView-goodsPriceBox">
+						<div class="common-goodsView-goodsPriceTitle">가 격</div>
+						<div class="common-goodsView-goodsPrice">8000</div>
+						<div class="common-goodsView-goodsPayPointTitle">적립금</div>
+						<div class="common-goodsView-goodsPayPoint">1</div>
+					</div>
+					<div class="common-goodsView-goodsTypeBox">
+						<div class="common-goodsView-goodsTypeTitle">색 상</div>
+						<select name="" class="common-goodsView-goodsType" id="common-goodsView-goodsType" onchange="colorSelect()">
+							<option value="" selected>----색상 선택----</option>
+							<option>실버</option>
+							<option>골드</option>
+						</select>
+						<!-- 색상 선택시 항목 추가 및 예상가격 계산하는 부분 -->
+						<script>
+							var totalCount = 0;
+							var defaultDeliveryPrice = 2500;
+							var freeDeliveryLimit = 16000;
+							function colorSelect(){
+								var colorSelect = document.getElementById("common-goodsView-goodsType");
+								var text = colorSelect.options[document.getElementById("common-goodsView-goodsType").selectedIndex].text;
+								var value = colorSelect.options[document.getElementById("common-goodsView-goodsType").selectedIndex].value;
+								var str = $('.common-goodsView-optionName').text();
+								var price = Number($('.common-goodsView-goodsPrice').text());
+								var count;
+								function priceCalculation(){
+									$('.common-goodsView-allGoodsPrice').text(price*totalCount);
+									$('.common-goodsView-allGoodsPrice').next().text('원 =');
+									var allGoodsPrice = Number($('.common-goodsView-allGoodsPrice').text());
+									if(allGoodsPrice<freeDeliveryLimit){
+										$('.common-goodsView-deliveryParice').text('기본배송비 '+defaultDeliveryPrice+' +')
+										$('.common-goodsView-totalPrice').text(allGoodsPrice+defaultDeliveryPrice);
+									}else{
+										$('.common-goodsView-deliveryParice').text('무료배송 0원 +')
+										$('.common-goodsView-totalPrice').text($('.common-goodsView-allGoodsPrice').text());
+									}
+								}
+								function optionSelect(){
+									$('.common-goodsView-selectBox').append('<div class="common-goodsView-selectOptionBox" id="common-goodsView-selectOptionBox"><div class="common-goodsView-optionName">'+text+'</div><input type="number" class="common-goodsView-optionCount" value="1"><div class="common-goodsView-optionCountButtonBox"><div class="common-goodsView-optionCountButton"><i class="fas fa-plus"></i></div><div class="common-goodsView-optionCountButton"><i class="fas fa-minus"></i></div></div><div class="common-goodsView-optionPrice">'+$('.common-goodsView-goodsPrice').text()+'</div><div class="common-goodsView-optionCancel"><div class="common-goodsView-optionCancelButton"><i class="fas fa-times"></i></div></div></div>')
+									count = Number($('.common-goodsView-optionName:contains('+text+')').next().val());
+									++totalCount;
+									console.log(totalCount);
+									priceCalculation()
+									$('.common-goodsView-optionName:contains('+text+')').siblings('.common-goodsView-optionCancel').children().click(function(){
+										totalCount = totalCount - Number($('.common-goodsView-optionName:contains('+text+')').next().val());
+										priceCalculation()
+										console.log(totalCount);
+										$(this).parent().parent().remove();
+										if($('.common-goodsView-selectOptionBox').length==0){
+											$('.common-goodsView-deliveryParice').text('')
+											$('.common-goodsView-allGoodsPrice').text('');
+											$('.common-goodsView-allGoodsPrice').next().text('');
+											$('.common-goodsView-totalPrice').text('0');	
+											totalCount = 0;								
+										}
+									})
+									$('.common-goodsView-optionName:contains('+text+')').siblings('.common-goodsView-optionCountButtonBox').children().click(function(){
+										count = Number($(this).parent().siblings('.common-goodsView-optionCount').val())
+										if($(this).children().hasClass('fa-minus')){
+											if(count > 1){
+												$(this).parent().siblings('.common-goodsView-optionCount').val(count-1);
+												$(this).parent().siblings('.common-goodsView-optionPrice').text((count-1)*price);
+												--totalCount;
+												console.log(totalCount);
+												priceCalculation()
+											}
+										}else{
+											$(this).parent().siblings('.common-goodsView-optionCount').val(count+1);
+											$(this).parent().siblings('.common-goodsView-optionPrice').text((count+1)*price);
+											++totalCount;
+											console.log(totalCount);
+											priceCalculation()
+										}
+									})
+								}
+								count = Number($('.common-goodsView-optionName:contains('+text+')').next().val());
+								colorSelect.selectedIndex=0;
+								if(value!="" && $('.common-goodsView-selectOptionBox').length==0){
+									optionSelect()
+								}else{
+									if(str.indexOf(text)==-1){
+										optionSelect()
+									}else{
+										++totalCount;
+										$('.common-goodsView-optionName:contains('+text+')').siblings('.common-goodsView-optionCount').val(count+1);
+										$('.common-goodsView-optionName:contains('+text+')').siblings('.common-goodsView-optionPrice').text((count+1)*price);
+										priceCalculation()
+									}
+								}
+							}
+						</script>
+						<div class="common-goodsView-goodsBuyBox">
+							<div class="common-goodsView-selectBox" style="overflow-x: hidden;"></div>
+							<div class="common-goodsView-selectPriceBox">
+									<div class="common-goodsView-selectAllPrice">
+										<span class="common-goodsView-deliveryParice"></span>
+										<span class="common-goodsView-allGoodsPrice"></span><span></span>
+										<span class="common-goodsView-totalPrice">0</span><span>원</span></div>
+									<div>
+										<a href="#"><div class="common-goodsView-goCart">장바구니</div></a>
+										<a href="#"><div class="common-goodsView-goBuy">구매하기</div></a>
+									</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+			<div id="common-goodsView-goodsExplainMenuBox"></div>
+			<div class="common-goodsView-goodsExplainMenuBox">
+				<a href="#common-goodsView-goodsExplainMenuBox"><div>제품설명</div></a>
+				<a href="#common-goodsView-deliveryExplainMenuBox"><div>배송/반품정보</div></a>
+			</div>
+			<img src="배경4.jpg" alt="" class="common-goodsView-goodsExplainImg">
+			<div id="common-goodsView-deliveryExplainMenuBox"></div>
+			<div class="common-goodsView-deliveryExplainMenuBox">
+				<a href="#common-goodsView-goodsExplainMenuBox"><div>제품설명</div></a>
+				<a href="#common-goodsView-deliveryExplainMenuBox"><div>배송/반품정보</div></a>
+			</div>
+			<img src="배경13.jpg" alt="" class="common-goodsView-deliveryExplainImg">
+		</div>
+	</div>
+	<script>
+		$(function(){
+			$('#common-goodsView-deliveryExplainMenuBox').css('top', $('.common-goodsView-goodsExplainImg').height()+'450px');
+			if($('.common-goodsView-selectOptionBox').length==0){
+				$('.common-goodsView-deliveryParice').text(' ')
+				$('.common-goodsView-allGoodsPrice').text(' ');
+				$('.common-goodsView-allGoodsPrice').next().text(' ');
+				$('.common-goodsView-totalPrice').text(' ');									
+			}
+		})
+	</script>
+</body>
+<footer><div id="contents"></div></footer>
+</html>

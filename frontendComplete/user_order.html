@@ -53,13 +53,16 @@
 			width: 10%;
 		}
 		.user-order-goodsInfoTitle{
-			width: 65%;
+			width: 45%;
 		}
 		.user-order-goodsPriceTitle{
 			width: 15%;
 		}
 		.user-order-goodsCountTitle{
 			width: 10%;
+		}
+		.user-order-allGoodsPriceTitle{
+			width: 20%;
 		}
 		.user-order-goodsImg>img{
 			margin: 5px;
@@ -75,16 +78,13 @@
 			font-size: 20px;
 			padding-right: 10px;
 		}
-		.user-order-goodsCount>input, .user-order-goodsPayPoint>input{
+		.user-order-goodsCount, .user-order-allGoodsPrice{
 			font-size: 20px;
-			width: 60px;
-			margin-left: 15px;
-			text-align: right;
+			text-align: center;
 		}
-		.user-order-goodsPayPoint>input{
-			width: 80px;
-			margin-left: 20px;
-			margin-right: 20px;
+		.user-order-allGoodsPrice{
+			text-align: right;
+			padding-right: 20px;
 		}
 		.user-order-goodsDelete{
 			width: 100px;
@@ -93,7 +93,7 @@
 			font-size: 15px;
 			float: left;    
 		}
-		.user-order-allGoodsPrice{
+		.user-order-totalPrice{
 			width: 500px;
 			height: 40px;
 			background-color: aquamarine;
@@ -101,6 +101,10 @@
 			margin-right: 100px;
 			border: 1px solid black;
 			box-sizing: border-box;
+			font-size: 20px;
+			line-height: 36px;
+			text-align: right;
+			padding-right: 10px;
 		}
 		.user-order-peopleInfo{
 			width: 1000px;
@@ -166,7 +170,7 @@
 </head>
 <body>
 	<div class="user-order-box">
-		<form action="">
+		<form action="#">
 			<div class="user-order-orderBox">
 				<table class="user-order-goodsBox" border="1">
 					<tr>
@@ -175,35 +179,35 @@
 						<th class="user-order-goodsInfoTitle">제품 정보</th>
 						<th class="user-order-goodsPriceTitle">판매가</th>
 						<th class="user-order-goodsCountTitle">수량</th>
-						<th class="user-order-goodsPayPointTitle">사용 할 적립금</th>
+						<th class="user-order-allGoodsPriceTitle">합산금액</th>
 					</tr>
 					<tr>
 						<td><input type="checkbox" class="user-order-goodsCheck"></td>
 						<td class="user-order-goodsImg"><img src="상품대용.gif" alt="" ></td>
 						<td class="user-order-goodsInfo"></td>
-						<td class="user-order-goodsPrice"></td>
-						<td class="user-order-goodsCount"><input type="number"></td>
-						<td class="user-order-goodsPayPoint"><input type="number"></td>
+						<td class="user-order-goodsPrice"><span class="user-order-goodsPriceNumber">2000</span>원</td>
+						<td class="user-order-goodsCount">1</td>
+						<td class="user-order-allGoodsPrice"></td>
 					</tr>
 					<tr>
 						<td><input type="checkbox" class="user-order-goodsCheck"></td>
 						<td class="user-order-goodsImg"><img src="상품대용.gif" alt="" ></td>
 						<td class="user-order-goodsInfo"></td>
-						<td class="user-order-goodsPrice"></td>
-						<td class="user-order-goodsCount"><input type="number"></td>
-						<td class="user-order-goodsPayPoint"><input type="number"></td>
+						<td class="user-order-goodsPrice"><span class="user-order-goodsPriceNumber">3000</span>원</td>
+						<td class="user-order-goodsCount">2</td>
+						<td class="user-order-allGoodsPrice"></td>
 					</tr>
 					<tr>
 						<td><input type="checkbox" class="user-order-goodsCheck"></td>
 						<td class="user-order-goodsImg"><img src="상품대용.gif" alt="" ></td>
 						<td class="user-order-goodsInfo"></td>
-						<td class="user-order-goodsPrice"></td>
-						<td class="user-order-goodsCount"><input type="number"></td>
-						<td class="user-order-goodsPayPoint"><input type="number"></td>
+						<td class="user-order-goodsPrice"><span class="user-order-goodsPriceNumber">4000</span>원</td>
+						<td class="user-order-goodsCount">3</td>
+						<td class="user-order-allGoodsPrice"></td>
 					</tr>
 				</table>
 				<button class="user-order-goodsDelete">선택 삭제</button>
-				<div class="user-order-allGoodsPrice"></div>
+				<div class="user-order-totalPrice"></div>
 				<div class="user-order-peopleInfo">
 					<p>주문정보</p>
 					<table class="user-order-Info" border="1">
@@ -294,15 +298,15 @@
 						<tr>
 							<td>주소 (필수)</td>
 							<td class="user-order-addressBox">
-								<input type="text" class="user-order-postcode" id="sample6_postcode" placeholder="우편번호" readonly>
-								<input type="button" class="user-order-postcodeButton" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
-								<input type="text" class="user-order-address" id="sample6_address" placeholder="주소" readonly><br>
-								<input type="text" class="user-order-detailAddress" id="sample6_detailAddress" placeholder="상세주소">
-								<input type="text" class="user-order-extraAddress" id="sample6_extraAddress" placeholder="참고항목">
+								<input type="text" class="user-order-postcode" id="receivePostcode" placeholder="우편번호" readonly>
+								<input type="button" class="user-order-postcodeButton" onclick="receiveExecDaumPostcode()" value="우편번호 찾기"><br>
+								<input type="text" class="user-order-address" id="receiveAddress" placeholder="주소" readonly><br>
+								<input type="text" class="user-order-detailAddress" id="receiveDetailAddress" placeholder="상세주소">
+								<input type="text" class="user-order-extraAddress" id="receiveExtraAddress" placeholder="참고항목">
 
 								<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 								<script>
-									function sample6_execDaumPostcode() {
+									function receiveExecDaumPostcode() {
 										new daum.Postcode({
 											oncomplete: function(data) {
 												// 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
@@ -318,7 +322,6 @@
 												} else { // 사용자가 지번 주소를 선택했을 경우(J)
 													addr = data.jibunAddress;
 												}
-
 												// 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
 												if(data.userSelectedType === 'R'){
 													// 법정동명이 있을 경우 추가한다. (법정리는 제외)
@@ -335,17 +338,16 @@
 														extraAddr = ' (' + extraAddr + ')';
 													}
 													// 조합된 참고항목을 해당 필드에 넣는다.
-													document.getElementById("sample6_extraAddress").value = extraAddr;
+													document.getElementById("receiveExtraAddress").value = extraAddr;
 												
 												} else {
-													document.getElementById("sample6_extraAddress").value = '';
+													document.getElementById("receiveExtraAddress").value = '';
 												}
-
 												// 우편번호와 주소 정보를 해당 필드에 넣는다.
-												document.getElementById('sample6_postcode').value = data.zonecode;
-												document.getElementById("sample6_address").value = addr;
+												document.getElementById('receivePostcode').value = data.zonecode;
+												document.getElementById("receiveAddress").value = addr;
 												// 커서를 상세주소 필드로 이동한다.
-												document.getElementById("sample6_detailAddress").focus();
+												document.getElementById("receiveDetailAddress").focus();
 											}
 										}).open();
 									}
@@ -363,6 +365,50 @@
 			</div>
 		</form>
 	</div>
+	<script>
+		$(function(){
+			var allGoodsPrice=0;
+			var totalPrice=0;
+			var price=0;
+			var count=0;
+			var defaultDeliveryPrice = 2500;
+			var freeDeliveryLimit = 16000;
+			function totalPriceCalculation(){
+				if(allGoodsPrice<freeDeliveryLimit){
+					totalPrice = allGoodsPrice + defaultDeliveryPrice
+					$('.user-order-totalPrice').text('배송료 '+defaultDeliveryPrice+'원 + '+allGoodsPrice+'원 = '+totalPrice+'원');
+				}else{
+					$('.user-order-totalPrice').text('배송료 0원 + '+allGoodsPrice+'원 = '+allGoodsPrice+'원');
+				}
+			}
+			$('.user-order-goodsCheckAll').click(function(){
+				if($('.user-order-goodsCheckAll').is(':checked')){
+					$('.user-order-goodsCheck').prop('checked', true);
+				}else{
+					$('.user-order-goodsCheck').prop('checked', false);
+				}
+			})
+			$('.user-order-goodsDelete').click(function(){
+				$('.user-order-goodsCheck').each(function(){
+					if($(this).is(':checked')){
+						price = Number($(this).parent().siblings('.user-order-goodsPrice').children('.user-order-goodsPriceNumber').text());
+						count = Number($(this).parent().siblings('.user-order-goodsCount').text())
+						allGoodsPrice = allGoodsPrice - (price*count);
+						$('.user-order-totalPrice').text(allGoodsPrice+'원');
+						totalPriceCalculation();
+						$(this).parent().parent().remove();
+					}
+				})
+			})
+			$('tr').each(function(){
+				price = Number($(this).children().siblings('.user-order-goodsPrice').children('.user-order-goodsPriceNumber').text());
+				count = Number($(this).children().siblings('.user-order-goodsCount').text())
+				$(this).children().siblings('.user-order-allGoodsPrice').text(price*count+'원');
+				allGoodsPrice = allGoodsPrice + (price*count);
+			})
+			totalPriceCalculation();
+		})
+	</script>
 </body>
 <footer>
 	<div id="contents"></div>

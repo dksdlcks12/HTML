@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <select id="num" onchange="selectNum()">
+
+        <option value = "1" selected>하나</option>
+        
+        <option value = "2">둘</option>
+        
+        </select>
+</body>
+
+<script>
+function selectNum(){
+
+var numSelect = document.getElementById("num");
+
+
+
+// text 가져오기
+
+var text = numSelect.options[document.getElementById("num").selectedIndex].text;
+
+
+
+// option value 가져오기
+
+var value = numSelect.options[document.getElementById("num").selectedIndex].value
+
+console.log(text)
+console.log(value)
+}
+</script>
+</html>

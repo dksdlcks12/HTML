@@ -11,7 +11,7 @@
 	<title>이용자 제품 검색화면</title>
 	<script type="text/javascript">
         $(document).ready( function() {
-            $("#contents").load("common_tilesSet.html");        
+            $("#contents").load("user_tilesSet.html");        
         });
 	</script>
 	<div id="contents"></div>
@@ -58,11 +58,13 @@
 			font-size: 30px;
 		}
 		.common-goodsSearch-option{
-			width: 200px;
+			width: 480px;
 			height: 100%;
 			position: absolute;
 			top: 0;
 			left: 220px;
+			font-size: 20px;
+			padding-left: 10px;
 		}
 		.common-goodsSearch-option + span{
 			position: absolute;
@@ -73,6 +75,9 @@
 		}
 		span + .common-goodsSearch-option{
 			left: 500px;
+		}
+		.number{
+			width: 200px;
 		}
 		.common-goodSearch-optionSearchButton{
 			width: 200px;
@@ -144,9 +149,9 @@
     <div class="common-goodsSearch-box"> 
 		<div class="common-goodsSearch-optionBox">
 			<h2>상세검색</h2>
-			<div class="common-goodSearch-optionSubBox"><div class="common-goodsSearch-optionTitle">제품명</div><input type="text" class="common-goodsSearch-option"></div>
-			<div class="common-goodSearch-optionSubBox"><div class="common-goodsSearch-optionTitle">가격</div><input type="number" class="common-goodsSearch-option"><span>~</span><input type="text" class="common-goodsSearch-option"></div>
-			<div class="common-goodSearch-optionSubBox"><div class="common-goodsSearch-optionTitle">할인율</div><input type="number" class="common-goodsSearch-option"><span>~</span><input type="text" class="common-goodsSearch-option"></div>
+			<div class="common-goodSearch-optionSubBox"><div class="common-goodsSearch-optionTitle">제품명</div><input type="text" class="common-goodsSearch-option goodsName"></div>
+			<div class="common-goodSearch-optionSubBox"><div class="common-goodsSearch-optionTitle">가격</div><input type="text" class="common-goodsSearch-option number common-goodsSearch-priceMin"><span>~</span><input type="text"  class="common-goodsSearch-option number common-goodsSearch-priceMax"></div>
+			<div class="common-goodSearch-optionSubBox"><div class="common-goodsSearch-optionTitle">할인율</div><input type="text" class="common-goodsSearch-option number common-goodsSearch-discountMin" maxlength="3"><span>~</span><input type="text" class="common-goodsSearch-option number common-goodsSearch-discountMax" maxlength="3"></div>
 			<button class="common-goodSearch-optionSearchButton">검 색</button>
 		</div>
 		<div class="common-goodsSearch-goodsSearchBox">
@@ -221,7 +226,56 @@
 			<li class="page-item"><a class="page-link" href="#">3</a></li>
 			<li class="page-item"><a class="page-link" href="#"><i class="fas fa-angle-right"></i></a></li>
 		</ul>
-    </div>
+	</div>
+	<script>
+		$(function(){
+			$('.common-goodsSearch-discountMin').change(function(){
+				$(this).val(Number($(this).val()));
+				if(Number($(this).val())<0){
+					$(this).val(0);
+				}
+				if(Number($(this).val())>Number($('.common-goodsSearch-discountMax').val())){
+					$(this).val($('.common-goodsSearch-discountMax').val());
+				}
+			})
+			$('.common-goodsSearch-discountMax').change(function(){
+				$(this).val(Number($(this).val()));
+				if(Number($(this).val())>100){
+					$(this).val(100);
+				}
+				if(Number($(this).val())<Number($('.common-goodsSearch-discountMin').val())){
+					$(this).val($('.common-goodsSearch-discountMin').val());
+				}
+			})
+			$('.common-goodsSearch-priceMin').change(function(){
+				$(this).val(Number($(this).val()));
+				if(Number($(this).val())<0){
+					$(this).val(0);
+				}
+				if(Number($(this).val())>Number($('.common-goodsSearch-priceMax').val())){
+					$(this).val($('.common-goodsSearch-priceMax').val());
+				}	
+			})
+			$('.common-goodsSearch-priceMax').change(function(){
+				$(this).val(Number($(this).val()));
+				if(Number($(this).val())<Number($('.common-goodsSearch-priceMin').val())){
+					$(this).val($('.common-goodsSearch-priceMin').val());
+				}
+			})
+			$('.number').keydown(function(event){
+				if ((event.keyCode >= 48 && event.keyCode <= 57) || (event.keyCode >= 96 && event.keyCode <= 105)) { 
+					return true;
+				}else if(event.keyCode==8 || event.keyCode==9 || event.keyCode==13 || event.keyCode==37 || event.keyCode==39 || event.keyCode==46){
+					return true;
+				}else{
+					return false;
+				}
+			})
+			$('.number').keyup(function(){
+				$(this).val( $(this).val().replace( /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/gi,''));
+			})
+		})
+	</script>
 </body>
 <footer><div id="contents"></div></footer>
 </html>

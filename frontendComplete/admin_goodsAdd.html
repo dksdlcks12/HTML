@@ -83,6 +83,7 @@
 			font-size: 25px;
 			line-height: 45px;
 			text-align: center;			
+			font-weight: normal;
 		}
         .admin-goodsAdd-goodsName, .admin-goodsAdd-goodsType{
 			position: absolute;
@@ -100,23 +101,20 @@
 			width: 100px;
 			height: 50px;
 			font-size: 20px;
-			text-align: right;
-			padding-right: 10px;
+			text-align: left;
+			padding-left: 10px;
 			box-sizing: border-box;
 			left: 100px;
 			border: 1px solid black;
 			background-color: white;
+			font-weight: normal;
+			line-height: 48px;
 		}
 		.admin-goodsAdd-goodsPayPointTitle, .admin-goodsAdd-goodsStockTitle{
 			left: 225px;
 		}
 		.admin-goodsAdd-goodsPayPoint, .admin-goodsAdd-goodsStock{
 			left: 325px;
-		}
-		.admin-goodsAdd-goodsColor{
-			text-align: left;
-			padding: 0;
-			padding-left: 10px;
 		}
 		.admin-goodsAdd-goodsOptionButton{
 			position: absolute;
@@ -137,7 +135,7 @@
 <body>
 	<div class="admin-goodsAdd-box">
 		<div class="admin-goodsAdd-goodsAddBox">
-			<form action="">
+			<form action="#">
 				<div class="admin-goodsAdd-leftBox">
 					<h2>제품 이미지</h2>
 					<input type="file" class="admin-goodsAdd-goodsImgAdd" accept=".jpg,.jpeg,.png,.gif" onchange="LoadImg(this);"><br>
@@ -177,9 +175,9 @@
 					</div>
 					<div class="admin-goodsAdd-goodsPriceBox">
 						<div class="admin-goodsAdd-goodsPriceTitle">가 격</div>
-						<input type="number" class="admin-goodsAdd-goodsPrice">
+						<input type="text" class="admin-goodsAdd-goodsPrice number">
 						<div class="admin-goodsAdd-goodsPayPointTitle">적립금</div>
-						<input type="number" class="admin-goodsAdd-goodsPayPoint">
+						<input type="text" class="admin-goodsAdd-goodsPayPoint number">
 					</div>
 					<div class="admin-goodsAdd-goodsTypeBox">
 						<div class="admin-goodsAdd-goodsTypeTitle">타 입</div>
@@ -196,22 +194,46 @@
 						<div class="admin-goodsAdd-goodsColorTitle">색 상</div>
 						<input type="text" class="admin-goodsAdd-goodsColor">
 						<div class="admin-goodsAdd-goodsStockTitle">재고량</div>
-						<input type="number" class="admin-goodsAdd-goodsStock">
-						<button class="admin-goodsAdd-goodsOptionButton"><i class="fas fa-plus"></i></button>
+						<input type="text" class="admin-goodsAdd-goodsStock number">
+						<button type="button" class="admin-goodsAdd-goodsOptionButton"><i class="fas fa-plus"></i></button>
 					</div>
+					<script>
+						$('.admin-goodsAdd-goodsOptionAddBox').children('.admin-goodsAdd-goodsOptionButton').click(function(){
+							$('.admin-goodsAdd-goodsOptionView').append('<div class="admin-goodsAdd-goodsOptionBox"><div class="admin-goodsAdd-goodsColorTitle">색 상</div><div class="admin-goodsAdd-goodsColor">'+$('.admin-goodsAdd-goodsOptionAddBox').children('.admin-goodsAdd-goodsColor').val()+'</div><div class="admin-goodsAdd-goodsStockTitle">재고량</div><div class="admin-goodsAdd-goodsStock">'+$('.admin-goodsAdd-goodsOptionAddBox').children('.admin-goodsAdd-goodsStock').val()+'</div><button class="admin-goodsAdd-goodsOptionButton"><i class="fas fa-minus"></i></button></div>')
+							$('.admin-goodsAdd-goodsOptionAddBox').children('.admin-goodsAdd-goodsColor, .admin-goodsAdd-goodsStock').val('');
+							$('.admin-goodsAdd-goodsOptionBox').children('.admin-goodsAdd-goodsOptionButton').click(function(){
+							$(this).parent().remove();
+						})
+						})
+					</script>
 					<h2>옵션</h2>
-					<div class="admin-goodsAdd-goodsOptionBox">
-						<div class="admin-goodsAdd-goodsColorTitle">색 상</div>
-						<div class="admin-goodsAdd-goodsColor"></div>
-						<div class="admin-goodsAdd-goodsStockTitle">재고량</div>
-						<div class="admin-goodsAdd-goodsStock"></div>
-						<button class="admin-goodsAdd-goodsOptionButton"><i class="fas fa-minus"></i></button>
-					</div>
+					<div class="admin-goodsAdd-goodsOptionView"></div>
 					<button class="admin-goodsAdd-button">등록하기</button>
 				</div>
 			</form>
 		</div>
 	</div>
+	<script>
+		$('.number').keydown(function(event){
+			if ((event.keyCode >= 48 && event.keyCode <= 57) || (event.keyCode >= 96 && event.keyCode <= 105)) { 
+				return true;
+			}else if(event.keyCode==8 || event.keyCode==9 || event.keyCode==13 || event.keyCode==37 || event.keyCode==39 || event.keyCode==46){
+				return true;
+			}else{
+				return false;
+			}
+		})
+		$('.number').keyup(function(){
+			$(this).val( $(this).val().replace( /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/gi,''));
+		})
+		$('.admin-goodsAdd-button').click(function(){
+			console.log($('.admin-goodsAdd-goodsOptionBox').length)
+			if($('.admin-goodsAdd-goodsOptionBox').length==0){
+				alert('옵션이 없습니다.')
+				return false;
+			}
+		})
+	</script>
 </body>
 <footer><div id="contents"></div></footer>
 </html>

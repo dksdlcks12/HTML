@@ -226,7 +226,18 @@
 				</form>
 			</div>
         </div>
-	</div>
+    </div>
+    <script>
+        $(function(){
+            $('.user-asApply-goodsCheckAll').click(function(){
+                if($(this).is(':checked')){
+                    $('.user-asApply-goodsCheck').prop('checked', true);
+                }else{
+                    $('.user-asApply-goodsCheck').prop('checked', false);
+                }
+            })
+        })
+    </script>
 </body>
 <footer><div id="contents"></div></footer>
 </html>

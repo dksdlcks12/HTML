@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 	<script src="https://kit.fontawesome.com/32a9fe5527.js" crossorigin="anonymous"></script>
-    <title>관리자 주문 리스트</title>
+    <title>관리자 반품 리스트</title>
     <script src="//code.jquery.com/jquery-3.4.1.js"></script>
     <script type="text/javascript">
         $(document).ready( function() {
@@ -18,7 +18,7 @@
             margin: 0;
             padding: 0;
 		}
-		.admin-orderList-box{
+		.admin-recallList-box{
             width: 1400px;
 			height: 769px;
 			padding: 100px 0 50px 0;
@@ -26,18 +26,18 @@
 			background-color: palegoldenrod;
 			box-sizing: border-box;
 		}
-        .admin-orderList-orderListBox{
+        .admin-recallList-orderListBox{
             width: 1200px;
             padding: 20px 0 20px 0;
             margin-left: 100px;
             background-color: whitesmoke;
             box-sizing: border-box;
         }
-        .admin-orderList-orderListBox>h2{
+        .admin-recallList-orderListBox>h2{
             margin-left: calc(50% - 50px);
             margin-bottom: 20px;
         }
-        .admin-orderList-orderTitleBox, .admin-orderList-orderBox{
+        .admin-recallList-orderTitleBox, .admin-recallList-orderBox{
             width: 1000px;
             height: 51px;
             margin-left: 100px;
@@ -46,127 +46,123 @@
             border: 1px solid black;
             border-right: none;
         }
-        .admin-orderList-orderBox{
+        .admin-recallList-orderBox{
             border-top: none;
         }
-        .admin-orderList-orderTitleNumber, .admin-orderList-orderTitleInfo, .admin-orderList-orderTitleDate, .admin-orderList-orderTitleState, .admin-orderList-orderNumber, .admin-orderList-orderInfo, .admin-orderList-orderDate, .admin-orderList-orderState{
+        .admin-recallList-orderTitleNumber, .admin-recallList-orderTitleInfo, .admin-recallList-orderTitleDate, .admin-recallList-orderTitleState, .admin-recallList-orderNumber, .admin-recallList-orderInfo, .admin-recallList-orderDate, .admin-recallList-orderState{
             position: absolute;
             width: 100px;
             height: 49px;
             background-color: lemonchiffon;
             font-size: 20px;
             line-height: 50px;
-            text-align: right;
+            text-align: center;
             padding-right: 10px;
             border-right: 1px solid black;
             box-sizing: border-box;
         }
-        .admin-orderList-orderTitleInfo, .admin-orderList-orderInfo{
+        .admin-recallList-orderTitleInfo, .admin-recallList-orderInfo{
             width: 600px;
             left: 100px;
             text-align: left;
             padding: 0;
             padding-left: 10px;
         }
-		.admin-orderList-orderTitleDate, .admin-orderList-orderDate{
+		.admin-recallList-orderTitleDate, .admin-recallList-orderDate{
 			left: 700px;
             width: 150px;
             padding: 0;
-            text-align: center;
 		}
-        .admin-orderList-orderTitleState, .admin-orderList-orderState{
+        .admin-recallList-orderTitleState, .admin-recallList-orderState{
             left: 850px;
             width: 150px;
             padding: 0;
-            text-align: center;
         }
-        .admin-orderList-orderTitleBox>*{
+        .admin-recallList-orderTitleBox>*{
             text-align: center;
             font-weight: bold;
             padding: 0;
         }
-		.admin-orderList-searchBox{
+		.common-boardList-searchBox{
 			margin-top: 20px;
 			margin-left: 100px;
 			width: 400px;
 			height: 50px;
 			background-color: azure;
 		}
-		.admin-orderList-searchType, .admin-orderList-searchContent{
+		.common-boardList-searchType, .common-boardList-searchContent{
 			width: 150px;
 			height: 50px;
 			float: left;
 			padding-left: 10px;
 		}
-		.admin-orderList-searchContent{
+		.common-boardList-searchContent{
 			width: 200px;
 		}
-		.admin-orderList-searchButton{
+		.common-boardList-searchButton{
 			width: 50px;
 			height: 50px;
 		}
-		.admin-orderList-pagination{
+		.admin-recallList-pagination{
 			margin-top: 20px;
 		}
 	</style>
 </head>
 <body>
-	<div class="admin-orderList-box">
-		<div class="admin-orderList-orderListBox">
-            <h2>주문목록</h2>
-            <div class="admin-orderList-orderTitleBox">
-                <div class="admin-orderList-orderTitleNumber">
-                    주문번호
+	<div class="admin-recallList-box">
+		<div class="admin-recallList-orderListBox">
+            <h2>반품목록</h2>
+            <div class="admin-recallList-orderTitleBox">
+                <div class="admin-recallList-orderTitleNumber">
+                    반품번호
                 </div>
-                <div class="admin-orderList-orderTitleInfo">
-                    주문내용
+                <div class="admin-recallList-orderTitleInfo">
+                    반품내용
 				</div>
-				<div class="admin-orderList-orderTitleDate">
-					주문날짜
+				<div class="admin-recallList-orderTitleDate">
+					반품날짜
 				</div>
-                <div class="admin-orderList-orderTitleState">
-                    주문상태
+                <div class="admin-recallList-orderTitleState">
+                    반품상태
                 </div>
             </div>
-            <div class="admin-orderList-orderBox">
-					<div class="admin-orderList-orderNumber">1</div>
+            <div class="admin-recallList-orderBox">
+					<div class="admin-recallList-orderNumber">1</div>
 				<a href="#">
-					<div class="admin-orderList-orderInfo">1</div>
+					<div class="admin-recallList-orderInfo">1</div>
 				</a>
-					<div class="admin-orderList-orderDate">1</div>
-                    <div class="admin-orderList-orderState">1</div>
+					<div class="admin-recallList-orderDate">1</div>
+                    <div class="admin-recallList-orderState">1</div>
 			</div>
-			<div class="admin-orderList-orderBox">
-				<div class="admin-orderList-orderNumber"></div>
+			<div class="admin-recallList-orderBox">
+				<div class="admin-recallList-orderNumber"></div>
 				<a href="#">
-					<div class="admin-orderList-orderInfo"></div>
+					<div class="admin-recallList-orderInfo"></div>
 				</a>
-				<div class="admin-orderList-orderDate"></div>
-				<div class="admin-orderList-orderState"></div>
+				<div class="admin-recallList-orderDate"></div>
+				<div class="admin-recallList-orderState"></div>
 			</div>
-            <div class="admin-orderList-orderBox">
-				<div class="admin-orderList-orderNumber"></div>
+            <div class="admin-recallList-orderBox">
+				<div class="admin-recallList-orderNumber"></div>
 				<a href="#">
-					<div class="admin-orderList-orderInfo"></div>
+					<div class="admin-recallList-orderInfo"></div>
 				</a>
-				<div class="admin-orderList-orderDate"></div>
-				<div class="admin-orderList-orderState"></div>
+				<div class="admin-recallList-orderDate"></div>
+				<div class="admin-recallList-orderState"></div>
 			</div>
 			<form action="#">
-				<div class="admin-orderList-searchBox">
-					<select name="" id="" class="admin-orderList-searchType">
+				<div class="common-boardList-searchBox">
+					<select name="" id="" class="common-boardList-searchType">
 						<option value="0" selected>전체</option>
-						<option value="1">주문번호</option>
-						<option value="2">주문한 사람</option>
-						<option value="3">받는 사람</option>
-						<option value="4">주문날짜</option>
-						<option value="5">주문상태</option>
+						<option value="1">반품 번호</option>
+						<option value="2">주문 번호</option>
+						<option value="3">반품 날짜</option>
+						<option value="4">반품 상태</option>
 					</select>
-					<input type="text" class="admin-orderList-searchContent">
-					<button class="admin-orderList-searchButton"><i class="fas fa-search"></i></button>
+					<input type="text" class="common-boardList-searchContent">
+					<button class="common-boardList-searchButton"><i class="fas fa-search"></i></button>
 				</div>
-			</form>
-			<ul class="admin-orderList-pagination pagination justify-content-center">
+			<ul class="admin-recallList-pagination pagination justify-content-center">
 				<li class="page-item"><a class="page-link" href="#"><i class="fas fa-angle-left"></i></a></li>
 				<li class="page-item"><a class="page-link" href="#">1</a></li>
 				<li class="page-item active"><a class="page-link" href="#">2</a></li>

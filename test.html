@@ -1,34 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
 <body>
-    <select id="num" onchange="selectNum()">
-
-        <option value = "1" selected>하나</option>
-        
-        <option value = "2">둘</option>
-        
-        </select>
+    <input type="text" style='ime-mode:disabled' onkeydown="filterNumber(event);">
+    <script>
+        function filterNumber(event) {
+            var code = event.keyCode;
+            if (code > 47 && code < 58) {
+                return;
+            } 
+            event.preventDefault();
+        }
+    </script>
 </body>
-
-<script>
-function selectNum(){
-
-var numSelect = document.getElementById("num");
-
-
-
-// text 가져오기
-
-var text = numSelect.options[document.getElementById("num").selectedIndex].text;
-
-
-
-// option value 가져오기
-
-var value = numSelect.options[document.getElementById("num").selectedIndex].value
-
-console.log(text)
-console.log(value)
-}
-</script>
 </html>

@@ -69,10 +69,13 @@
 			height: 50px;
 			position: relative;
 		}
+		.common-goodsView-goodsPriceBox{
+			height: 110px;
+		}
 		.common-goodsView-goodsNameBox{
 			margin-top: 0;
 		}
-		.common-goodsView-goodsNameTitle, .common-goodsView-goodsPriceTitle, .common-goodsView-goodsPayPointTitle, .common-goodsView-goodsTypeTitle, .common-goodsView-goodsColorTitle, .common-goodsView-goodsStockTitle{
+		.common-goodsView-goodsNameTitle, .common-goodsView-goodsPriceTitle, .common-goodsView-goodsPayPointTitle, .common-goodsView-goodsTypeTitle, .common-goodsView-goodsColorTitle, .common-goodsView-goodsStockTitle, .common-goodsView-goodsDiscountTitle, .common-goodsView-goodsDiscountPriceTitle{
 			position: absolute;
 			width: 101px;
 			height: 50px;
@@ -95,7 +98,7 @@
 			border: 1px solid black;
 			background-color: white;
         }
-		.common-goodsView-goodsPrice, .common-goodsView-goodsPayPoint, .common-goodsView-goodsColor, .common-goodsView-goodsStock{
+		.common-goodsView-goodsPrice, .common-goodsView-goodsPayPoint, .common-goodsView-goodsColor, .common-goodsView-goodsStock, .common-goodsView-goodsDiscount, .common-goodsView-goodsDiscountPrice{
 			position: absolute;
 			width: 100px;
 			height: 50px;
@@ -108,11 +111,14 @@
 			border: 1px solid black;
 			background-color: white;
 		}
-		.common-goodsView-goodsPayPointTitle, .common-goodsView-goodsStockTitle{
+		.common-goodsView-goodsPayPointTitle, .common-goodsView-goodsStockTitle, .common-goodsView-goodsDiscountPriceTitle{
 			left: 225px;
 		}
-		.common-goodsView-goodsPayPoint, .common-goodsView-goodsStock{
+		.common-goodsView-goodsPayPoint, .common-goodsView-goodsStock, .common-goodsView-goodsDiscountPrice{
 			left: 325px;
+		}
+		.common-goodsView-goodsDiscountTitle, .common-goodsView-goodsDiscount, .common-goodsView-goodsDiscountPriceTitle, .common-goodsView-goodsDiscountPrice{
+			top: 60px;
 		}
 		.common-goodsView-goodsColor{
 			text-align: left;
@@ -121,16 +127,16 @@
 		}
 		.common-goodsView-goodsBuyBox{
 			position: absolute;
-			top: 70px;
+			top: 60px;
 			width: 500px;
-			height: 260px;
+			height: 210px;
 			background-color: white;
 			border: 1px solid black;
 			box-sizing: border-box;
 		}
 		.common-goodsView-selectBox{
 			width: 498px;
-			height: 150px;
+			height: 100px;
 			border-bottom: 1px solid black;
 			box-sizing: border-box;
 		}
@@ -198,12 +204,14 @@
 			position: absolute;
 			top: 0;
 			left: 320px;
-			width: 100px;
+			width: 110px;
 			height: 100%;
 			background-color: white;
 			padding-right: 10px;
 			text-align: right;
 			line-height: 50px;
+			border-right: 1px solid black;
+			box-sizing: border-box;
 		}
 		.common-goodsView-optionCancel{
 			position: absolute;
@@ -212,6 +220,8 @@
 			width: 48px;
 			height: 100%;
 			background-color: white;
+			border-right: 1px solid black;
+			box-sizing: border-box;
 		}
 		.common-goodsView-optionCancelButton{
 			width: 20px;
@@ -300,34 +310,49 @@
 			width: 1000px;
 			height: 500px;
 		}
+		.common-goodsView-adminBox{
+			width: 500px;
+			height: 270px;
+			background-color: aliceblue;
+		}
 	</style>
 </head>
 <body>
 	<div class="common-goodsView-box">
 		<div class="common-goodsView-goodsAddBox">
-				<div class="common-goodsView-leftBox">
-					<img src="상품대용.gif" alt="" class="common-goodsView-goodsImg">
+			<div class="common-goodsView-leftBox">
+				<img src="상품대용.gif" alt="" class="common-goodsView-goodsImg">
+			</div>
+			<div class="common-goodsView-rightBox">
+				<div class="common-goodsView-goodsNameBox">
+					<div class="common-goodsView-goodsNameTitle">제품명</div>
+					<div class="common-goodsView-goodsName">test</div>
 				</div>
-			<form action="#">
-				<div class="common-goodsView-rightBox">
-					<div class="common-goodsView-goodsNameBox">
-						<div class="common-goodsView-goodsNameTitle">제품명</div>
-						<div class="common-goodsView-goodsName">test</div>
-					</div>
 					<div class="common-goodsView-goodsPriceBox">
 						<div class="common-goodsView-goodsPriceTitle">가 격</div>
 						<div class="common-goodsView-goodsPrice">8000</div>
 						<div class="common-goodsView-goodsPayPointTitle">적립금</div>
 						<div class="common-goodsView-goodsPayPoint">1</div>
+						<div class="common-goodsView-goodsDiscountTitle">할인율</div>
+						<div class="common-goodsView-goodsDiscount">20</div>
+						<div class="common-goodsView-goodsDiscountPriceTitle">할인가</div>
+						<div class="common-goodsView-goodsDiscountPrice">6400</div>
 					</div>
-					<div class="common-goodsView-goodsTypeBox">
+					<div class="common-goodsView-adminBox">
+						<div class="common-goodsView-adminStock">
+							
+						</div>
+					</div>
+					<div class="common-goodsView-goodsTypeBox" style="display: none;">
 						<div class="common-goodsView-goodsTypeTitle">색 상</div>
 						<select name="" class="common-goodsView-goodsType" id="common-goodsView-goodsType" onchange="colorSelect()">
 							<option value="" selected>----색상 선택----</option>
 							<option>실버</option>
 							<option>골드</option>
 						</select>
-						<!-- 색상 선택시 항목 추가 및 예상가격 계산하는 부분 -->
+					<form action="#">
+						<!--
+						 색상 선택시 항목 추가 및 예상가격 계산하는 부분 
 						<script>
 							var totalCount = 0;
 							var defaultDeliveryPrice = 2500;
@@ -346,6 +371,8 @@
 								var price = Number($('.common-goodsView-goodsPrice').text());
 								var count;
 								function priceCalculation(){
+									console.log(totalCount);
+									console.log(price);
 									$('.common-goodsView-allGoodsPrice').text(price*totalCount);
 									$('.common-goodsView-allGoodsPrice').next().text('원 =');
 									var allGoodsPrice = Number($('.common-goodsView-allGoodsPrice').text());
@@ -360,6 +387,7 @@
 								function optionSelect(){
 									$('.common-goodsView-selectBox').append('<div class="common-goodsView-selectOptionBox" id="common-goodsView-selectOptionBox"><div class="common-goodsView-optionName">'+text+'</div><input type="text" class="common-goodsView-optionCount" value="1"><div class="common-goodsView-optionCountButtonBox"><div class="common-goodsView-optionCountButton"><i class="fas fa-plus"></i></div><div class="common-goodsView-optionCountButton"><i class="fas fa-minus"></i></div></div><div class="common-goodsView-optionPrice"><span class="common-goodsView-optionPriceNumber">'+$('.common-goodsView-goodsPrice').text()+'</span>원</div><div class="common-goodsView-optionCancel"><div class="common-goodsView-optionCancelButton"><i class="fas fa-times"></i></div></div></div')
 									count = Number($('.common-goodsView-optionName:contains('+text+')').next().val());
+									++totalCount;
 									priceCalculation()
 									$('.common-goodsView-optionName:contains('+text+')').siblings('.common-goodsView-optionCancel').children().click(function(){
 										totalCount = totalCount - Number($('.common-goodsView-optionName:contains('+text+')').next().val());
@@ -379,19 +407,21 @@
 											if(count > 1){
 												$(this).parent().siblings('.common-goodsView-optionCount').val(count-1);
 												$(this).parent().siblings('.common-goodsView-optionPrice').children('.common-goodsView-optionPriceNumber').text((count-1)*price);
-												priceCalculation();
-												totalCountCalculation();
+												$('.common-goodsView-optionCount').each(function(){
+													priceCalculation();
+													totalCountCalculation();
+												})
 											}
 										}else{
 											$(this).parent().siblings('.common-goodsView-optionCount').val(count+1);
 											$(this).parent().siblings('.common-goodsView-optionPrice').children('.common-goodsView-optionPriceNumber').text((count+1)*price);
 											$('.common-goodsView-optionCount').each(function(){
+												priceCalculation();
+												totalCountCalculation();
 											})
-											priceCalculation();
-											totalCountCalculation();
 										}
 									})
-									$('.common-goodsView-optionCountr').keydown(function(event){
+									$('.common-goodsView-optionCount').keydown(function(event){
 										if ((event.keyCode >= 48 && event.keyCode <= 57) || (event.keyCode >= 96 && event.keyCode <= 105)) { 
 											return true;
 										}else if(event.keyCode==8 || event.keyCode==9 || event.keyCode==13 || event.keyCode==37 || event.keyCode==39 || event.keyCode==46){
@@ -438,6 +468,7 @@
 								}
 							}
 						</script>
+						-->
 						<div class="common-goodsView-goodsBuyBox">
 							<div class="common-goodsView-selectBox" style="overflow-x: hidden;"></div>
 							<div class="common-goodsView-selectPriceBox">
@@ -451,9 +482,9 @@
 									</div>
 							</div>
 						</div>
-					</div>
+					</form>
 				</div>
-			</form>
+			</div>
 			<div id="common-goodsView-goodsExplainMenuBox"></div>
 			<div class="common-goodsView-goodsExplainMenuBox">
 				<a href="#common-goodsView-goodsExplainMenuBox"><div>제품설명</div></a>

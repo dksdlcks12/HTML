@@ -182,11 +182,10 @@
                         var freeDeliveryLimit = 16000;
                         $('.user-cart-goodsGoodsAllPrice').each(function(){
                             totalPrice = totalPrice + Number($(this).children('.user-cart-goodsGoodsAllPriceNumber').text());
-                            console.log(Number($(this).children('.user-cart-goodsGoodsAllPriceNumber').text()));
                             if(totalPrice<16000){
                                 $('.user-cart-totalPrice').text('배송비 '+defaultDeliveryPrice+'원 + '+totalPrice+'원 = '+Number(totalPrice+defaultDeliveryPrice)+'원');
                             }else{
-                                $('.user-cart-totalPrice').text('배송비 0원 '+totalPrice+'원 = '+totalPrice+'원');
+                                $('.user-cart-totalPrice').text('배송비 0원 + '+totalPrice+'원 = '+totalPrice+'원');
                             } 
                         })
                     }
@@ -198,6 +197,10 @@
                             count=1;
                             $(this).val(1);
                         }
+                        if(point>(price*count)/10){
+                            $(this).parent().siblings('.user-cart-goodsUsePoint').children('input').val((price*count)/10);
+                            point = Number( $(this).parent().siblings('.user-cart-goodsUsePoint').children('input').val());
+                        }
                         $(this).parent().siblings('.user-cart-goodsGoodsAllPrice').children('.user-cart-goodsGoodsAllPriceNumber').text(price*count-point);
                         totalPriceCalculation()
                     })
@@ -207,6 +210,10 @@
                         point = Number($(this).siblings('.user-cart-goodsUsePoint').children('input').val());
                         if(isNaN(point)){
                         point = 0;
+                        }
+                        if(point>(price*count)/10){
+                            $(this).parent().siblings('.user-cart-goodsUsePoint').children('input').val((price*count)/10);
+                            point = Number( $(this).parent().siblings('.user-cart-goodsUsePoint').children('input').val());
                         }
                         $(this).children('.user-cart-goodsGoodsAllPriceNumber').text(price*count-point);
                     })
@@ -218,6 +225,7 @@
                         }
                         if($(this).val()>(price*count)/10){
                             $(this).val((price*count)/10);
+                            point = Number( $(this).parent().siblings('.user-cart-goodsUsePoint').children('input').val());
                         }
                         $(this).parent().siblings('.user-cart-goodsGoodsAllPrice').children('.user-cart-goodsGoodsAllPriceNumber').text(price*count-$(this).val());
                         totalPriceCalculation();
@@ -238,11 +246,10 @@
                 totalPrice = 0;
                 $('.user-cart-goodsGoodsAllPrice').each(function(){
                     totalPrice = totalPrice + Number($(this).children('.user-cart-goodsGoodsAllPriceNumber').text());
-                    console.log(Number($(this).children('.user-cart-goodsGoodsAllPriceNumber').text()));
                     if(totalPrice<16000){
                         $('.user-cart-totalPrice').text('배송비 '+defaultDeliveryPrice+'원 + '+totalPrice+'원 = '+Number(totalPrice+defaultDeliveryPrice)+'원');
                     }else{
-                        $('.user-cart-totalPrice').text('배송비 0원 '+totalPrice+'원 = '+totalPrice+'원');
+                        $('.user-cart-totalPrice').text('배송비 0원 + '+totalPrice+'원 = '+totalPrice+'원');
                     } 
                 })
             }

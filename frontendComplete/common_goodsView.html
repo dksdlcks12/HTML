@@ -243,7 +243,7 @@
 			background-color: cornsilk;
 		}
 		.common-goodsView-selectAllPrice{
-			width: 400px;
+			width: 300px;
 			height: 108px;
 			background-color: white;
 			text-align: right;
@@ -252,20 +252,25 @@
 			line-height: 108px;
 			box-sizing: border-box;
 		}
-		.common-goodsView-goCart, .common-goodsView-goBuy{
+		.common-goodsView-goCart, .common-goodsView-goodsWishList ,.common-goodsView-goBuy{
 			position: absolute;
 			top: 0;
-			left: 400px;
+			left: 300px;
 			width: 98px;
 			background-color: bisque;
 			text-align: center;
-			font-size: 20px;
+			font-size: 15px;
 			line-height: 54px;
 			border-left: 1px solid black;
 			box-sizing: border-box;
 			cursor: pointer;
 		}
+		.common-goodsView-goodsWishList{
+			left: 400px;
+		}
 		.common-goodsView-goBuy{
+			font-size: 20px;
+			width: 198px;
 			top: 53px;
 			border-top: 1px solid black;
 		}
@@ -273,7 +278,6 @@
 			margin: 10px 0;
 			width: 1000px;
 			height: 100px;
-
 			position: relative;
 			box-sizing: border-box;
 			border: 1px solid black;
@@ -314,6 +318,54 @@
 			width: 500px;
 			height: 270px;
 			background-color: aliceblue;
+			position: relative;			
+		}
+		.common-goodsView-adminStockBox{
+			width: 500px;
+			height: 200px;
+			background-color: burlywood;
+			position: relative;
+		}
+		.common-goodsView-adminStockLine ,.common-goodsView-adminColorName, .common-goodsView-adminStockTitle, .commongoodsView-admin-Stock{
+			width: 150px;
+			height: 48px;
+			background-color: blanchedalmond;
+			float: left;
+			font-size: 20px;
+			text-align: center;
+			line-height: 48px;
+			box-sizing: border-box;
+		}
+		.common-goodsView-adminStockLine{
+			width: 482px;
+			height: 50px;
+			box-sizing: border-box;
+			border: 1px solid black;
+			box-sizing: border-box;
+		}
+		.common-goodsView-adminStockLine + .common-goodsView-adminStockLine{
+			border-top: none
+		}
+		.common-goodsView-adminStockLine>div+div{
+			border-left: 1px solid black;
+		}
+		.commongoodsView-admin-Stock{
+			width: 180px;
+		}
+		.common-goodsView-modifyButton{
+			margin-top: 10px;
+			width: 150px;
+			height: 60px;
+			background-color: grey;
+			float: right;
+			font-size: 20px;
+			text-align: center;
+			box-sizing: border-box;
+			border: 1px solid black;
+			line-height: 58px;
+		}
+		.common-goodsView-modifyButton + .common-goodsView-modifyButton{
+			border-right: none;
 		}
 	</style>
 </head>
@@ -327,6 +379,7 @@
 				<div class="common-goodsView-goodsNameBox">
 					<div class="common-goodsView-goodsNameTitle">제품명</div>
 					<div class="common-goodsView-goodsName">test</div>
+					
 				</div>
 					<div class="common-goodsView-goodsPriceBox">
 						<div class="common-goodsView-goodsPriceTitle">가 격</div>
@@ -338,12 +391,18 @@
 						<div class="common-goodsView-goodsDiscountPriceTitle">할인가</div>
 						<div class="common-goodsView-goodsDiscountPrice">6400</div>
 					</div>
-					<div class="common-goodsView-adminBox">
-						<div class="common-goodsView-adminStock">
-							
+					<div class="common-goodsView-adminBox" style="display: none;">
+						<div class="common-goodsView-adminStockBox" style="overflow-x: hidden;">
+							<div class="common-goodsView-adminStockLine">
+								<div class="common-goodsView-adminColorName">silver</div>
+								<div class="common-goodsView-adminStockTitle">남은 수량</div>
+								<div class="commongoodsView-admin-Stock">000개</div>
+							</div>
 						</div>
+						<div class="common-goodsView-modifyButton">삭제하기</div>
+						<div class="common-goodsView-modifyButton">수정하기</div>
 					</div>
-					<div class="common-goodsView-goodsTypeBox" style="display: none;">
+					<div class="common-goodsView-goodsTypeBox">
 						<div class="common-goodsView-goodsTypeTitle">색 상</div>
 						<select name="" class="common-goodsView-goodsType" id="common-goodsView-goodsType" onchange="colorSelect()">
 							<option value="" selected>----색상 선택----</option>
@@ -351,8 +410,7 @@
 							<option>골드</option>
 						</select>
 					<form action="#">
-						<!--
-						 색상 선택시 항목 추가 및 예상가격 계산하는 부분 
+						<!--색상 선택시 항목 추가 및 예상가격 계산하는 부분 -->
 						<script>
 							var totalCount = 0;
 							var defaultDeliveryPrice = 2500;
@@ -373,15 +431,16 @@
 								function priceCalculation(){
 									console.log(totalCount);
 									console.log(price);
+									$('.common-goodsView-selectAllPrice').css('line-height', '54px');
 									$('.common-goodsView-allGoodsPrice').text(price*totalCount);
-									$('.common-goodsView-allGoodsPrice').next().text('원 =');
+									$('.common-goodsView-allGoodsPrice').next().text('원');
 									var allGoodsPrice = Number($('.common-goodsView-allGoodsPrice').text());
 									if(allGoodsPrice<freeDeliveryLimit){
 										$('.common-goodsView-deliveryParice').text('기본배송비 '+defaultDeliveryPrice+' +')
-										$('.common-goodsView-totalPrice').text(allGoodsPrice+defaultDeliveryPrice);
+										$('.common-goodsView-totalPrice').text('='+Number(allGoodsPrice+defaultDeliveryPrice));
 									}else{
 										$('.common-goodsView-deliveryParice').text('무료배송 0원 +')
-										$('.common-goodsView-totalPrice').text($('.common-goodsView-allGoodsPrice').text());
+										$('.common-goodsView-totalPrice').text('='+$('.common-goodsView-allGoodsPrice').text());
 									}
 								}
 								function optionSelect(){
@@ -468,7 +527,7 @@
 								}
 							}
 						</script>
-						-->
+
 						<div class="common-goodsView-goodsBuyBox">
 							<div class="common-goodsView-selectBox" style="overflow-x: hidden;"></div>
 							<div class="common-goodsView-selectPriceBox">
@@ -476,8 +535,9 @@
 										<span class="common-goodsView-deliveryParice"></span>
 										<span class="common-goodsView-allGoodsPrice"></span><span></span>
 										<span class="common-goodsView-totalPrice">0</span><span>원</span></div>
-									<div>
-										<a href="#"><div class="common-goodsView-goCart">장바구니</div></a>
+									<div class="common-goodsView-ButtonBox">
+										<div class="common-goodsView-goCart">장바구니</div>
+										<div class="common-goodsView-goodsWishList">위시리스트</div>
 										<a href="#"><div class="common-goodsView-goBuy">구매하기</div></a>
 									</div>
 							</div>

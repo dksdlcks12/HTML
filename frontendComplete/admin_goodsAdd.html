@@ -225,6 +225,19 @@
 		})
 		$('.number').keyup(function(){
 			$(this).val( $(this).val().replace( /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/gi,''));
+			console.log($(this).val().substring(1,2))
+			if($(this).val().substring(0,1)==0){
+				if($(this).val().substring(1,2)==''){
+					$(this).val(0);
+				}else if($(this).val().substring(1,2)==0){
+					$(this).val(0);
+				}else{
+					$(this).val( $(this).val().replace(/(^0+)/, ""))
+				}
+			}
+		})
+		$('.number').change(function(){
+
 		})
 		$('.admin-goodsAdd-button').click(function(){
 			console.log($('.admin-goodsAdd-goodsOptionBox').length)

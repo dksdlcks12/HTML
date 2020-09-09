@@ -53,7 +53,7 @@
 			width: 10%;
 		}
 		.user-order-goodsInfoTitle{
-			width: 45%;
+			width: 30%;
 		}
 		.user-order-goodsPriceTitle{
 			width: 15%;
@@ -61,8 +61,14 @@
 		.user-order-goodsCountTitle{
 			width: 10%;
 		}
+		.user-order-goodsGoodsPointTitle{
+			width: 10%;
+		}
+		.user-order-goodsUsePointTitle{
+			width: 12%;
+		}
 		.user-order-allGoodsPriceTitle{
-			width: 20%;
+			width: 15%;
 		}
 		.user-order-goodsImg>img{
 			margin: 5px;
@@ -71,20 +77,26 @@
 		}
 		.user-order-goodsInfo{
 			padding-left: 10px;
-			font-size: 20px;
+			font-size: 18px;
 		}
 		.user-order-goodsPrice{
 			text-align: right;
-			font-size: 20px;
+			font-size: 18px;
 			padding-right: 10px;
 		}
-		.user-order-goodsCount, .user-order-allGoodsPrice{
-			font-size: 20px;
+		.user-order-goodsCount, .user-order-allGoodsPrice, .user-order-goodsGoodsPoint{
+			font-size: 18px;
 			text-align: center;
 		}
+		.user-order-goodsUsePoint>input{
+            font-size: 18px;
+            width: 60px;
+            margin-left: 25px;
+            text-align: center;
+        }
 		.user-order-allGoodsPrice{
 			text-align: right;
-			padding-right: 20px;
+			padding-right: 18px;
 		}
 		.user-order-goodsDelete{
 			width: 100px;
@@ -165,6 +177,15 @@
 			width:1000px;
 			height: 200px;
 			background-color: cadetblue;
+			position: relative;
+		}
+		.user-order-button{
+			width: 100px;
+			height: 200px;
+			position: absolute;
+			top: 0;
+			right: 0;
+			border: none;
 		}
 	</style>
 </head>
@@ -179,6 +200,8 @@
 						<th class="user-order-goodsInfoTitle">제품 정보</th>
 						<th class="user-order-goodsPriceTitle">판매가</th>
 						<th class="user-order-goodsCountTitle">수량</th>
+						<th class="user-order-goodsGoodsPointTitle">적립 포인트</th>
+						<th class="user-order-goodsUsePointTitle">사용할 포인트</th>
 						<th class="user-order-allGoodsPriceTitle">합산금액</th>
 					</tr>
 					<tr>
@@ -187,7 +210,9 @@
 						<td class="user-order-goodsInfo"></td>
 						<td class="user-order-goodsPrice"><span class="user-order-goodsPriceNumber">2000</span>원</td>
 						<td class="user-order-goodsCount">1</td>
-						<td class="user-order-allGoodsPrice"></td>
+						<td class="user-order-goodsGoodsPoint">1111</td>
+						<td class="user-order-goodsUsePoint"><input value="100"></td>
+						<td class="user-order-allGoodsPrice"><span class="user-order-allGoodsPriceNumber"></span></td>
 					</tr>
 					<tr>
 						<td><input type="checkbox" class="user-order-goodsCheck"></td>
@@ -195,7 +220,9 @@
 						<td class="user-order-goodsInfo"></td>
 						<td class="user-order-goodsPrice"><span class="user-order-goodsPriceNumber">3000</span>원</td>
 						<td class="user-order-goodsCount">2</td>
-						<td class="user-order-allGoodsPrice"></td>
+						<td class="user-order-goodsGoodsPoint"></td>
+						<td class="user-order-goodsUsePoint"><input value="400"></td>
+						<td class="user-order-allGoodsPrice"><span class="user-order-allGoodsPriceNumber"></span></td>
 					</tr>
 					<tr>
 						<td><input type="checkbox" class="user-order-goodsCheck"></td>
@@ -203,7 +230,9 @@
 						<td class="user-order-goodsInfo"></td>
 						<td class="user-order-goodsPrice"><span class="user-order-goodsPriceNumber">4000</span>원</td>
 						<td class="user-order-goodsCount">3</td>
-						<td class="user-order-allGoodsPrice"></td>
+						<td class="user-order-goodsGoodsPoint"></td>
+						<td class="user-order-goodsUsePoint"><input value="400"></td>
+						<td class="user-order-allGoodsPrice"><span class="user-order-allGoodsPriceNumber"></span></td>
 					</tr>
 				</table>
 				<button class="user-order-goodsDelete">선택 삭제</button>
@@ -360,7 +389,9 @@
 						</tr>
 					</table>
 					<p>결제</p>
-					<div class="user-order-pay"></div>
+					<div class="user-order-pay">
+						<button class="user-order-button">결제하기</button>
+					</div>
 				</div>
 			</div>
 		</form>
@@ -370,16 +401,20 @@
 			var allGoodsPrice=0;
 			var totalPrice=0;
 			var price=0;
+			var point=0;
 			var count=0;
 			var defaultDeliveryPrice = 2500;
 			var freeDeliveryLimit = 16000;
 			function totalPriceCalculation(){
-				if(allGoodsPrice<freeDeliveryLimit){
-					totalPrice = allGoodsPrice + defaultDeliveryPrice
-					$('.user-order-totalPrice').text('배송료 '+defaultDeliveryPrice+'원 + '+allGoodsPrice+'원 = '+totalPrice+'원');
-				}else{
-					$('.user-order-totalPrice').text('배송료 0원 + '+allGoodsPrice+'원 = '+allGoodsPrice+'원');
-				}
+				totalPrice = 0;
+				$('.user-order-allGoodsPrice').each(function(){
+					totalPrice = totalPrice + Number($(this).children('.user-order-allGoodsPriceNumber').text());
+					if(totalPrice<freeDeliveryLimit){
+						$('.user-order-totalPrice').text('배송비 '+defaultDeliveryPrice+'원 + '+totalPrice+'원 = '+Number(totalPrice+defaultDeliveryPrice)+'원');
+					}else{
+						$('.user-order-totalPrice').text('배송비 0원 + '+totalPrice+'원 = '+totalPrice+'원');
+					} 
+				})
 			}
 			$('.user-order-goodsCheckAll').click(function(){
 				if($('.user-order-goodsCheckAll').is(':checked')){
@@ -391,20 +426,47 @@
 			$('.user-order-goodsDelete').click(function(){
 				$('.user-order-goodsCheck').each(function(){
 					if($(this).is(':checked')){
-						price = Number($(this).parent().siblings('.user-order-goodsPrice').children('.user-order-goodsPriceNumber').text());
-						count = Number($(this).parent().siblings('.user-order-goodsCount').text())
-						allGoodsPrice = allGoodsPrice - (price*count);
-						$('.user-order-totalPrice').text(allGoodsPrice+'원');
-						totalPriceCalculation();
 						$(this).parent().parent().remove();
 					}
 				})
+				$('.user-order-goodsCheck').prop('checked', false);
+				totalPriceCalculation()
 			})
-			$('tr').each(function(){
-				price = Number($(this).children().siblings('.user-order-goodsPrice').children('.user-order-goodsPriceNumber').text());
-				count = Number($(this).children().siblings('.user-order-goodsCount').text())
-				$(this).children().siblings('.user-order-allGoodsPrice').text(price*count+'원');
-				allGoodsPrice = allGoodsPrice + (price*count);
+			$('.user-order-allGoodsPrice').each(function(){
+				price = Number($(this).siblings('.user-order-goodsPrice').children('.user-order-goodsPriceNumber').text());
+				count = Number($(this).siblings('.user-order-goodsCount').text());
+				point = Number($(this).siblings('.user-order-goodsUsePoint').children('input').val());
+				console.log(price)
+				console.log(count)
+				console.log(point)
+				if(isNaN(point)){
+				point = 0;
+				}
+				if(point>(price*count)/10){
+					$(this).siblings('.user-order-goodsUsePoint').children('input').val((price*count)/10);
+					point = Number($(this).siblings('.user-order-goodsUsePoint').children('input').val());
+				}
+				console.log(point%10)
+				if(point%10!=0){
+					point = point-(point%10);
+				}
+				$(this).children('.user-order-allGoodsPriceNumber').text(price*count-point);
+			})
+			$('.user-order-goodsUsePoint').children('input').change(function(){
+				price = Number($(this).parent().siblings('.user-order-goodsPrice').children('.user-order-goodsPriceNumber').text());
+				count = Number($(this).parent().siblings('.user-order-goodsCount').text());
+				if($(this).val()<0){
+					$(this).val(0);
+				}
+				if($(this).val()>(price*count)/10){
+					$(this).val((price*count)/10);
+				}
+				console.log(point%10)
+				if($(this).val()%10!=0){
+					$(this).val($(this).val()-($(this).val()%10));
+				}
+				$(this).parent().siblings('.user-order-allGoodsPrice').children('.user-order-allGoodsPriceNumber').text(price*count-$(this).val());
+				totalPriceCalculation();
 			})
 			totalPriceCalculation();
 		})

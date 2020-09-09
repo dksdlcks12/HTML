@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>관리자 주문 조회</title>
+    <script src="//code.jquery.com/jquery-3.4.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready( function() {
+            $("#contents").load("user_tilesSet.html");        
+        });
+    </script>
+    <div id="contents"></div>
+    <style>
+		*{
+            margin: 0;
+            padding: 0;
+		}
+		.user-orderView-box{
+            width: 1400px;
+			padding: 100px 0 50px 0;
+            margin: 0 auto;
+			background-color: palegoldenrod;
+			box-sizing: border-box;
+		}
+		.user-orderView-orderViewBox{
+			width: 1200px;
+			margin-left: 100px;
+			padding: 20px 0 20px 0;
+			background-color: blanchedalmond;
+			box-sizing: border-box;
+		}
+		.user-orderView-orderViewBox>h2{
+			margin-left: calc(50% - 50px);
+			margin-bottom: 20px;
+		}
+		.user-orderView-orderNumberBox, .user-orderView-orderGoodsTitleBox, .user-orderView-orderGoodsBox, .user-orderView-orderStateBox{
+			position: relative;
+			width: 400px;
+			height: 50px;
+			margin-left: 100px;
+			background-color: cornsilk;
+			border: 1px solid black;
+			border-right: none;
+			margin-bottom: 20px;
+		}
+		.user-orderView-orderNumberBox>*, .user-orderView-orderGoodsTitleBox>*, .user-orderView-orderGoodsBox>*, .user-orderView-orderStateBox>*{
+			position: absolute;
+			width: 200px;
+			height: 50px;
+			background-color: honeydew;
+			font-size: 25px;
+			line-height: 50px;
+			text-align: center;
+			border-right: 1px solid black;
+			box-sizing: border-box;
+		}
+		.user-orderView-orderGoodsTitleImg{
+			width: 100px;
+		}
+		.user-orderView-orderNumber{
+			left: 200px;
+		}
+		.user-orderView-orderGoodsTitleBox, .user-orderView-orderGoodsBox{
+			width: 1000px;
+			margin-bottom: 0;
+		}
+		.user-orderView-orderGoodsBox{
+			border-top: none;
+			height: 100px;
+		}
+		.user-orderView-orderGoodsBox>*{
+			height: 100px;
+			line-height: 100px;
+		}
+		.user-orderView-orderGoodsImg{
+			width: 100px;
+		}
+		.user-orderView-orderGoodsName{
+			line-height: 50px;
+		}
+		.user-orderView-orderGoodsTitleName, .user-orderView-orderGoodsName{
+			width: 300px;
+			left: 100px;
+		}
+		.user-orderView-orderGoodsTitleDisCountPrice, .user-orderView-orderGoodsDisCountPrice{
+			width: 150px;
+			left: 400px;
+		}
+		.user-orderView-orderGoodsTitleCount, .user-orderView-orderGoodsCount{
+			width: 150px;
+			left: 550px;
+		}
+		.user-orderView-orderGoodsTitleUsePoint, .user-orderView-orderGoodsUsePoint{
+			width: 150px;
+			left: 700px;
+		}
+		.user-orderView-orderGoodsTitlePayPrice, .user-orderView-orderGoodsPayPrice{
+			left: 850px;
+			width: 150px;
+		}
+
+		.user-orderView-orderGoodsName{
+			text-align: left;
+			padding-left: 10px;
+		}
+		.user-orderView-peopleInfo{
+			width: 1000px;
+			margin-left: 100px;
+			margin-top: 20px;
+			padding: 10px 0 10px 0;
+		}
+		.user-orderView-peopleInfo>p{
+			margin-left: 10px;
+			margin-bottom: 10px;
+			font-size: 20px;
+		}
+		.user-orderView-Info{
+			width: 1000px;
+			border-color: black;
+			border-collapse: collapse;
+			margin-bottom: 30px;
+		}
+		.user-orderView-name, .user-orderView-tel{
+			width: 100px;
+			height: 30px;
+			margin: 5px;
+			padding-left: 10px;
+		}
+		.user-orderView-Info td{
+			background-color: whitesmoke;
+			height: 30px;
+		}
+		.user-orderView-Info td:nth-child(odd){
+			background-color: cornsilk;
+			padding-left: 10px;
+			width: 25%;
+		}
+		.user-orderView-addressLine>div{
+			margin: 5px;
+			height: 30px;
+			border: 1px solid black;
+			background-color: white;
+			position: relative;
+		}
+		.user-orderView-postcodeBox{
+			width: 200px;
+		}
+		.user-orderView-addressBox{
+			width: 520px;
+		}
+		.user-orderView-detailAddressBox, .user-orderView-extraAddressBox{
+			width: 300px;
+		}
+		.user-orderView-tel{
+			width: 50px;
+		}
+		.user-orderView-addressLineTitle{
+			position: absolute;
+			width: 100px;
+			height: 30px;
+			text-align: center;
+			font-size: 20px;
+			line-height: 30px;
+			border-right: 1px solid black;
+			background-color: antiquewhite;
+			box-sizing: border-box;
+		}
+		.user-orderView-postcode, .user-orderView-detailAddress, .user-orderView-extraAddress, .user-orderView-address{
+			width: 100px;
+			position: absolute;
+			left: 100px;
+			line-height: 30px;
+			text-align: center;
+			box-sizing: border-box;
+		}
+		.user-orderView-address{
+			width: 420px;
+			text-align: left;
+			padding-left: 10px;
+		}
+		.user-orderView-detailAddress, .user-orderView-extraAddress{
+			width: 200px;
+			text-align: left;
+			padding-left: 10px;
+		}
+		.user-orderView-orderState{
+			left: 200px;
+			padding-left: 10px;
+		}
+		.user-orderView-orderStateButton{
+			width: 200px;
+			height: 50px;
+			font-size: 25px;
+			margin-left: calc(50% - 100px);
+		}
+		.user-orderView-orderGoodsImg>img{
+			width: 98px;
+			height: 98px;
+		}
+		.user-orderView-totalPriceBox{
+			margin-left: 100px;
+			margin-top: 20px;
+			width: 1000px;
+			height: 100px;
+			position: relative;
+		}
+		.user-orderView-totalPrice{
+			width: 300px;
+			height: 100px;
+			border: 1px solid black;
+			right: 0;
+			position: absolute;
+			font-size: 20px;
+			line-height: 50px;
+			text-align: right;
+			padding-right: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div class="user-orderView-box">
+		<div class="user-orderView-orderViewBox">
+			<h2>주문조회</h2>
+			<div class="user-orderView-orderNumberBox">
+				<div class="user-orderView-orderTitleNumber">
+					주문번호
+				</div>
+				<div class="user-orderView-orderNumber">
+					1
+				</div>
+			</div>
+			<div class="user-orderView-orderGoodsTitleBox">
+				<div class="user-orderView-orderGoodsTitleImg">이미지</div>
+				<div class="user-orderView-orderGoodsTitleName">제품명</div>
+				<div class="user-orderView-orderGoodsTitleDisCountPrice">할인가</div>
+				<div class="user-orderView-orderGoodsTitleCount">주문량</div>
+				<div class="user-orderView-orderGoodsTitleUsePoint">사용포인트</div>
+				<div class="user-orderView-orderGoodsTitlePayPrice">결제금액</div>
+				
+			</div>
+			<div class="user-orderView-orderGoodsBox">
+				<div class="user-orderView-orderGoodsImg"><img src="상품대용.gif" alt=""></div>
+				<div class="user-orderView-orderGoodsName">d<br>d</div>
+				<div class="user-orderView-orderGoodsDisCountPrice">11111111원</div>
+				<div class="user-orderView-orderGoodsCount">d</div>
+				<div class="user-orderView-orderGoodsUsePoint"></div>
+				<div class="user-orderView-orderGoodsPayPrice">d</div>
+
+			</div>
+			<div class="user-orderView-orderGoodsBox">
+				<div class="user-orderView-orderGoodsImg"></div>
+				<div class="user-orderView-orderGoodsName"></div>
+				<div class="user-orderView-orderGoodsDisCountPrice"></div>
+				<div class="user-orderView-orderGoodsCount"></div>
+				<div class="user-orderView-orderGoodsUsePoint"></div>
+				<div class="user-orderView-orderGoodsPayPrice"></div>
+
+			</div>
+			<div class="user-orderView-orderGoodsBox">
+				<div class="user-orderView-orderGoodsImg"></div>
+				<div class="user-orderView-orderGoodsName"></div>
+				<div class="user-orderView-orderGoodsDisCountPrice"></div>
+				<div class="user-orderView-orderGoodsCount"></div>
+				<div class="user-orderView-orderGoodsUsePoint"></div>
+				<div class="user-orderView-orderGoodsPayPrice"></div>
+			</div>
+			<div class="user-orderView-totalPriceBox">
+				<div class="user-orderView-totalPrice">배송비 : 2500원 + 15000원<br>= 17500원</div>
+			</div>	
+			<div class="user-orderView-peopleInfo">
+				<p>주문정보</p>
+				<table class="user-orderView-Info" border="1">
+					<tr>
+						<td>주문한 사람</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>주소</td>
+						<td class="user-orderView-addressLine">
+							<div type="text" class="user-orderView-postcodeBox">
+								<div class="user-orderView-addressLineTitle">우편번호</div>
+								<div class="user-orderView-postcode"></div>
+							</div>
+							<div type="text" class="user-orderView-addressBox">
+								<div class="user-orderView-addressLineTitle">주소</div>
+								<div class="user-orderView-address"></div>
+							</div>
+							<div type="text" class="user-orderView-detailAddressBox">
+								<div class="user-orderView-addressLineTitle">상세주소</div>
+								<div class="user-orderView-detailAddress"></div>
+							</div>
+							<div type="text" class="user-orderView-extraAddressBox">
+								<div class="user-orderView-addressLineTitle">참고항목</div>
+								<div class="user-orderView-extraAddress"></div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>주문한 사람 전화번호</td>
+						<td></td>
+					</tr>
+				</table>
+				<p>배송정보</p>
+				<table class="user-orderView-Info" border="1">
+					<tr>
+						<td>받는 사람</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>주소</td>
+						<td class="user-orderView-addressLine">
+							<div type="text" class="user-orderView-postcodeBox">
+								<div class="user-orderView-addressLineTitle">우편번호</div>
+								<div class="user-orderView-postcode"></div>
+							</div>
+							<div type="text" class="user-orderView-addressBox">
+								<div class="user-orderView-addressLineTitle">주소</div>
+								<div class="user-orderView-address"></div>
+							</div>
+							<div type="text" class="user-orderView-detailAddressBox">
+								<div class="user-orderView-addressLineTitle">상세주소</div>
+								<div class="user-orderView-detailAddress"></div>
+							</div>
+							<div type="text" class="user-orderView-extraAddressBox">
+								<div class="user-orderView-addressLineTitle">참고항목</div>
+								<div class="user-orderView-extraAddress"></div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>받는 사람 전화번호</td>
+						<td></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</body>
+<footer><div id="contents"></div></footer>
+</html>

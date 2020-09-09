@@ -49,7 +49,7 @@
 			width: 200px;
 			height: 50px;
 			background-color: honeydew;
-			font-size: 25px;
+			font-size: 20px;
 			line-height: 50px;
 			text-align: center;
 			border-right: 1px solid black;
@@ -59,7 +59,7 @@
 			left: 200px;
 		}
 		.admin-asView-asGoodsTitleBox, .admin-asView-asGoodsBox{
-			width: 1000px;
+			width: 700px;
 			margin-bottom: 0;
 		}
 		.admin-asView-asGoodsBox{
@@ -69,15 +69,13 @@
 			width: 200px;
 		}
 		.admin-asView-asGoodsTitleName, .admin-asView-asGoodsName{
-			width: 600px;
+			width: 500px;
 			left: 200px;
+			text-align: left;
+			padding-left: 10px;
 		}
 		.admin-asView-asGoodsTitleColor, .admin-asView-asGoodsColor{
 			left: 800px;
-		}
-		.admin-asView-asGoodsName{
-			text-align: left;
-			padding-left: 10px;
 		}
 		.admin-asView-asReasonBox{
 			width: 300px;
@@ -100,11 +98,18 @@
 			left: 200px;
 			padding-left: 10px;
 		}
-		.admin-asView-asStateButton{
+		.admin-asView-asStateButton, .admin-asView-goList, .admin-asView-asStateModifyButton{
 			width: 200px;
 			height: 50px;
 			font-size: 25px;
 			margin-left: calc(50% - 100px);
+		}
+		.admin-asView-goList{
+			width: 150px;
+			margin-left: 100px;
+		}
+		.admin-asView-asStateModifyButton{
+			margin-left: calc(50% - 350px);
 		}
 	</style>
 </head>
@@ -121,40 +126,32 @@
 				</div>
 			</div>
 			<div class="admin-asView-asGoodsTitleBox">
-				<div class="admin-asView-asGoodsTitleType">제품타입</div>
-				<div class="admin-asView-asGoodsTitleName">제품명</div>
-				<div class="admin-asView-asGoodsTitleColor">색상</div>
+				<div class="admin-asView-asGoodsTitleType">제목</div>
+				<div class="admin-asView-asGoodsTitleName">가나다라마바사아자차카타파하가나다라마바사아자차</div>
 			</div>
 			<div class="admin-asView-asGoodsBox">
-				<div class="admin-asView-asGoodsType"></div>
-				<div class="admin-asView-asGoodsName"></div>
-				<div class="admin-asView-asGoodsColor"></div>
+				<div class="admin-asView-asGoodsType">이름</div>
+				<div class="admin-asView-asGoodsName">1111</div>
 			</div>
 			<div class="admin-asView-asGoodsBox">
-				<div class="admin-asView-asGoodsType"></div>
-				<div class="admin-asView-asGoodsName"></div>
-				<div class="admin-asView-asGoodsColor"></div>
-			</div>
-			<div class="admin-asView-asGoodsBox">
-				<div class="admin-asView-asGoodsType"></div>
-				<div class="admin-asView-asGoodsName"></div>
-				<div class="admin-asView-asGoodsColor"></div>
+				<div class="admin-asView-asGoodsType">전화번호</div>
+				<div class="admin-asView-asGoodsName">01012345678</div>
 			</div>
 			<div class="admin-recallView-board"></div>
 			<form action="#">
 				<div class="admin-asView-asStateBox">
 					<div class="admin-asView-asTitleState">A/S상태</div>
-					<select name="" id="" class="admin-asView-asState">
-						<option value="0">미확인</option>
-						<option value="1">반송 대기</option>
-						<option value="2">반송 중</option>
-						<option value="3">AS 대기</option>
-						<option value="4">AS 완료</option>
-						<option value="5">배송 중</option>
-						<option value="6">AS 불가</option>
+					<select class="admin-asView-asState">
+						<option>미확인</option>
+						<option>반송중</option>
+						<option>AS대기</option>
+						<option>AS완료</option>
+						<option>배송중</option>
+						<option>AS불가</option>
 					</select>
 				</div>
-				<button class="admin-asView-asStateButton">A/S상태 수정</button>
+				<button class="admin-asView-goList">목록으로</button>
+				<button class="admin-asView-asStateModifyButton">A/S상태 수정</button>
 			</form>
 		</div>
 	</div>

@@ -72,18 +72,15 @@
 			border-top: none;
 		}
 		.admin-recallView-recallGoodsTitleType, .admin-recallView-recallGoodsType{
-			width: 150px;
+			width: 200px;
 		}
 		.admin-recallView-recallGoodsTitleName, .admin-recallView-recallGoodsName{
-			width: 500px;
-			left: 150px;
+			width: 550px;
+			left: 200px;
 		}
 		.admin-recallView-recallGoodsTitleColor, .admin-recallView-recallGoodsColor{
-			left: 650px;
-		}
-		.admin-recallView-recallGoodsTitleCount, .admin-recallView-recallGoodsCount{
-			width: 150px;
-			left: 850px;
+			width: 250px;
+			left: 750px;
 		}
 		.admin-recallView-recallGoodsName{
 			text-align: left;
@@ -107,7 +104,13 @@
 			background-color: honeydew;
 		}
 		.admin-recallView-recallReasonBox>div:nth-of-type(2){
-			left: 150px;
+			left: 149px;
+		}
+		.admin-recallView-recallReasonBox>div:nth-of-type(3){
+			left: 350px;
+		}
+		.admin-recallView-recallReasonBox>div:nth-of-type(4){
+			left: 499px;
 		}
 		.admin-recallView-board{
 			margin: 10px 0 0 100px;
@@ -129,7 +132,12 @@
 			width: 200px;
 			height: 50px;
 			font-size: 25px;
-			margin-left: calc(50% - 100px);
+			margin-left: calc(50% - 300px);
+		}
+		.admin-recallView-goList{
+			width: 200px;
+			height: 50px;
+			font-size: 25px;
 		}
 	</style>
 </head>
@@ -155,28 +163,29 @@
 				<div class="admin-recallView-recallGoodsTitleType">제품타입</div>
 				<div class="admin-recallView-recallGoodsTitleName">제품명</div>
 				<div class="admin-recallView-recallGoodsTitleColor">색상</div>
-				<div class="admin-recallView-recallGoodsTitleCount">반품량</div>
+			</div>
+			<div class="admin-recallView-recallGoodsBox">
+				<div class="admin-recallView-recallGoodsType">1</div>
+				<div class="admin-recallView-recallGoodsName">1</div>
+				<div class="admin-recallView-recallGoodsColor">1</div>
 			</div>
 			<div class="admin-recallView-recallGoodsBox">
 				<div class="admin-recallView-recallGoodsType"></div>
 				<div class="admin-recallView-recallGoodsName"></div>
 				<div class="admin-recallView-recallGoodsColor"></div>
-				<div class="admin-recallView-recallGoodsCount"></div>
 			</div>
 			<div class="admin-recallView-recallGoodsBox">
 				<div class="admin-recallView-recallGoodsType"></div>
 				<div class="admin-recallView-recallGoodsName"></div>
 				<div class="admin-recallView-recallGoodsColor"></div>
-				<div class="admin-recallView-recallGoodsCount"></div>
-			</div>
-			<div class="admin-recallView-recallGoodsBox">
-				<div class="admin-recallView-recallGoodsType"></div>
-				<div class="admin-recallView-recallGoodsName"></div>
-				<div class="admin-recallView-recallGoodsColor"></div>
-				<div class="admin-recallView-recallGoodsCount"></div>
 			</div>
 			<div class="admin-recallView-recallReasonBox">
 				<div>반품사유</div><div></div>
+				<div>교환여부</div><div></div>
+			</div>
+			<div class="admin-recallView-recallReasonBox">
+				<div>은행명</div><div></div>
+				<div>환불계좌</div><div></div>
 			</div>
 			<div class="admin-recallView-board"></div>
 			<form action="#">
@@ -190,6 +199,7 @@
 						<option value="4">반품 불가</option>
 					</select>
 				</div>
+				<button class="admin-recallView-goList">목록으로</button>
 				<button class="admin-recallView-recallStateButton">반품상태 수정</button>
 			</form>
 		</div>

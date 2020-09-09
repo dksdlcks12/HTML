@@ -5,11 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>이용자 반품조회 화면</title>
     <script src="//code.jquery.com/jquery-3.4.1.js"></script>
-    <script type="text/javascript">
-        $(document).ready( function() {
-            $("#contents").load("user_tilesSet.html");        
-        });
-    </script>
     <div id="contents"></div>
     <style>
 		*{
@@ -29,6 +24,7 @@
             background-color: lavender;
             padding-top: 20px;
             padding-bottom: 20px;
+            position: relative;
         }
         .user_recallView-recallApplyBox>h2{
             margin-left: 100px;
@@ -103,11 +99,10 @@
         }
 		.user_recallView-recallOptionBox{
 			width: 1000px;
-			height: 50px;
 			position: relative;
 		}
         .user_recallView-selectGoodsBox{
-            width: 700px;
+            width: 400px;
             height: 50px;
             margin-top: 20px;
             background-color: lightcyan;
@@ -118,14 +113,14 @@
             width: 200px;
             height: 50px;
             text-align: center;
-            font-size: 25px;
+            font-size: 20px;
             line-height: 50px;
             box-sizing: border-box;
             border-right: 1px solid black;
             float: left;
         }
         .user_recallView-selectGoods{
-            width: 488px;
+            width: 188px;
             height: 50px;
             margin-left: 10px;
             font-size: 15px;
@@ -138,7 +133,7 @@
 			height: 50px;
 			font-size: 20px;
 			top: 0;
-			left: 720px;
+			left: 420px;
             border: 1px solid black;
             box-sizing: border-box;
             background-color: white;
@@ -151,7 +146,7 @@
 			height: 50px;
 			font-size: 20px;
 			top: 0;
-			left: 820px;
+			left: 520px;
             border: 1px solid black;
             box-sizing: border-box;
             background-color: white;
@@ -168,6 +163,9 @@
         .user_recallView-recallStateBox{
             margin-top: 10px;
             width: 400px;
+        }
+        .user_recallView-recallStateBox>div+div{
+            border-left: none;
         }
 		.user_recallView-button{
 			margin-top: 10px;
@@ -216,17 +214,17 @@
                 </div>
                 <div class="user_recallView-recallOptionBox">
                     <div class="user_recallView-selectGoodsBox">
-                        <div class="user_recallView-selectGoodsTitle">선택된 상품명</div><div class="user_recallView-selectGoods"></div>
+                        <div class="user_recallView-selectGoodsTitle">교환여부</div><div class="user_recallView-selectGoods"></div>
                     </div>
                     <div class="user_recallView-recallReasonTitle">반품사유</div>
                     <div class="user_recallView-recallReason"></div>
-                <div class="user_recallView-recallStateBox">
-                    <div>반품상태</div><div>미확인</div>
+                    <div class="user_recallView-recallStateBox">
+                        <div>반품상태</div><div>미확인</div>
+                    </div>
+                    <div class="user_recallView-board"></div>
                 </div>
-                <div class="user_recallView-board"></div>
-			</div>
+            </div>
         </div>
 	</div>
 </body>
-<footer><div id="contents"></div></footer>
 </html>

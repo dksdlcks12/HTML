@@ -101,7 +101,50 @@
 			right: 0;
 			height: 30px;
 			width: 80px;
-
+		}
+		.common-board-pause{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: inherit;
+			height: inherit;
+			background-color: rgba(0, 0, 0, 50%);
+			z-index: 100;
+		}
+		.common-board-pauseBox{
+			margin: 0 auto;
+			margin-top: calc(50vh - 300px);
+			width: 600px;
+			height: 300px;
+			background-color: lightyellow;
+			position: relative;
+		}
+		.common-board-pauseBox>*{
+			position: relative;
+			width: 100%;
+			height: calc(100% / 3);
+		}
+		.common-board-pauseTitle{
+			font-size: 30px;
+			text-align: center;
+			line-height: 100px;
+		}
+		.common-board-pauseColse{
+			position: absolute;
+			width: 50px;
+			height: 50px;
+			top: 10px;
+			right: 10px;
+		}
+		.common-board-pauseColseImg{
+			position: absolute;
+			top: 8px;
+			right: 12px;
+		}
+		.common-board-pausePassWord{
+			margin-left: calc(50% - 150px);
+			width: 300px;
+			height: 50px;
 		}
 	</style>
 </head>
@@ -121,19 +164,19 @@
                 <tbody>
 					<tr>
 						<td>3</td>
-						<td><a href="#"><div class="common-boardList-boardTitle">Dao</div></a></td>
+						<td><a href="#"><div class="common-boardList-titleLine"> Dao</div></a></td>
 						<td>john</td>
 						<td>2020/08/06</td>
 					</tr>
 					<tr>
 						<td>2</td>
-						<td><a href="#"><div class="common-boardList-boardTitle">Moe</div></a></td>
+						<td><a href="#"><div class="common-boardList-titleLine">Moe</div></a></td>
 						<td>mary</td>
 						<td>2020/08/05</td>
 					</tr>
 					<tr>
 						<td>1</td>
-						<td><a href="#"><div class="common-boardList-boardTitle">Dooley</div></a></td>
+						<td><a href="#"><div class="common-boardList-titleLine">Dooley</div></a></td>
 						<td>july</td>
 						<td>2020/08/04</td>
 					</tr>
@@ -160,7 +203,14 @@
 				<li class="page-item"><a class="page-link" href="#">3</a></li>
 				<li class="page-item"><a class="page-link" href="#"><i class="fas fa-angle-right"></i></a></li>
 			</ul>
-        </div>
+		</div>
+		<div class="common-board-pause">
+			<div class="common-board-pauseBox">
+				<div class="common-board-pauseTitle">비밀번호를 입력하여 주세요. <button class="common-board-pauseColse"><i class="fas fa-times common-board-pauseColseImg"></i></button></div>
+				<div><input type="text" class="common-board-pausePassWord"></div>
+				<div><button class="common-board-pausePassWord">확인</button></div>
+			</div>
+		</div>
 	</div>
 </body>
 <footer><div id="contents"></div></footer>

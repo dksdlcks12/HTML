@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/32a9fe5527.js" crossorigin="anonymous"></script>
+    <title>이용자 리뷰선택</title>
+    <script src="//code.jquery.com/jquery-3.4.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready( function() {
+            $("#contents").load("user_tilesSet.html");        
+        });
+    </script>
+    <div id="contents"></div>
+    <style>
+		*{
+            margin: 0;
+            padding: 0;
+		}
+        input[type="number"]::-webkit-inner-spin-button {
+			-webkit-appearance: none;
+			margin: 0;
+		}
+		.user-reviewOrderList-box{
+            width: 1400px;
+			padding: 100px 0 50px 0;
+            margin: 0 auto;
+			background-color: palegoldenrod;
+			box-sizing: border-box;
+		}
+        .user-reviewOrderList-reviewOrderListBox{
+            width: 1200px;
+            background-color: cornsilk;
+            padding: 50px 0;
+            margin-left: 100px;
+        }
+        .user-reviewOrderList-reviewOrderListBox>h2{
+            margin-left: 100px;
+            margin-bottom: 10px;
+        }
+        .user-reviewOrderList-goodsBox{
+            width: 1000px;
+            background-color: cyan;
+            margin-left: 100px;
+            margin-bottom: 30px;
+            border-collapse: collapse;
+            border-color: black;
+        }
+        .user-reviewOrderList-goodsImgTitle{
+            width: 10%;
+        }
+        .user-reviewOrderList-goodsInfoTitle{
+            width: 60%;
+        }
+        .user-reviewOrderList-addressTitle{
+            width: 30%;
+        }
+        .user-reviewOrderList-goodsImg>img{
+            margin: 5px;
+            width: 90px;
+            height: 90px;
+        }
+        .user-reviewOrderList-goodsInfo{
+            padding-left: 10px;
+            font-size: 25px;
+            line-height: normal;
+        }
+        .user-reviewOrderList-address{
+            padding-left: 10px;
+            font-size: 25px;
+        }
+        .user-reviewOrderList-goodsPrice{
+            text-align: right;
+            font-size: 25px;
+            padding-right: 10px;
+        }
+        .user-reviewOrderList-goodsCount{
+            font-size: 25px;
+            width: 60px;
+            font-size: 20px;
+            text-align: center;
+        }
+        .user-reviewOrderList-reviewOrderListBox::after{
+            clear: both;
+            content: '';
+            display: block;
+        }
+    </style>
+</head>
+<body>
+	<div class="user-reviewOrderList-box">
+        <div class="user-reviewOrderList-reviewOrderListBox">
+            <h2>리뷰선택</h2>
+            <table class="user-reviewOrderList-goodsBox" border="1">
+                <tr>
+                    <th class="user-reviewOrderList-goodsImgTitle">이미지</th>
+                    <th class="user-reviewOrderList-goodsInfoTitle">제품 정보</th>
+                    <th class="user-reviewOrderList-addressTitle">주문날짜</th>
+                </tr>
+                <tr>
+                    <td class="user-reviewOrderList-goodsImg"><img src="상품대용.gif" alt="" ></td>
+                    <td class="user-reviewOrderList-goodsInfo"></td>
+                    <td class="user-reviewOrderList-address"></td>
+                </tr>
+                <tr>
+                    <td class="user-reviewOrderList-goodsImg"><img src="상품대용.gif" alt="" ></td>
+                    <td class="user-reviewOrderList-goodsInfo"></td>
+                    <td class="user-reviewOrderList-address"></td>
+                </tr>
+                <tr>
+                    <td class="user-reviewOrderList-goodsImg"><img src="상품대용.gif" alt="" ></td>
+                    <td class="user-reviewOrderList-goodsInfo"></td>
+                    <td class="user-reviewOrderList-address"></td>
+                </tr>
+            </table>
+        </div>
+	</div>
+</body>
+<footer>
+    <div id="contents"></div>
+</footer>
+</html>
